@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'proects',
     'friends',
     'search',
-    'user',
+    'users',
     'auth',
     'guestbook',
     'about',

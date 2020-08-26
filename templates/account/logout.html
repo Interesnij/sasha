@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Выход {% endblock %}
+{% load staticfiles socialaccount %}
+{% block body_options %}ltr sticky-header offcanvas-init offcanvs-position-left{% endblock %}
+{% block content %}
+
+<style>
+  .sppb-section {
+      padding-top: 100px;
+      padding-right: 0px;
+      padding-bottom: 80px;
+      padding-left: 0px;
+      margin-top: 0px;
+      margin-right: 0px;
+      margin-bottom: 0px;
+      margin-left: 0px;
+  }
+</style>
+
+<section id="sp-section-1">
+    <div class="row">
+        <div id="sp-title" class="col-lg-12 ">
+            <div class="sp-column ">
+                <div class="sp-page-title" style="background-image: url(static/images/contact-header2.jpg);">
+                    <div class="container">
+                      <h3 class="sp-page-title-sub-heading">Выход</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="sp-main-body">
+    <div class="container">
+        <div class="container-inner">
+            <div class="row">
+                <main id="sp-component" class="col-lg-12 " role="main">
+                    <div class="sp-column ">
+                        <div class="login" style="padding-bottom:150px;">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                  <span style="font-size: 20px;text-align:center">Вы успешно вышли. Спасибо за использование ресурса!</span>
+                                  <br><br>
+                                  <a style="font-size: 20px;text-align:center" href="{% url 'login' %}" ajax data-target="#ajax" data-el="#ajax">Войти снова</a>
+                                  <br><br>
+                                  <a style="font-size: 20px;text-align:center" href="{% url 'main' %}" ajax data-target="#ajax" data-el="#ajax">На главную страницу</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

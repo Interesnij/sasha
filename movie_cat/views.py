@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.views.generic.base import TemplateView
+from generic.mixins import CategoryListMixin
 
-# Create your views here.
+
+class MovieCatView(TemplateView, CategoryListMixin):
+    template_name = "movie_cat.html"

@@ -24,7 +24,7 @@ urlpatterns = [
 
     url(r'^search/', include('search.urls')),
     url(r'^users/', include('users.urls')),
-    url(r'^auth/', include('auth.urls')),
+    url(r'^auth/', include('auths.urls')),
 
     url(r'^guestbook/', include('guestbook.urls')),
     url(r'^about/', include ('about.urls'), name="about"),

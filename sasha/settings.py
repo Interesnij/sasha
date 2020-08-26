@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'friends',
     'search',
     'users',
-    'auth',
+    'auths',
     'guestbook',
     'about',
     'contacts',

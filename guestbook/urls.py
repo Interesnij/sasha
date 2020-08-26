@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from guestbook.views import AboutView
+from guestbook.views import GuestbookView
 
 
 urlpatterns = [

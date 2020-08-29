@@ -16,7 +16,6 @@ urlpatterns = [
     url(r'^blog_cat/', include('blog_cat.urls')),
     url(r'^blog/', include('blog.urls')),
 
-    url(r'^form_cat/', include('form_cat.urls')),
     url(r'^forms/', include('forms.urls')),
 
     url(r'^proects/', include('proects.urls')),
@@ -26,7 +25,6 @@ urlpatterns = [
     url(r'^users/', include('users.urls')),
     url(r'^auth/', include('auths.urls')),
 
-    url(r'^guestbook/', include('guestbook.urls')),
     url(r'^about/', include('about.urls')),
     url(r'^contacts/', include('contacts.urls')),
 

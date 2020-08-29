@@ -18,4 +18,4 @@ class Blank(models.Model):
 		filename = self.file.name.split('/')[-1]
 		response = HttpResponse(self.file, content_type='text/plain')
 		response['Content-Disposition'] = 'attachment; filename=%s' % filename
-		return response
+		return filename

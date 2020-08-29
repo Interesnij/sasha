@@ -17,9 +17,10 @@
 </header>
 <div class="nav">
   <div class="nav__content">
+    <div class="curent-page-name-shadow">Главная</div>
     <ul class="nav__list">
       {% url 'main' as main_url %}
-      <div class="curent-page-name-shadow">Главная</div>
+
       {% if main_url == current_url %}
 
       <li class="nav__list-item active-nav">

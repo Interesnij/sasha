@@ -3,5 +3,5 @@ from forms.views import FormsView
 
 
 urlpatterns = [
-    url(r'^$', FormsView.as_view(), name='forms'),
+    url(r'^$', FormsView.as_view(), name='blanks'),
 ]

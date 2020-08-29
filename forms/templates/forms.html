@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Шаблоны заявлений{% endblock %}
+{% block content %}
+
+<div class="shadow-title parallax-top-shadow">Шаблоны</div>
+		<div class="section padding-page-top padding-bottom over-hide z-bigger">
+			<div class="container z-bigger">
+				<div class="row page-title px-5 px-xl-2">
+					<div class="col-12 parallax-fade-top">
+						<h1>Шаблоны</h1>
+					</div>
+					<div class="offset-1 col-11 parallax-fade-top mt-2 mt-sm-3">
+						<p>Шаблоны заявлений</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    <div class="section padding-bottom-big over-hide z-bigger">
+			<div class="container">
+				<div class="row px-5 px-xl-2">
+          {% if object_list %}
+          {% for object in object_list %}
+					   <h5 class="mb-3">
+               <a href="{{ object.file }}" target="_blank">
+                 {{ object.title }}
+               </a>
+             </h5>
+          {% endfor %}
+          {% else %}
+          <h2>Шаблонов пока нет...</h2>
+          {% endif %}
+				</div>
+			</div>
+		</div>
+
+{% endblock %}

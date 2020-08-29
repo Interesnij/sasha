@@ -14,8 +14,8 @@ class Proect(models.Model):
 
 	class Meta:
 		ordering = ["-created"]
-		verbose_name = "проект"
-		verbose_name_plural = "проекты"
+		verbose_name = "Проект"
+		verbose_name_plural = "Проекты"
 		indexes = (BrinIndex(fields=['created']),)
 
 	def __str__(self):

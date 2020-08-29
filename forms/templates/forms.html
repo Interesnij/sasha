@@ -22,7 +22,7 @@
           {% if object_list %}
           {% for object in object_list %}
 					   <h5 class="mb-3 document">
-               <a href="{{ object.get_blank }}" target="_blank">
+               <a href="{{ object.file.url }}">
                  {{ object.title }}
                </a>
              </h5>

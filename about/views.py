@@ -3,4 +3,4 @@ from generic.mixins import CategoryListMixin
 
 
 class AboutView(TemplateView, CategoryListMixin):
-    template_name = "about.html"
+    template_name = "about_v2.html"

@@ -12,15 +12,15 @@ class Proect(models.Model):
 	created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
 	image = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to="proects/proects", processors=[ResizeToFit(width=1024, upscale=False)])
 
-    class Meta:
-        ordering = ["-created"]
-        verbose_name = "проект"
-        verbose_name_plural = "проекты"
-        indexes = (BrinIndex(fields=['created']),)
+	class Meta:
+		ordering = ["-created"]
+		verbose_name = "проект"
+		verbose_name_plural = "проекты"
+		indexes = (BrinIndex(fields=['created']),)
 
-    def __str__(self):
-        return self.title
+	def __str__(self):
+		return self.title
 
 	@classmethod
-    def get_next_proect(cls, self):
+	def get_next_proect(cls, self):
 		return cls.objects.filter(pk__gt=self.pk).order_by('pk').first()

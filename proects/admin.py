@@ -3,7 +3,7 @@ from proects.models import Proect
 
 
 class ProectAdmin(admin.ModelAdmin):
-    search_fields = ('title')
+    search_fields = ('title',)
     list_display = ['title','created']
     list_filter = ['created']
     class Meta:

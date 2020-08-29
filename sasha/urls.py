@@ -27,8 +27,8 @@ urlpatterns = [
     url(r'^auth/', include('auths.urls')),
 
     url(r'^guestbook/', include('guestbook.urls')),
-    url(r'^about/', include ('about.urls'), name="about"),
-    url(r'^contacts/', include ('contacts.urls'), name="contacts"),
+    url(r'^about/', include('about.urls')),
+    url(r'^contacts/', include('contacts.urls')),
 
     url(r'^terms/', include('terms.urls')),
     url(r'^policy/', include('policy.urls')),

@@ -17,23 +17,23 @@
 </header>
 <div class="nav">
   <div class="nav__content">
-    <div class="curent-page-name-shadow">Главная</div>
     <ul class="nav__list">
       {% url 'main' as main_url %}
+      {% url 'about' as about_url %}
+      {% url 'blanks' as blanks_url %}
+      {% url 'proects_index' as proects_url %}
 
-      {% if main_url == current_url %}
-
-      <li class="nav__list-item active-nav">
+      <li class="nav__list-item {% if main_url == current_url %}active-nav{% endif %}">
         <a href="{{ main_url }}" class="hover-target animsition-link">Главная</a>
       </li>
-      {% else %}
-      <li class="nav__list-item active-nav">
-        <a href="{{ main_url }}" class="hover-target animsition-link">Главная</a>
-      </li>
-      {% endif %}
 
-      <li class="nav__list-item"><a href="{% url 'proects_index' %}" class="hover-target animsition-link">Проекты</a></li>
-      <li class="nav__list-item"><a href="{% url 'blanks' %}" class="hover-target animsition-link">Шаблоны</a></li>
+      <li class="nav__list-item {% if proects_index == current_url %}active-nav{% endif %}">
+        <a href="{{ proects_index }}" class="hover-target animsition-link">Проекты</a>
+      </li>
+
+      <li class="nav__list-item {% if blanks_url == current_url %}active-nav{% endif %}">
+        <a href="{{ blanks_url }}" class="hover-target animsition-link">Шаблоны</a>
+      </li>
       <li class="nav__list-item">
         <a data-toggle="collapse" href="#collapseSub" class="hover-target" role="button" aria-expanded="false" aria-controls="collapseSub">
           видео
@@ -46,8 +46,13 @@
           {% endfor %}
         </ul>
       </li>
-      <li class="nav__list-item"><a href="" class="hover-target animsition-link">Партнеры</a></li>
-      <li class="nav__list-item"><a href="{% url 'about' %}" class="hover-target animsition-link">Обо мне</a></li>
+      <li class="nav__list-item">
+        <a href="" class="hover-target animsition-link">Партнеры</a>
+      </li>
+
+      <li class="nav__list-item {% if about_url == current_url %}active-nav{% endif %}">
+        <a href="{{ about_url }}" class="hover-target animsition-link">Обо мне</a>
+      </li>
     </ul>
   </div>
 </div>

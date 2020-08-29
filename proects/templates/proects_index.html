@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Мои проекты{% endblock %}
+{% block content %}
+
+<div class="shadow-title parallax-top-shadow">Проекты</div>
+
+		<div class="section padding-page-top padding-bottom over-hide z-bigger">
+			<div class="container z-bigger">
+				<div class="row page-title px-5 px-xl-2">
+					<div class="col-12 parallax-fade-top">
+						<h1>Проекты</h1>
+					</div>
+					<div class="offset-1 col-11 parallax-fade-top mt-2 mt-sm-3">
+						<p>Делаю истину модной</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section padding-bottom-big over-hide z-bigger">
+			<div class="container">
+				<div class="row px-5 px-xl-2">
+          {% if object_list %}
+          {% for object in object_list %}
+					   <div class="col-md-6 img-slice-wrap mb-5 over-hide">
+						   <a href="{% url 'proect_detail' slug=object.slug %}" class="hover-target animsition-link hover-portfolio-box">
+							   <div class="scroll-img" style="background-image: url({% if object.image %}{{ object.image.url }}{% else %}<img src='/static/images/no_photo.jpg'>{% endif %});"></div>
+							   <p></p>
+						 	   <h4>{{ object.title }}</h4>
+					     </a>
+					   </div>
+					   <div class="section clearfix"></div>
+          {% endfor %}
+          {% else %}
+          <h2>Проектов пока нет...</h2>
+          {% endif %}
+				</div>
+			</div>
+		</div>
+
+		<div class="section padding-top-bottom over-hide z-bigger background-dark-3 footer">
+			<div class="shadow-on-footer" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s">Шаблоны</div>
+			<div class="container" data-scroll-reveal="enter bottom move 20px over 0.5s after 0.4s">
+				<div class="row">
+					<div class="col-12 text-center z-bigger py-5">
+						<div class="footer-lines">
+							<a href="" class="hover-target animsition-link"><h4>Шаблоны</h4></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}

@@ -1,21 +1,3 @@
-/*
- * Table of contents:
- *
- * from line 14 - Primary
- * from line 87 - Preloader style
- * from line 116 - Cursor
- * from line 223 - Primary style
- * from line 438 - Navigation
- * from line 843 - Home/Work/Project pages
- * from line 1623 - Studio page
- * from line 1712 - Blog/Post page
- * from line 2131 - Contact
- * from line 2558 - Media, for smaller screens
- *
- */
-
-/* #Primary
-================================================== */
 
 body{
 	font-family: 'Roboto', sans-serif;
@@ -206,7 +188,7 @@ a:hover {
 	background-position: top center;
 	background-size: 10px 40px;
 	cursor: pointer;
-	background-image: url('../img/arrow-up.png');
+	background-image: url('/static/images/arrow-up.png');
 	transform: translateY(-15px);
 	-webkit-transition: all 250ms linear;
 	transition: all 250ms linear;
@@ -854,7 +836,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 .swiper-wrapper:active,
 .swiper-wrapper:focus{
 	cursor: grabbing;
-	cursor: url('../img/grabbing.png') 28 15,grabbing;
+	cursor: url('/static/images/grabbing.png') 28 15,grabbing;
 }
 .swiper-slide{
 	position: relative;
@@ -883,7 +865,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 .swiper-slide:active,
 .swiper-slide:focus{
 	cursor: grabbing;
-	cursor: url('../img/grabbing.png') 28 15,grabbing;
+	cursor: url('/static/images/grabbing.png') 28 15,grabbing;
 }
 
 .swiper-slide.bottom-name{
@@ -1260,7 +1242,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 	flex: 1;
 }
 .hover-portfolio-box{
-	cursor: url('../img/more.png') 17 17,pointer;
+	cursor: url('/static/images/more.png') 17 17,pointer;
 }
 .hover-portfolio-box .scroll-img:after{
 	position: absolute;
@@ -1297,7 +1279,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 	margin: 0;
 	padding: 0;
 	z-index: 3;
-	cursor: url('../img/more.png') 17 17,pointer;
+	cursor: url('/static/images/more.png') 17 17,pointer;
     -webkit-transition: all 300ms linear;
     transition: all 300ms linear;
 }
@@ -1319,7 +1301,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 	margin: 0;
 	padding: 0;
 	z-index: 4;
-	cursor: url('../img/more.png') 17 17,pointer;
+	cursor: url('/static/images/more.png') 17 17,pointer;
 	letter-spacing: 2px;
     -webkit-transition: all 300ms linear;
     transition: all 300ms linear;
@@ -1357,7 +1339,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 	-webkit-transform: translate3d(1px,0,0);
 	transform: translate3d(1px,0,0);
 	cursor: pointer;
-	cursor: url('../img/more.png') 17 17,pointer;
+	cursor: url('/static/images/more.png') 17 17,pointer;
     -webkit-transition: all 300ms linear;
     transition: all 300ms linear;
 }
@@ -1380,7 +1362,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 	margin: 0;
 	padding: 0;
 	z-index: 3;
-	cursor: url('../img/more.png') 17 17,pointer;
+	cursor: url('/static/images/more.png') 17 17,pointer;
     -webkit-transition: all 300ms linear;
     transition: all 300ms linear;
 }
@@ -1403,7 +1385,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 	padding: 0;
 	z-index: 4;
 	letter-spacing: 2px;
-	cursor: url('../img/more.png') 17 17,pointer;
+	cursor: url('/static/images/more.png') 17 17,pointer;
     -webkit-transition: all 300ms linear;
     transition: all 300ms linear;
 }
@@ -1421,7 +1403,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 	background-color: rgba(31,32,41,0);
 	z-index: 1;
 	cursor: pointer;
-	cursor: url('../img/more.png') 17 17,pointer;
+	cursor: url('/static/images/more.png') 17 17,pointer;
     -webkit-transition: all 200ms linear;
     transition: all 200ms linear;
 }
@@ -1576,7 +1558,7 @@ figure.vimeo a:after, figure.youtube a:after {
 	margin:-30px 0 0 -30px;
 	border-radius:50%;
 	box-shadow: 0px 0px 0px 10px rgba(0,0,0,0.15);
-	cursor: url('../img/play.png') 6 8,pointer;
+	cursor: url('/static/images/play.png') 6 8,pointer;
     -webkit-transition: all 300ms linear;
     transition: all 300ms linear;
 }
@@ -1602,7 +1584,7 @@ figure.vimeo a:before, figure.youtube a:before {
 	margin-left: -3px;
 	margin-top: -5px;
 	display:block;
-	cursor: url('../img/play.png') 6 8,pointer;
+	cursor: url('/static/images/play.png') 6 8,pointer;
     -webkit-transition: all 300ms linear;
     transition: all 300ms linear;
 }
@@ -1616,7 +1598,7 @@ figure.vimeo a:hover img, figure.youtube a:hover img {
 figure.vimeo a img, figure.youtube a img {
     -webkit-transition: all 300ms linear;
     transition: all 300ms linear;
-	cursor: url('../img/play.png') 6 8,pointer;
+	cursor: url('/static/images/play.png') 6 8,pointer;
 }
 
 
@@ -1624,8 +1606,8 @@ figure.vimeo a img, figure.youtube a img {
 ================================================== */
 
 .img-mask{
-	-webkit-mask-image: url('../img/mask-image.png');
-	mask-image: url('../img/mask-image.png');
+	-webkit-mask-image: url('/static/images/mask-image.png');
+	mask-image: url('/static/images/mask-image.png');
 	-webkit-mask-position: center center;
 	mask-position: center center;
 	-webkit-mask-repeat: no-repeat;
@@ -1779,7 +1761,7 @@ figure.vimeo a img, figure.youtube a img {
 	background-position: top center;
 	background-size: 40px 10px;
 	cursor: pointer;
-	background-image: url('../img/arrow-right.png');
+	background-image: url('/static/images/arrow-right.png');
 	transform: translateX(0);
     -webkit-transition: all 250ms linear;
     transition: all 250ms linear;
@@ -2437,7 +2419,7 @@ figure.vimeo a img, figure.youtube a img {
 	background-size: cover;
 	background-position:center center;
 	background-repeat:no-repeat;
-	background-image: url('../img/map.jpg');
+	background-image: url('/static/images/map.jpg');
 }
 .contact-link{
 	font-size: 15px;

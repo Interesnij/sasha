@@ -19,9 +19,9 @@
   <div class="nav__content">
     <ul class="nav__list">
       {% url 'main' as main_url %}
-
-      {% if main_url == current_url %}
       <div class="curent-page-name-shadow">Главная</div>
+      {% if main_url == current_url %}
+
       <li class="nav__list-item active-nav">
         <a href="{{ main_url }}" class="hover-target animsition-link">Главная</a>
       </li>

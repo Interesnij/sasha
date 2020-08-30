@@ -1,11 +1,11 @@
+import json
 from django.views.generic.base import TemplateView
 from generic.mixins import CategoryListMixin
 from movies.models import Video, VideoComment
+from movies.forms import CommentForm
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.shortcuts import render
-from video.forms import CommentForm
 from django.views import View
-import json
 from django.http import Http404
 
 

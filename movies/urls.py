@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from movies.views import MovieDetailView
-
+from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [

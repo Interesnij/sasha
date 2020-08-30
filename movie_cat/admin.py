@@ -3,7 +3,7 @@ from movie_cat.models import VideoCategory
 
 
 class VideoCategoryAdmin(admin.ModelAdmin):
-    list_display = ['name','order']
+    list_display = ['name','slug','order']
     list_filter = ['name']
     search_fields = ('name',)
     class Meta:

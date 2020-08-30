@@ -1,7 +1,7 @@
 from django.conf.urls import url
-from movie_cat.views import MovieCatView
+from movie_cat.views import MovieListView
 
 
 urlpatterns = [
-    url(r'^$', MovieCatView.as_view(), name='movie_cat'),
+    url(r'^(?P<slug>[\w\-]+)/$', MovieListView.as_view(), name='movies_index'),
 ]

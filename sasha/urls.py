@@ -3,7 +3,7 @@ from django.contrib.auth import views as auth_views
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
@@ -23,7 +23,6 @@ urlpatterns = [
 
     url(r'^search/', include('search.urls')),
     url(r'^users/', include('users.urls')),
-    url(r'^auth/', include('auths.urls')),
 
     url(r'^about/', include('about.urls')),
     url(r'^contacts/', include('contacts.urls')),
@@ -32,6 +31,8 @@ urlpatterns = [
     url(r'^policy/', include('policy.urls')),
 
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^signup/$', TemplateView.as_view(template_name="account/signup.html"), name='signup'),
+    url(r'^login/$', TemplateView.as_view(template_name="account/login.html"), name='login'),
     url(r'^email-verification/$', TemplateView.as_view(template_name="account/email_verification.html"), name='email-verification'),
     url(r'^password-reset/$',TemplateView.as_view(template_name="account/password_reset.html"), name='password-reset'),
     url(r'^password-reset/confirm/$',TemplateView.as_view(template_name="account/password_reset_confirm.html"), name='password-reset-confirm'),

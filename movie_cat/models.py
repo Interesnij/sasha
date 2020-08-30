@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class MovieCategory(models.Model):
+class VideoCategory(models.Model):
 	name = models.CharField(max_length=100,verbose_name="Название")
 	order = models.PositiveSmallIntegerField(default=0,verbose_name="Порядковый номер")
 	def __str__(self):

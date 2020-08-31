@@ -36,5 +36,5 @@ class UserSettings(TemplateView):
 		if self.form.is_valid():
 			user = self.request.user
 			self.form.save()
-			return redirect('user', pk=user.pk)
+			return redirect('user', pk=self.user.pk)
 		return super(UserSettings,self).post(request,*args,**kwargs)

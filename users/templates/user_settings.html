@@ -21,7 +21,6 @@
             <form enctype="multipart/form-data" method="post" action="">
               {% csrf_token %}
               <div class="mt-4">
-                {{ form.avatar.errors }}
                 {{ form.avatar }}
               </div>
               <div class="mt-4">

@@ -28,7 +28,7 @@ class UserSettings(TemplateView):
 
 	def get_context_data(self,**kwargs):
 		context = super(UserSettings,self).get_context_data(**kwargs)
-		context["form"] = self.form
+		context["form"] = UserForm()
 		return context
 
 	def post(self,request,*args,**kwargs):

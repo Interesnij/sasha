@@ -46,7 +46,6 @@
 		});
 	  });
 	}
-	scrollBanner();
 
 
 	/* Scroll Animation */
@@ -117,6 +116,8 @@
 
 
 	$(document).ready(function() {
+
+    scrollBanner();
 
 		$('select').niceSelect();
 
@@ -309,8 +310,5 @@
 			threshold : 150
 		};
 	} )(jQuery);
-
-
-
 
   })(jQuery);

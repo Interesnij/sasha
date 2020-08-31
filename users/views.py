@@ -33,7 +33,7 @@ class UserSettings(TemplateView):
 		return context
 
 	def post(self,request,*args,**kwargs):
-		self.form = UserForm()
+		self.form = UserForm(request.POST) 
 		avatar = self.form.cleaned_data['avatar']
 		request.user.avatar = avatar
 		request.user.save()

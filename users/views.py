@@ -11,7 +11,7 @@ class UserView(TemplateView, CategoryListMixin):
 		self.user = User.objects.get(pk=self.kwargs["pk"])
 		return super(UserView,self).get(request,*args,**kwargs)
 
-    def get_context_data(self,**kwargs):
+	def get_context_data(self,**kwargs):
 		context=super(UserView,self).get_context_data(**kwargs)
 		context["user"] = self.user
 		return context

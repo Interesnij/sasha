@@ -32,8 +32,7 @@ class UserSettings(TemplateView):
 		return context
 
 	def post(self,request,*args,**kwargs):
-		self.form = UserForm(request.POST, instance=request.user)
-		if self.form.is_valid():
-			self.form.save()
-			return redirect('user', pk=request.user)
-		return super(UserSettings,self).get(request,*args,**kwargs)
+		avatar = request.POST.get('avatar')
+		request.user.avatar = avatar
+		request.user.save()
+		return redirect('user', pk=request.user)

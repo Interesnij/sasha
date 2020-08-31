@@ -65,7 +65,7 @@
     </p>
     {% else %}
     <h5 class="pb-3">Написать комментарий</h5>
-    <form>
+    <form class="ajax-form">
       {% csrf_token %}
       <input type="hidden" name="pk" value="{{ object.pk }}">
       <div class="subscribe-box mt-4">

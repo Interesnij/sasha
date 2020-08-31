@@ -32,7 +32,7 @@ class UserSettings(TemplateView):
 		return context
 
 	def post(self,request,*args,**kwargs):
-		self.form = UserForm(request.POST, instance=self.user)
+		self.form = UserForm(request.POST, instance=request.user)
 		if self.form.is_valid():
 			user = request.user
 			self.form.save()

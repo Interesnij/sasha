@@ -69,7 +69,7 @@
       {% csrf_token %}
       <input type="hidden" name="pk" value="{{ object.pk }}">
       <div class="subscribe-box mt-4">
-        <input type="text" name="text" class="form-control text-comment form-control-rounded">
+        <input type="text" placeholder="Напишите что-нибудь" name="text" class="hover-target">
       </div>
       <button class="btn-long mt-4 hover-target comment" type="button">Комментировать</button>
     </form>

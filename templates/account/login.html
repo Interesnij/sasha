@@ -19,7 +19,7 @@
     <div class="section padding-bottom-big over-hide z-bigger">
   			<div class="container">
   				<div class="row col-md-6 offset-md-3" style="display:block">
-            <form class="ajax-form" action="{% url 'rest_login' %}">
+            <form class="ajax-form" id="login_form" action="{% url 'rest_login' %}">
               {% csrf_token %}
               <div class="mt-4">
                 <input type="text" name="username" id="username" class="hover-target" placeholder="Логин">

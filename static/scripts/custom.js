@@ -318,7 +318,7 @@
   			'WARNING': '',
   		};
 
-  		var body = document.querySelector('#ajax');
+  		var body = document.querySelector('body');
   		this.toastsContainer = document.createElement('div');
   		this.toastsContainer.classList.add('toasts', 'border-0');
   		body.appendChild(this.toastsContainer);

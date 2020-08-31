@@ -53,7 +53,7 @@
       <li class="nav__list-item {% if about_url == current_url %}active-nav{% endif %}">
         <a href="{{ about_url }}" class="hover-target animsition-link">Обо мне</a>
       </li>
-      {% if requers.user.is_authenticated %}
+      {% if request.user.is_authenticated %}
         {% url 'user' as user_url %}
         <li class="nav__list-item {% if user_url == current_url %}active-nav{% endif %}">
           <a href="{{ user_url }}" class="hover-target animsition-link">Профиль</a>

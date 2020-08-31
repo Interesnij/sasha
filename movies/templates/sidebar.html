@@ -3,7 +3,7 @@
   <div class="sidebar-box background-dark drop-shadow rounded">
     <h6 class="mb-3">Плейлисты</h6>
     <ul class="list-style circle pl-4 pb-0">
-      {% for object in movie_categories %} 
+      {% for object in movie_categories %}
       <li>
         <a href="{% url 'movies_index' slug=object.slug %}" class="btn-link btn-primary hover-target pl-0">{{ object.name }}</a>
       </li>
@@ -17,8 +17,8 @@
     {% for video in object.get_moovies %}
     <div class="video-section hover-target mt-4 mb-4">
       <figure class="vimeo">
-        <a href="{% url 'movies_detail' pk=video.pk %}" class="">
-          <img src="{{ video.image.url }}" alt="img" class="" />
+        <a href="{% url 'movies_detail' pk=video.pk %}" >
+          <img src="{{ video.image.url }}" alt="img" style="object-fit: cover;max-height: 400px;width: 100%;" />
         </a>
       </figure>
     </div>

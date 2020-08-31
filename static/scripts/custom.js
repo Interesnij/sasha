@@ -330,11 +330,11 @@
     reg_link.send(form_data);
   })
   on('body', 'click', '#logg', function() {
-    if (!document.body.querySelector("#id_username").value){
-      document.body.querySelector("#id_username").style.border = "1px #FF0000 solid";
+    if (!document.body.querySelector("#username").value){
+      document.body.querySelector("#username").style.border = "1px #FF0000 solid";
       toast_error("Введите никнейм!")}
-    else if (!document.body.querySelector("#id_password").value){
-      document.body.querySelector("#id_password").style.border = "1px #FF0000 solid";
+    else if (!document.body.querySelector("#password").value){
+      document.body.querySelector("#password").style.border = "1px #FF0000 solid";
       toast_error("Введите пароль!")}
     if (document.body.querySelector("#id_username").value){document.body.querySelector("#id_username").style.border = "rgba(0, 0, 0, 0.2)";}
     if (document.body.querySelector("#id_password").value){document.body.querySelector("#id_password").style.border = "rgba(0, 0, 0, 0.2)";}

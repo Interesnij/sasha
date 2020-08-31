@@ -71,7 +71,18 @@ class VideoCommentDelete(View):
     def get(self,request,*args,**kwargs):
         comment = VideoComment.objects.get(pk=self.kwargs["pk"])
         if request.is_ajax() and request.user.pk == comment.commenter.pk:
-            comment.delete()
+            comment.is_deleted = True
+            comment.save(update_fields=['is_deleted'])
+            return HttpResponse()
+        else:
+            raise Http404
+
+class VideoCommentAbortDelete(View):
+    def get(self,request,*args,**kwargs):
+        comment = VideoComment.objects.get(pk=self.kwargs["pk"])
+        if request.is_ajax() and request.user.pk == comment.commenter.pk:
+            comment.is_deleted = False
+            comment.save(update_fields=['is_deleted'])
             return HttpResponse()
         else:
             raise Http404

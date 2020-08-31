@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^post-comment/$', login_required(VideoCommentCreate.as_view())),
     url(r'^reply-comment/$', login_required(VideoReplyCreate.as_view())),
     url(r'^delete_comment/(?P<pk>\d+)/$', login_required(VideoCommentDelete.as_view())),
+    url(r'^abort_delete_comment/(?P<pk>\d+)/$', login_required(VideoCommentAbortDelete.as_view())),
     url(r'^comment/(?P<pk>\d+)/$', VideoCommentList.as_view()),
 ]

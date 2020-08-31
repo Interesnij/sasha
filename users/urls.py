@@ -3,5 +3,5 @@ from users.views import UsersView
 
 
 urlpatterns = [
-    url(r'^$', UsersView.as_view(), name='users'),
+    url(r'^(?P<pk>\d+)/$', UserView.as_view(), name='user'),
 ]

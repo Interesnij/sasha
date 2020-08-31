@@ -22,6 +22,7 @@
       {% url 'about' as about_url %}
       {% url 'blanks' as blanks_url %}
       {% url 'proects_index' as proects_url %}
+      {% url 'login' as login_url %}
 
       <li class="nav__list-item {% if main_url == current_url %}active-nav{% endif %}">
         <a href="{{ main_url }}" class="hover-target animsition-link">Главная</a>
@@ -49,10 +50,19 @@
       <li class="nav__list-item">
         <a href="" class="hover-target animsition-link">Партнеры</a>
       </li>
-
       <li class="nav__list-item {% if about_url == current_url %}active-nav{% endif %}">
         <a href="{{ about_url }}" class="hover-target animsition-link">Обо мне</a>
       </li>
+      {% if requers.user.is_authenticated %}
+        {% url 'user' as user_url %}
+        <li class="nav__list-item {% if user_url == current_url %}active-nav{% endif %}">
+          <a href="{{ user_url }}" class="hover-target animsition-link">Профиль</a>
+        </li>
+      {% else %}
+        <li class="nav__list-item {% if login_url == current_url %}active-nav{% endif %}">
+          <a href="{{ login_url }}" class="hover-target animsition-link">Вход</a>
+        </li>
+      {% endif %}
     </ul>
   </div>
 </div>

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}{{ user.username }}{% endblock %}
+
+{% block content %}
+{% extends "base.html" %}
+{% block title %}Выход{% endblock %}
+{% block content %}
+
+
+<div class="shadow-title parallax-top-shadow">{{ user.username }}</div>
+		<div class="section padding-page-top padding-bottom over-hide z-bigger">
+			<div class="container z-bigger">
+				<div class="row page-title px-xl-2">
+					<div class="col-12 parallax-fade-top">
+						<h1>{{ user.username }}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    <div class="section padding-bottom-big over-hide z-bigger">
+			<div class="container">
+        <div class="row px-xl-2 justify-content-center">
+					<div class="col-md-6 text-xl-right btn2">
+						<h5 class="mb-3">
+              <br><br>
+              <p>Пользователь: {{ user.username }}</p>
+              <p>Зарегистрирован: {{ user.date_joined }}</p>
+              <p>Активность: {% if user.is_online %}На сайте{% else %} Был(а) {{ user.get_joined }}{% endif %}</p>
+            </h5>
+					</div>
+					<div class="col-md-6 mt-5">
+						<div class="img-wrap">
+              {% if user.avatar %}
+                <img src="{{ user.avatar.url }}" alt="user" />
+              {% else %}
+                <img src="{% static 'images/user.png' %}" alt="user" />
+              {% endif %}
+						</div>
+					</div>
+        </div>
+  		</div>
+    </div>
+
+{% endblock %}

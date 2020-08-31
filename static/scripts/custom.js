@@ -1,8 +1,4 @@
 (function($) { "use strict";
-
-
-	//Page cursors
-
     document.getElementsByTagName("body")[0].addEventListener("mousemove", function(n) {
         t.style.left = n.clientX + "px",
 		t.style.top = n.clientY + "px",
@@ -120,9 +116,6 @@
     scrollBanner();
 
 		$('select').niceSelect();
-
-
-		//Scroll back to top
 
 		var offset = 300;
 		var duration = 400;
@@ -312,3 +305,43 @@
 	} )(jQuery);
 
   })(jQuery);
+
+  on('body', 'click', '#register_ajax', function() {
+    if (!document.body.querySelector("#id_username").value){
+      document.body.querySelector("#id_first_name").style.border = "1px #FF0000 solid";
+      toast_error("Никнейм - обязательное поле!");
+    } else if (!document.body.querySelector("#password1").value){
+      document.body.querySelector("#password1").style.border = "1px #FF0000 solid";
+      toast_error("Пароль - обязательное поле!")
+    } else if (!document.body.querySelector("#password2").value){
+      document.body.querySelector("#password2").style.border = "1px #FF0000 solid";
+      toast_error("Введите пароль еще раз!")
+    }
+    form_data = new FormData(document.querySelector("#signup"));
+    reg_link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+    reg_link.open( 'POST', "/rest-auth/registration/", true );
+    reg_link.onreadystatechange = function () {
+    if ( reg_link.readyState == 4 && reg_link.status == 200 ) {
+      window.location.href = "/"
+      }};
+    reg_link.send(form_data);
+  })
+  on('body', 'click', '#logg', function() {
+    if (!document.body.querySelector("#id_username").value){
+      document.body.querySelector("#id_username").style.border = "1px #FF0000 solid";
+      toast_error("Введите никнейм!")}
+    else if (!document.body.querySelector("#id_password").value){
+      document.body.querySelector("#id_password").style.border = "1px #FF0000 solid";
+      toast_error("Введите пароль!")}
+    if (document.body.querySelector("#id_username").value){document.body.querySelector("#id_username").style.border = "rgba(0, 0, 0, 0.2)";}
+    if (document.body.querySelector("#id_password").value){document.body.querySelector("#id_password").style.border = "rgba(0, 0, 0, 0.2)";}
+
+    form_data = new FormData(document.querySelector("#login_form"));
+    link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+    link.open( 'POST', "/rest-auth/login/", true );
+    link.onreadystatechange = function () {
+    if ( link.readyState == 4 && link.status == 200 ) {
+      window.location.href = "/";
+      }};
+    link.send(form_data);
+  });

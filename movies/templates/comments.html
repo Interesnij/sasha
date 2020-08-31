@@ -19,7 +19,7 @@
         {% endif %}
         <h6>
           <span class="comment-author">{{ comment.commenter }}</span>
-          <small>{{ comment.get_posted }}</small>
+          <small>{{ comment.get_created }}</small>
         </h6>
         <p class="mt-2">{{ comment.text }}</p>
         {% if request.user.is_authenticated %}

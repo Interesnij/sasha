@@ -51,7 +51,11 @@ class Video(models.Model):
 
     def dislikes_count(self):
         dislikes = VideoVotes.objects.filter(parent=self, vote__lt=0).values("pk")
-        return dislikes.count()
+        count = dislikes.count()
+        if count:
+            return count
+        else:
+            return ''
 
     def count_comments(self):
         parent_comments = VideoComment.objects.filter(video_comment_id=self.pk)

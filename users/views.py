@@ -37,4 +37,4 @@ class UserSettings(TemplateView):
 			user = request.user
 			self.form.save()
 			return redirect('user', pk=request.user)
-		return super(UserSettings,self).post(request,*args,**kwargs)
+		return super(UserSettings,self).get(request,*args,**kwargs)

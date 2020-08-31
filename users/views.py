@@ -3,6 +3,7 @@ from generic.mixins import CategoryListMixin
 from users.models import User
 from django.http import Http404
 from users.forms import UserForm
+from django.shortcuts import redirect
 
 
 class UserView(TemplateView, CategoryListMixin):

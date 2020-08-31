@@ -11,7 +11,7 @@ from django.views.generic import ListView
 
 
 class MovieDetailView(TemplateView):
-	template_name = "proect.html"
+	template_name = "movie.html"
 
 	def get(self,request,*args,**kwargs):
 		self.video = Video.objects.get(slug=self.kwargs["slug"])

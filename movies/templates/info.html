@@ -51,7 +51,7 @@
 <span class="d-sm-none d-block" data-pk="{{ object.id }}">
     <span class="posted">
         <span class="fa fa-clock-o"></span>
-        <span style="font-size:18px;">{{ object.get_posted }}</span>
+        <span style="font-size:18px;">{{ object.get_created }}</span>
     </span>
 
     <br><br>
@@ -63,7 +63,7 @@
           data-tooltip="Войдите или зарегистрируйтесь"
           {% endif %}>
         <span class="fa fa-thumbs-o-up"></span>
-        <span data-count="like">{{ object.likes.count }}</span>
+        <span data-count="like">{{ object.likes_count }}</span>
     </span>
     &nbsp;&nbsp;
     <span class="dislike {% if object.dislikes|user_in:user %}text-danger{% endif %}"
@@ -73,7 +73,7 @@
           data-tooltip="Войдите или зарегистрируйтесь"
           {% endif %}>
         <span class="fa fa-thumbs-o-down"></span>
-        <span data-count="dislike">{{ object.dislikes.count }}</span>
+        <span data-count="dislike">{{ object.dislikes_count }}</span>
     </span>
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

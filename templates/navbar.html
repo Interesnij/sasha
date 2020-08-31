@@ -54,7 +54,7 @@
         <a href="{{ about_url }}" class="hover-target animsition-link">Обо мне</a>
       </li>
       {% if request.user.is_authenticated %}
-        {% url 'user' as user_url %}
+        {% url 'user' pk=request.user.pk as user_url %}
         <li class="nav__list-item {% if user_url == current_url %}active-nav{% endif %}">
           <a href="{{ user_url }}" class="hover-target animsition-link">Профиль</a>
         </li>

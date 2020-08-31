@@ -25,7 +25,7 @@
             </h5>
 						{% if user.pk == request.user.pk %}
 						<div class="mb-3">
-            	<a href="{% url 'user_settings' %}" class="hover-target">Настройки</a>
+            	<a href="{% url 'user_settings' pk=request.user.pk %}" class="hover-target">Настройки</a>
 						</div>
 						{% endif %}
 					</div>

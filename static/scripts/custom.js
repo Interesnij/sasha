@@ -118,30 +118,6 @@
 
 	$(document).ready(function() {
 
-		//Loading page animation
-
-		$(".animsition").animsition({
-			inClass               :   'fade-in-down-sm',
-			outClass              :   'fade-out-down-sm',
-			inDuration            :    400,
-			outDuration           :    400,
-			linkElement           :   '.animsition-link',
-			// e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
-			loading               :    true,
-			loadingParentElement  :   'body',
-			loadingClass          :   'animsition-loading',
-			unSupportCss          : [ 'animation-duration',
-									  '-webkit-animation-duration',
-									  '-o-animation-duration'
-									],
-			overlay               :   false,
-			overlayClass          :   'animsition-overlay-slide',
-			overlayParentElement  :   'body'
-		});
-
-
-		//Nice Select
-
 		$('select').niceSelect();
 
 

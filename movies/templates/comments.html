@@ -10,7 +10,7 @@
     <div class="separator-wrap pt-3 pb-4">
       <span class="separator"><span class="separator-line dashed"></span></span>
     </div>
-    {% for comment in comments %}
+    {% for comment in object.get_comments %}
       <span data-pk="{{ comment.pk }}">
         {% if comment.commenter.avatar %}
           <img src="{{ comment.commenter.avatar.url }}" alt="user_avatar" />
@@ -65,13 +65,13 @@
     </p>
     {% else %}
     <h5 class="pb-3">Написать комментарий</h5>
-    <form id="comment_form" class="form post_comments ajax-form" method="post">
+    <form>
       {% csrf_token %}
+      <input type="hidden" name="pk" value="{{ object.pk }}">
       <div class="subscribe-box mt-4">
-        {{ form.parent_comment }}
-        {{ form.comment_area }}
+        <input type="text" name="text" class="form-control text-comment form-control-rounded">
       </div>
-      <button class="btn-long mt-4 hover-target" type="button">Комментировать</button>
+      <button class="btn-long mt-4 hover-target comment" type="button">Комментировать</button>
     </form>
     {% endif %}
   </div>

@@ -10,7 +10,7 @@ from django.http import Http404
 from django.views.generic import ListView
 
 
-class MovieDetailView(TemplateView):
+class MovieDetailView(TemplateView, CategoryListMixin):
 	template_name = "movie.html"
 
 	def get(self,request,*args,**kwargs):

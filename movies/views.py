@@ -14,7 +14,7 @@ class MovieDetailView(TemplateView):
 	template_name = "movie.html"
 
 	def get(self,request,*args,**kwargs):
-		self.video = Video.objects.get(slug=self.kwargs["slug"])
+		self.video = Video.objects.get(pk=self.kwargs["pk"])
 		return super(MovieDetailView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self,**kwargs):

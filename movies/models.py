@@ -23,7 +23,6 @@ class Video(models.Model):
     comments_enabled = models.BooleanField(default=True, verbose_name="Разрешить комментарии")
     votes_on = models.BooleanField(default=True, verbose_name="Реакции разрешены")
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Создатель")
-    slug = models.CharField(max_length=100, verbose_name="Англ. название для ссылки")
 
     class Meta:
         verbose_name = "Видео-ролики"

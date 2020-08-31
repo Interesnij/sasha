@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [
-    url(r'^(?P<slug>[\w\-]+)/$',MovieDetailView.as_view(), name="movies_detail"),
+    url(r'^(?P<pk>\d+)/$',MovieDetailView.as_view(), name="movies_detail"),
 
     url(r'^like/(?P<uuid>[0-9a-f-]+)/$',login_required(VideoLikeCreate.as_view())),
     url(r'^dislike/(?P<uuid>[0-9a-f-]+)/$',login_required(VideoDislikeCreate.as_view())),

@@ -23,6 +23,7 @@ class Video(models.Model):
     comments_enabled = models.BooleanField(default=True, verbose_name="Разрешить комментарии")
     votes_on = models.BooleanField(default=True, verbose_name="Реакции разрешены")
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Создатель")
+    count = models.PositiveIntegerField(default=0, verbose_name="Просмотры")
 
     class Meta:
         verbose_name = "Видео-ролики"
@@ -42,7 +43,11 @@ class Video(models.Model):
 
     def likes_count(self):
         likes = VideoVotes.objects.filter(parent=self, vote__gt=0).values("pk")
-        return likes.count()
+        count = likes.count()
+        if count:
+            return count
+        else:
+            return ''
 
     def dislikes_count(self):
         dislikes = VideoVotes.objects.filter(parent=self, vote__lt=0).values("pk")
@@ -65,6 +70,10 @@ class Video(models.Model):
     def get_moovies(self):
         get_moovie = Video.objects.filter(category=self.category)
         return get_moovie
+
+    def get_created(self):
+        from django.contrib.humanize.templatetags.humanize import naturaltime
+        return naturaltime(self.created)
 
 
 class VideoComment(models.Model):

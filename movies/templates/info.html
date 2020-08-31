@@ -8,8 +8,7 @@
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <span id="like"
-          class="like hover-target {% if object.likes|user_in:user %}text-success{% endif %}"
+    <span class="like hover-target {% if object.likes|user_in:user %}text-success{% endif %}"
           {% if request.user.is_authenticated %}
           data-tooltip="Мне нравится"
           {% else %}
@@ -32,7 +31,7 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span class="views">
         <span class="fa fa-eye"></span>
-        <span>{{ object.views }}</span>
+        <span>{{ object.count }}</span>
     </span>
     <span style="font-size:16px;float:right">Поделиться:&nbsp;&nbsp;
 

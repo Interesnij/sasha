@@ -15,6 +15,8 @@ class MovieDetailView(TemplateView):
 
 	def get(self,request,*args,**kwargs):
 		self.video = Video.objects.get(pk=self.kwargs["pk"])
+		self.video.count += 1
+		self.video.save(update_fields=["count"])
 		return super(MovieDetailView,self).get(request,*args,**kwargs)
 
 	def get_context_data(self,**kwargs):

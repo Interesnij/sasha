@@ -3,7 +3,7 @@
   <div class="sidebar-box background-dark drop-shadow rounded">
     <h6 class="mb-3">Плейлисты</h6>
     <ul class="list-style circle pl-4 pb-0">
-      {% for object in categories %}
+      {% for object in movie_categories %} 
       <li>
         <a href="{% url 'movies_index' slug=object.slug %}" class="btn-link btn-primary hover-target pl-0">{{ object.name }}</a>
       </li>

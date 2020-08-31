@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Настройки профиля{% endblock %}
+{% block content %}
+<div class="shadow-title parallax-top-shadow">Настройки</div>
+
+		<div class="section padding-page-top padding-bottom over-hide z-bigger">
+			<div class="container z-bigger">
+				<div class="row page-title px-xl-2">
+					<div class="col-12 parallax-fade-top">
+						<h1>Мой профиль</h1>
+					</div>
+					<div class="offset-1 col-11 parallax-fade-top mt-2 mt-sm-3">
+						<p>Настройки профиля</p>
+					</div>
+				</div>
+			</div>
+		</div>
+    <div class="section padding-bottom-big over-hide z-bigger">
+  			<div class="container">
+  				<div class="row col-md-6 offset-md-3 ajax-form" style="display:block">
+            <form enctype="multipart/form-data" method="post" action="">
+              {% csrf_token %}
+              <div class="mt-4">
+                {{ form.avatar.errors }}
+                {{ form.avatar }}
+              </div>
+              <div class="mt-4">
+                <a href="{% url 'logout' %}" class="hover-target" style="color:#FEFEFE">Выйти</a>
+                <button type="submit" class="hover-target" style="float:right"><span>Изменить</span></button>
+              </div>
+            </form>
+
+{% endblock %}

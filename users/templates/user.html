@@ -23,6 +23,11 @@
               <p>Зарегистрирован: {{ user.date_joined }}</p>
               <p>Активность: {% if user.is_online %}На сайте{% else %} Был(а) {{ user.get_joined }}{% endif %}</p>
             </h5>
+						{% if user.pk == request.user.pk %}
+						<div class="mb-3">
+            	<a href="{% url 'user_settings' %}" class="hover-target">Настройки</a>
+						</div>
+						{% endif %}
 					</div>
 					<div class="col-md-6 mt-5">
 						<div class="img-wrap">

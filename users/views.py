@@ -36,4 +36,4 @@ class UserSettings(TemplateView):
 		avatar = request.POST.get('avatar')
 		request.user.avatar = avatar
 		request.user.save()
-		return redirect('user', pk=request.user)
+		return redirect('user', pk=request.user.pk)

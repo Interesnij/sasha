@@ -7,9 +7,10 @@ class MyAccountAdapter(DefaultAccountAdapter):
 
     def get_login_redirect_url(self, request):
         next = request.META.get('HTTP_REFERER')
+        user = request.user
         if next:
             next = urlunquote(next)
-            if next != 'http://89042373637.рус/auth/':
+            if next != 'http://aleksandra.top/login/':
                 return next
             else:
-                return '/profile'
+                return '/users/' + str(user.pk)

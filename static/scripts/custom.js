@@ -115,8 +115,6 @@
 
     scrollBanner();
 
-		$('select').niceSelect();
-
 		var offset = 300;
 		var duration = 400;
 		jQuery(window).on('scroll', function() {
@@ -207,70 +205,6 @@
 		$('.background-dark-3').on('mouseout', function(event) {
 			$('body').removeClass('cursor-dark');
 		});
-
-
-		/* Video */
-
-		$(".container").fitVids();
-
-		/* Portfolio Sorting */
-
-		(function ($) {
-			var container = $('#projects-grid');
-			function getNumbColumns() {
-				var winWidth = $(window).width(),
-					columnNumb = 1;
-				if (winWidth > 1500) {
-					columnNumb = 2;
-				} else if (winWidth > 1200) {
-					columnNumb = 2;
-				} else if (winWidth > 900) {
-					columnNumb = 2;
-				} else if (winWidth > 600) {
-					columnNumb = 1;
-				} else if (winWidth > 300) {
-					columnNumb = 1;
-				}
-				return columnNumb;
-			}
-			function setColumnWidth() {
-				var winWidth = $(window).width(),
-					columnNumb = getNumbColumns(),
-					postWidth = Math.floor(winWidth / columnNumb);
-
-			}
-			$('#portfolio-filter #filter a').on('click', function () {
-				var selector = $(this).attr('data-filter');
-
-				$(this).parent().parent().find('a').removeClass('current');
-				$(this).addClass('current');
-
-				container.isotope( {
-					filter : selector
-				});
-
-				setTimeout(function () {
-					reArrangeProjects();
-				}, 300);
-				return false;
-			});
-			function reArrangeProjects() {
-				setColumnWidth();
-				container.isotope('reLayout');
-			}
-			container.imagesLoaded(function () {
-				setColumnWidth();
-				container.isotope( {
-					itemSelector : '.portfolio-box',
-					layoutMode : 'masonry',
-					resizable : false
-				} );
-			} );
-			$(window).on('debouncedresize', function () {
-				reArrangeProjects();
-			} );
-		} )(jQuery);
-
 
 	});
 

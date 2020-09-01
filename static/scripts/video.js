@@ -13,7 +13,7 @@
     form_data = new FormData(this.parentElement.parentElement);
     link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
     link.open( 'POST', "/about/send_message/", true );
-    link_.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    link.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     link.onreadystatechange = function () {
     if ( link.readyState == 4 && link.status == 200 ) {
       toast_success("Письмо отправлено!")

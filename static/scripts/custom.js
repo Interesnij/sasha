@@ -115,8 +115,6 @@
 
     scrollBanner();
 
-		$('select').niceSelect();
-
 		var offset = 300;
 		var duration = 400;
 		jQuery(window).on('scroll', function() {

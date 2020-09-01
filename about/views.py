@@ -3,7 +3,7 @@ from generic.mixins import CategoryListMixin
 from about.forms import FeedbackForm
 from django.conf import settings
 from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.views import View
 
 

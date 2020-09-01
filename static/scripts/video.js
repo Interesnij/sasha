@@ -3,7 +3,7 @@ on('body', 'click', '.reply_form_open', function() {
   input = div.querySelector(".text-comment");
   user = this.parentElement.querySelector(".commenter").innerHTML;
   console.log(user);
-  input.value = user + ', ';
+  input.value = user.replace(/\s+/g, ' ').trim() + ', ';
   div.style.display = "block";
   input.focus();
 })

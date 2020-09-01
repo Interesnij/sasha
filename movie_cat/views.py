@@ -26,5 +26,5 @@ class MovieListView(ListView, CategoryListMixin):
 		context["category"] = self.cat
 		return context
 
-class AboutView(TemplateView, CategoryListMixin):
+class MovieLists(TemplateView, CategoryListMixin):
     template_name = "movies_list.html"

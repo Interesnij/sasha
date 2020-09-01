@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import Q
+from movies.models import Video
 
 
 class VideoCategory(models.Model):
@@ -14,3 +16,11 @@ class VideoCategory(models.Model):
 
 	def __str__(self):
 		return self.name
+
+	def is_movies_exists(self):
+		return Video.objects.filter(category_id=self.pk).exists()
+
+	def get_movies(self):
+		query = Q(category_id=self.pk)
+		list = Video.objects.filter(query)
+		return list

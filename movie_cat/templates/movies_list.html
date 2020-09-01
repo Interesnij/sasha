@@ -13,7 +13,9 @@
 				</div>
 			</div>
 		</div>
+		<div class="section padding-bottom-big over-hide z-bigger">
     {% for cat in movie_categories %}
+		{% if cat.is_movies_exists %}
     <div class="container">
 				<div class="row px-5 px-xl-2">
 					<div class="col-12 padding-top">
@@ -24,7 +26,7 @@
 					</div>
 					<div class="col-md-12" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s" data-scroll-reveal-id="1" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
 						<ul class="studio-list">
-              {% for object in cat.video_category.all %}
+              {% for object in cat.get_movies %}
 							   <li>
                    <p><a href="{% url 'movies_detail' pk=object.pk %}">{{ object.title }}</a></p>
                  </li>
@@ -33,6 +35,7 @@
 					</div>
 				</div>
 		</div>
+		{% endif %}
     {% endfor %}
-
+		</div>
 {% endblock %}

@@ -115,8 +115,6 @@
 
     scrollBanner();
 
-		//$('select').niceSelect();
-
 		var offset = 300;
 		var duration = 400;
 		jQuery(window).on('scroll', function() {
@@ -207,17 +205,6 @@
 		$('.background-dark-3').on('mouseout', function(event) {
 			$('body').removeClass('cursor-dark');
 		});
-
-
-		/* Video */
-
-	//	$(".container").fitVids();
-
-		/* Portfolio Sorting */
-
-		
-
-
 	});
 
 	/* DebouncedResize Function */

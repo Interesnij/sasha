@@ -26,8 +26,8 @@
 
 
 on('body', 'click', '.comment', function() {
-  form = this.parentElement.parentElement.parentElement;
-  send_comment(form, form.parentElement.previousElementSibling, '/movies/post-comment/');
+  form = this.parentElement;
+  send_comment(form, form.parentElement.parentElement.previousElementSibling.querySelector(".stream_comments"), '/movies/post-comment/');
 });
 
 on('body', 'click', '.reply_comment', function() {

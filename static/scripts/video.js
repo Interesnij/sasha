@@ -9,7 +9,7 @@
     else if (!document.body.querySelector("#id_message").value){
       document.body.querySelector("#id_message").style.border = "1px #FF0000 solid";
       toast_error("Введите сообщение!")}
-    form_data = new FormData(this.parentElement);
+    form_data = new FormData(this.parentElement.parentElement);
     link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
     link.open( 'POST', "/about/send_message/", true );
     link.onreadystatechange = function () {

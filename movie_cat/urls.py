@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from movie_cat.views import MovieListView
+from movie_cat.views import MovieListView, MovieLists
 
 
 urlpatterns = [

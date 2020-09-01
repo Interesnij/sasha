@@ -1,3 +1,4 @@
+
 (function($) { "use strict";
 
     document.getElementsByTagName("body")[0].addEventListener("mousemove", function(n) {
@@ -43,13 +44,41 @@
 		});
 	  });
 	}
-	scrollBanner();
 
 
 	/* Scroll Animation */
 
 	window.scrollReveal = new scrollReveal();
 
+    var swiper = new Swiper('.swiper-container', {
+		scrollbar: {
+			el: '.swiper-scrollbar',
+			hide: false,
+			draggable: true,
+			dragSize: '19',
+		},
+		slidesPerView: 'auto',
+		resistance: true,
+		resistanceRatio: 0,
+		speed: 800,
+		autoplay: false,
+		mousewheel: true,
+		freeMode: true,
+		grabCursor: true,
+		touchStartPreventDefault: false,
+		breakpoints: {
+			// when window width is <= 1200px
+			1200: {
+				freeMode: false,
+			}
+		}
+    });
+	$('#hero-slider').on('mousedown touchstart', function(event) {
+		$('body').addClass('scale-up');
+	});
+	$('#hero-slider').on('mouseup touchend', function(event) {
+		$('body').removeClass('scale-up');
+	});
 
 
 	//Navigation
@@ -80,21 +109,23 @@
 		init();
 	}();
 
-
 	$(document).ready(function() {
+    scrollBanner();
 
-		//Loading page animation
-
-
-		$('select').niceSelect();
-
-
-		$('.background-dark-3').on('mouseover', function(event) {
-			$('body').addClass('cursor-dark');
+		var offset = 300;
+		var duration = 400;
+		jQuery(window).on('scroll', function() {
+			if (jQuery(this).scrollTop() > offset) {
+				jQuery('.scroll-to-top').addClass('active-arrow');
+			} else {
+				jQuery('.scroll-to-top').removeClass('active-arrow');
+			}
 		});
-		$('.background-dark-3').on('mouseout', function(event) {
-			$('body').removeClass('cursor-dark');
-		});
+		jQuery('.scroll-to-top').on('click', function(event) {
+			event.preventDefault();
+			jQuery('html, body').animate({scrollTop: 0}, duration);
+			return false;
+		})
 
 		$('.case-study-name:nth-child(1)').on('mouseenter touchstart', function() {
 			$('.case-study-name.active').removeClass('active');
@@ -159,9 +190,14 @@
 		})
 		$('.case-study-name:nth-child(1)').trigger('mouseenter')
 
+		$('.background-dark-3').on('mouseover', function(event) {
+			$('body').addClass('cursor-dark');
+		});
+		$('.background-dark-3').on('mouseout', function(event) {
+			$('body').removeClass('cursor-dark');
+		});
 
 	});
-
 
 	(function ($) {
 		var $event = $.event,
@@ -191,9 +227,7 @@
 		};
 	} )(jQuery);
 
-
   })(jQuery);
-
 
   class ToastManager {
   	constructor(){

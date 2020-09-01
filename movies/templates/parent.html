@@ -10,17 +10,13 @@
   </a>
   <h6>
     <span class="comment-author">
-      <a href="{% url 'user' pk=comment.commenter.pk %}" class="hover-target">
+      <a href="{% url 'user' pk=comment.commenter.pk %}" class="hover-target" style="color:white">
         {{ comment.commenter }}
       </a>
     </span>
     <small>{{ comment.get_created }}</small>
   </h6>
   <p class="mt-2">{{ comment.text }}</p>
-  {% if request.user.is_authenticated %}
-  <a style="cursor:pointer" class="ml-0 mr-1 mt-3 mb-1 hover-target">ответить</a>
-  {% endif %}
-  &nbsp;&nbsp;&nbsp;&nbsp;
   <span class="like2 {% if comment.likes.all|user_in:user %}text-success{% endif %}"
         {% if request.user.is_authenticated %}
         data-tooltip="Мне нравится"
@@ -40,6 +36,10 @@
       <span class="fa fa-thumbs-o-down"></span>
       <span data-count="dislike">{{ comment.dislikes.count }}</span>
   </span>
+  &nbsp;&nbsp;
+  {% if request.user.is_authenticated %}
+  <span style="cursor:pointer" class="ml-0 mr-1 mt-3 mb-1 hover-target">ответить</span>
+  {% endif %}
 
   <div style="display:none">
       <form>

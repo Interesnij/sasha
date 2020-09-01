@@ -122,6 +122,7 @@
 					</div>
 					<div class="col-12 padding-top">
 						<form class="form ajax-form contact-form" style="width:100%;"action="">
+							{% csrf_token %}
   							   <div class="">
                      {{ form.name }}
   							   </div>

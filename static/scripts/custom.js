@@ -107,12 +107,8 @@
 		init();
 	}();
 
-
 	$(document).ready(function() {
-
     scrollBanner();
-
-	//	$('select').niceSelect();
 
 		var offset = 300;
 		var duration = 400;
@@ -128,9 +124,6 @@
 			jQuery('html, body').animate({scrollTop: 0}, duration);
 			return false;
 		})
-
-
-		/* Hero Case Study Hover Effect */
 
 		$('.case-study-name:nth-child(1)').on('mouseenter touchstart', function() {
 			$('.case-study-name.active').removeClass('active');
@@ -202,17 +195,7 @@
 			$('body').removeClass('cursor-dark');
 		});
 
-
-		/* Video */
-
-	//	$(".container").fitVids();
-
-		/* Portfolio Sorting */
-
-
 	});
-
-	/* DebouncedResize Function */
 
 	(function ($) {
 		var $event = $.event,
@@ -243,7 +226,6 @@
 	} )(jQuery);
 
   })(jQuery);
-
 
   class ToastManager {
   	constructor(){

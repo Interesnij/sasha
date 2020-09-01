@@ -1,13 +1,19 @@
 {% load liked_user %}
 
 <span data-pk="{{ comment.pk }}">
+  <a href="{% url 'user' pk=comment.commenter.pk %}" class="hover-target">
   {% if comment.commenter.avatar %}
     <img src="{{ comment.commenter.avatar.url }}" alt="user_avatar" />
   {% else %}
     <img src="/static/images/user.png" alt="user" />
   {% endif %}
+  </a>
   <h6>
-    <span class="comment-author">{{ comment.commenter }}</span>
+    <span class="comment-author">
+      <a href="{% url 'user' pk=comment.commenter.pk %}" class="hover-target">
+        {{ comment.commenter }}
+      </a>
+    </span>
     <small>{{ comment.get_created }}</small>
   </h6>
   <p class="mt-2">{{ comment.text }}</p>

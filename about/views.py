@@ -22,7 +22,7 @@ class FeedbackView(View):
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
-            recipients = ['ochkarik1983@mail.ru']
+            recipients = ['my_name_aleksandra@mail.ru']
             try:
                 send_mail('На сайте aleksandra.top оставили сообщение', 'Написал "{}", почта "{}", сообщение "{}"'.format(name, email, message), settings.EMAIL_HOST_USER, recipients)
                 send_mail('Спасибо за сообщение на сайте aleksandra.top', 'Дорогой {}, Спасибо, что оставили сообщение на сайте aleksandra.top. Мы рады любому отзыву или обращению!'.format(name), settings.EMAIL_HOST_USER, [email])

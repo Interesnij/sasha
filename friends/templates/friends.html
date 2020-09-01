@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Мои друзья{% endblock %}
+{% block content %}
+<div class="shadow-title parallax-top-shadow">Друзья</div>
+
+		<div class="section padding-page-top padding-bottom over-hide z-bigger">
+			<div class="container z-bigger">
+				<div class="row page-title px-xl-2">
+					<div class="col-12 parallax-fade-top">
+						<h1>Мои друзья</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+    {% for object in object_list %}
+    <div class="col-md-3 mt-4 mt-md-0">
+			<div class="logo-box">
+				<a href="{{ object.link }}" class="hover-target" target="_blank" rel="nofollow">
+          <img src="{{ object.image.url }}" alt="">
+        </a>
+			</div>
+		</div>
+    {% endfor %}
+
+{% endblock %}

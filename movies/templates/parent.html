@@ -1,3 +1,5 @@
+{% load liked_user %}
+
 <span data-pk="{{ comment.pk }}">
   {% if comment.commenter.avatar %}
     <img src="{{ comment.commenter.avatar.url }}" alt="user_avatar" />

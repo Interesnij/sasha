@@ -1,6 +1,5 @@
 
   on('body', 'click', '#message_send', function() {
-    console.log("click")
     if (!document.body.querySelector("#id_name").value){
       document.body.querySelector("#id_name").style.border = "1px #FF0000 solid";
       toast_error("Введите имя!")}
@@ -10,12 +9,16 @@
     else if (!document.body.querySelector("#id_message").value){
       document.body.querySelector("#id_message").style.border = "1px #FF0000 solid";
       toast_error("Введите сообщение!")}
-    form_data = new FormData(this.parentElement.parentElement);
+    form = this.parentElement.parentElement;
+    form_data = new FormData(form);
     link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
     link.open( 'POST', "/about/send_message/", true );
     link.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     link.onreadystatechange = function () {
     if ( link.readyState == 4 && link.status == 200 ) {
+      form.querySelector("id_name").value="";
+      form.querySelector("id_email").value="";
+      form.querySelector("id_message").value="";
       toast_success("Письмо отправлено!")
       }};
     link.send(form_data);

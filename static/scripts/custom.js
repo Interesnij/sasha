@@ -404,7 +404,7 @@
   	form.querySelector(".text-comment").value ? null : toast_error("Напишите или прикрепите что-нибудь");
     link_.onreadystatechange = function () {
     if ( this.readyState == 4 && this.status == 200 ) {
-      form.querySelector(".form-control-rounded").value="";
+      form.querySelector(".text-comment").value="";
       elem = link_.responseText;
       new_post = document.createElement("span");
       new_post.innerHTML = elem;

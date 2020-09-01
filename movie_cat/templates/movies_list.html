@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Все ролики{% endblock %}
+{% block content %}
+
+<div class="shadow-title parallax-top-shadow">Все ролики</div>
+
+		<div class="section padding-page-top padding-bottom over-hide z-bigger">
+			<div class="container z-bigger">
+				<div class="row page-title px-xl-2">
+					<div class="col-12 parallax-fade-top">
+						<h1>Все ролики</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+    {% for cat in movie_categories %}
+    <div class="container">
+				<div class="row px-5 px-xl-2">
+					<div class="col-12 padding-top">
+						<h3><a href="{% url 'movies_index' slug=cat.slug %}">{{ cat.name }}</a></h3>
+					</div>
+					<div class="col-12 mt-2 mb-5 page-title-small">
+						<p class="mb-0 pb-0">Видео-плейлист</p>
+					</div>
+					<div class="col-md-12" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s" data-scroll-reveal-id="1" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
+						<ul class="studio-list">
+              {% for object in cat.video_category.all %}
+							   <li>
+                   <p><a href="{% url 'movies_detail' pk=object.pk %}">{{ object.title }}</a></p>
+                 </li>
+              {% endfor %}
+						</ul>
+					</div>
+				</div>
+		</div>
+    {% endfor %}
+
+{% endblock %}

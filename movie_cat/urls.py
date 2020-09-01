@@ -3,5 +3,6 @@ from movie_cat.views import MovieListView
 
 
 urlpatterns = [
-    url(r'^(?P<slug>[\w\-]+)/$', MovieListView.as_view(), name='movies_index'), 
+    url(r'^(?P<slug>[\w\-]+)/$', MovieListView.as_view(), name='movies_index'),
+    url(r'^playlists/$', MovieLists.as_view(), name='movies_list'),
 ]

@@ -23,6 +23,7 @@
       {% url 'blanks' as blanks_url %}
       {% url 'proects_index' as proects_url %}
       {% url 'login' as login_url %}
+      {% url 'movies_list' as movies_list_url %}
 
       <li class="nav__list-item {% if main_url == current_url %}active-nav{% endif %}">
         <a href="{{ main_url }}" class="hover-target animsition-link">Главная</a>
@@ -40,6 +41,9 @@
           видео
         </a>
         <ul class="sub-links collapse" id="collapseSub">
+          <li class="{% if movies_list == current_url %}active-nav{% endif %}">
+            <a href="{{ movies_list }}" class="hover-target animsition-link">Все ролики</a>
+          </li>
           {% for object in movie_categories %}
             <li {% if object.pk == category.pk %} class="active-nav"{% endif %}>
               <a href="{% url 'movies_index' slug=object.slug %}" class="hover-target animsition-link">{{ object.name }}</a>

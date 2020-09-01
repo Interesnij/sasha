@@ -25,3 +25,6 @@ class MovieListView(ListView, CategoryListMixin):
 		context = super(MovieListView,self).get_context_data(**kwargs)
 		context["category"] = self.cat
 		return context
+
+class AboutView(TemplateView, CategoryListMixin):
+    template_name = "movies_list.html"

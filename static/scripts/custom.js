@@ -205,7 +205,7 @@
 
 		/* Video */
 
-		$(".container").fitVids();
+	//	$(".container").fitVids();
 
 		/* Portfolio Sorting */
 

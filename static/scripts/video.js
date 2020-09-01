@@ -1,9 +1,9 @@
 on('body', 'click', '.reply_form_open', function() {
   div = this.nextElementSibling;
   input = div.querySelector(".text-comment");
-  user = this.parentElement.querySelector(".commenter");
+  user = this.parentElement.querySelector(".commenter").innerHTML;
   console.log(user);
-  input.value = user.innerHTML + ', ';
+  input.value = user + ', ';
   div.style.display = "block";
   input.focus();
 })

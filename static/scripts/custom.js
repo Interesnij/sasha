@@ -232,7 +232,6 @@
 					postWidth = Math.floor(winWidth / columnNumb);
 
 			}
-			);
 			$(window).on('debouncedresize', function () {
 				reArrangeProjects();
 			} );

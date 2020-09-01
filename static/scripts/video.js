@@ -2,6 +2,7 @@ on('body', 'click', '.reply_comment', function() {
   div = this.nextElementSibling;
   input = div.querySelector(".text-comment");
   user = this.parentElement.querySelector(".commenter");
+  console.log(user);
   input.value = user.innerHTML + ', ';
   div.style.display = "block";
   input.focus();

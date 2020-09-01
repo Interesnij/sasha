@@ -1742,7 +1742,7 @@ figure.vimeo a img, figure.youtube a img {
 	border: 1px solid rgba(200, 200, 200, .6);
 }
 .logo-box img {
-	height: 45px;
+	height: 100px;
 	width: auto;
 	display: inline-block;
 	margin: 0 auto;

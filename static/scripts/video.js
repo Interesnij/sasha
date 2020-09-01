@@ -1,4 +1,24 @@
 
+  on('body', 'click', '.comment', function() {
+    if (!document.body.querySelector("#id_name").value){
+      document.body.querySelector("#id_name").style.border = "1px #FF0000 solid";
+      toast_error("Введите имя!")}
+    else if (!document.body.querySelector("#id_email").value){
+      document.body.querySelector("#id_email").style.border = "1px #FF0000 solid";
+      toast_error("Введите почту для ответа!")}
+    else if (!document.body.querySelector("#id_message").value){
+      document.body.querySelector("#id_message").style.border = "1px #FF0000 solid";
+      toast_error("Введите сообщение!")}
+    form_data = new FormData(this.parentElement);
+    link = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+    link.open( 'POST', "/about/send_message/", true );
+    link.onreadystatechange = function () {
+    if ( link.readyState == 4 && link.status == 200 ) {
+      toast_success("Письмо отправлено!")
+      }};
+    link.send(form_data);
+  });
+
 
 on('body', 'click', '.comment', function() {
   form = this.parentElement.parentElement.parentElement;

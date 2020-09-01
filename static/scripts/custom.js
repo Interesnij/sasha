@@ -114,6 +114,7 @@
 	$(document).ready(function() {
 
     scrollBanner();
+    $('select').niceSelect();
 
 		var offset = 300;
 		var duration = 400;

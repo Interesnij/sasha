@@ -16,9 +16,9 @@
     link.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     link.onreadystatechange = function () {
     if ( link.readyState == 4 && link.status == 200 ) {
-      form.querySelector("id_name").value="";
-      form.querySelector("id_email").value="";
-      form.querySelector("id_message").value="";
+      form.querySelector("#id_name").value="";
+      form.querySelector("#id_email").value="";
+      form.querySelector("#id_message").value="";
       toast_success("Письмо отправлено!")
       }};
     link.send(form_data);

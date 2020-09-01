@@ -52,8 +52,8 @@
           {% endfor %}
         </ul>
       </li>
-      <li class="nav__list-item">
-        <a href="{{ friend_url }}" class="hover-target animsition-link">Друзья</a>
+      <li class="nav__list-item {% if friends_url == current_url %}active-nav{% endif %}">
+        <a href="{{ friends_url }}" class="hover-target animsition-link">Друзья</a>
       </li>
       <li class="nav__list-item {% if about_url == current_url %}active-nav{% endif %}">
         <a href="{{ about_url }}" class="hover-target animsition-link">Обо мне</a>

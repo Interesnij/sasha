@@ -1,5 +1,4 @@
 from django.db import models
-from movie_cat.models import VideoCategory
 from django.conf import settings
 from django.db import models
 from django.contrib.postgres.indexes import BrinIndex
@@ -17,7 +16,7 @@ class Video(models.Model):
                                 verbose_name="Обложка")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
     description = models.CharField(max_length=500, blank=True, verbose_name="Описание")
-    category = models.ForeignKey(VideoCategory, blank=True, null=True, related_name='video_category', on_delete=models.CASCADE, verbose_name="Плейлист")
+    category = models.ForeignKey('movie_cat.VideoCategory', blank=True, null=True, related_name='video_category', on_delete=models.CASCADE, verbose_name="Плейлист")
     title = models.CharField(max_length=255, verbose_name="Название")
     link = models.CharField(max_length=255, verbose_name="Ссылка на видео")
     comments_enabled = models.BooleanField(default=True, verbose_name="Разрешить комментарии")

@@ -127,11 +127,19 @@ class VideoComment(models.Model):
 
     def likes_count(self):
         likes = VideoCommentVotes.objects.filter(item=self, vote__gt=0).values("pk")
-        return likes.count()
+        count = likes.count()
+        if count:
+            return count
+        else:
+            return ''
 
     def dislikes_count(self):
         dislikes = VideoCommentVotes.objects.filter(item=self, vote__lt=0).values("pk")
-        return dislikes.count()
+        count = dislikes.count()
+        if count:
+            return count
+        else:
+            return ''
 
     @classmethod
     def create_comment(cls, commenter, video_comment=None, parent_comment=None, text=None, created=None ):

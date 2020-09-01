@@ -18,7 +18,7 @@ class AboutView(TemplateView, CategoryListMixin):
 class FeedbackView(View):
     def post(self,request,*args,**kwargs):
         form = FeedbackForm(request.POST)
-        if request.is_ajax() and form_post.is_valid():
+        if request.is_ajax() and form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']

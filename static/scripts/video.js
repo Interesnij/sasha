@@ -1,4 +1,4 @@
-on('body', 'click', '.reply_comment', function() {
+on('body', 'click', '.reply_form_open', function() {
   div = this.nextElementSibling;
   input = div.querySelector(".text-comment");
   user = this.parentElement.querySelector(".commenter");

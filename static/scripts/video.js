@@ -9,7 +9,7 @@ on('body', 'click', '.reply_form_open', function() {
 
 on('body', 'click', '.toggle_show_menu', function() {
   this.nextElementSibling.classList.toggle("show")
-}
+})
 
   on('body', 'click', '#message_send', function() {
     if (!document.body.querySelector("#id_name").value){

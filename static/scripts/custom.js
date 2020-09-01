@@ -206,11 +206,6 @@
 			$('body').removeClass('cursor-dark');
 		});
 
-
-		/* Video */
-
-		$(".container").fitVids();
-
 		/* Portfolio Sorting */
 
 		(function ($) {

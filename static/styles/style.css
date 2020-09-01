@@ -2164,27 +2164,7 @@ figure.vimeo a img, figure.youtube a img {
 	font-style: italic;
 	margin-left: 10px;
 }
-.post-comm-box a{
-	color: #fff;
-	cursor: pointer;
-	background-color: #333;
-	border: none;
-	outline: none;
-	box-shadow: none;
-	padding: 7px 12px;
-	-webkit-transition: all 200ms linear;
-	transition: all 200ms linear;
-}
-.post-comm-box a:focus,
-.post-comm-box a:active {
-	border:none;
-	outline:none;
-	box-shadow: none;
-	background-color: #333;
-}
-.post-comm-box a:hover{
-	background-color: #444;
-}
+
 .subscribe-box {
 	position: relative;
 }

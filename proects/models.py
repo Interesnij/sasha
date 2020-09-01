@@ -24,3 +24,6 @@ class Proect(models.Model):
 	@classmethod
 	def get_next_proect(cls, self):
 		return cls.objects.filter(pk__gt=self.pk).order_by('pk').first()
+	@classmethod
+	def get_prev_proect(cls, self):
+		return cls.objects.filter(pk__lt=self.pk).order_by('-pk').first()

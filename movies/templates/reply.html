@@ -1,0 +1,56 @@
+<span data-pk="{{ reply.pk }}">
+  {% if reply.commenter.avatar %}
+    <img src="{{ reply.commenter.avatar.url }}" alt="user_avatar" />
+  {% else %}
+    <img src="/static/images/user.png" alt="user" />
+  {% endif %}
+  <h6>
+    <span class="comment-author">{{ reply.commenter }}</span>
+    <small>{{ reply.get_created }}</small>
+  </h6>
+  <p class="mt-2">{{ reply.text }}</p>
+  {% if request.user.is_authenticated %}
+  <a style="cursor:pointer" class="ml-0 mr-1 mt-3 mb-1 hover-target">ответить</a>
+  {% endif %}
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <span class="like2 {% if reply.likes|user_in:user %}text-success{% endif %}"
+        {% if request.user.is_authenticated %}
+        data-tooltip="Мне нравится"
+        {% else %}
+        data-tooltip="Войдите или зарегистрируйтесь"
+        {% endif %}>
+      <span class="fa fa-thumbs-o-up"></span>
+      <span data-count="like">{{ reply.likes.count }}</span>
+  </span>
+  &nbsp;&nbsp;
+  <span class="dislike2 {% if reply.dislikes|user_in:user %}text-danger{% endif %}"
+        {% if request.user.is_authenticated %}
+        data-tooltip="Мне не нравится"
+        {% else %}
+        data-tooltip="Войдите или зарегистрируйтесь"
+        {% endif %}>
+      <span class="fa fa-thumbs-o-down"></span>
+      <span data-count="dislike">{{ reply.dislikes.count }}</span>
+  </span>
+
+  <div style="display:none;margin-left:-50px;">
+      <form>
+          {% csrf_token %}
+          <input type="hidden" name="post_comment" value="{{ reply.pk }}">
+
+          <div class="row no-gutters" style="margin-top: 15px;">
+              <div class="col">
+                  <div class="input-group input-group-sm" style="width: 105%;">
+                      <textarea name="text" class="form-control text-comment form-control-rounded"></textarea>
+                      <button class="btn-long mt-4 hover-target parent_comment" type="button">Комментировать</button>
+                  </div>
+              </div>
+          </div>
+      </form>
+  </div>
+</span>
+{% if not forloop.last %}
+<div class="separator-wrap pt-4 pb-4">
+  <span class="separator"><span class="separator-line dashed"></span></span>
+</div>
+{% endif %}

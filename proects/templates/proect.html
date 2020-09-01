@@ -31,31 +31,17 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="section padding-top-bottom over-hide z-bigger background-dark-3 footer">
-      {% if object.get_next_proect %}
-			<div class="shadow-on-footer" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s">{{ object.get_next_proect.title }}</div>
+			<div class="shadow-on-footer" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s">Проекты</div>
 			<div class="container" data-scroll-reveal="enter bottom move 20px over 0.5s after 0.4s">
 				<div class="row">
 					<div class="col-12 text-center z-bigger py-5">
 						<div class="footer-lines">
-							<a href="{% url 'proect_detail' slug=object.get_next_proect.slug %}" class="hover-target animsition-link"><h4>{{ object.get_next_proect.title }}</h4></a>
+							<a href="{% url 'proects_index' %}" class="hover-target animsition-link"><h4>Проекты</h4></a>
 						</div>
 					</div>
 				</div>
 			</div>
-      {% else %}
-      <div class="shadow-on-footer" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s">Шаблоны</div>
-			<div class="container" data-scroll-reveal="enter bottom move 20px over 0.5s after 0.4s">
-				<div class="row">
-					<div class="col-12 text-center z-bigger py-5">
-						<div class="footer-lines">
-							<a href="" class="hover-target animsition-link"><h4>Шаблоны</h4></a>
-						</div>
-					</div>
-				</div>
-			</div>
-      {% endif %}
 		</div>
 
 

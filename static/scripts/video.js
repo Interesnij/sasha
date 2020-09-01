@@ -1,5 +1,5 @@
 
-  on('body', 'click', '.comment', function() {
+  on('body', 'click', '#message_send', function() {
     if (!document.body.querySelector("#id_name").value){
       document.body.querySelector("#id_name").style.border = "1px #FF0000 solid";
       toast_error("Введите имя!")}

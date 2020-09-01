@@ -19,9 +19,9 @@ class FeedbackView(View):
     def post(self,request,*args,**kwargs):
         form = FeedbackForm(request.POST)
         if request.is_ajax() and form_post.is_valid():
-            name = form1.cleaned_data['name']
-            email = form1.cleaned_data['email']
-            message = form1.cleaned_data['message']
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
             recipients = ['ochkarik1983@mail.ru']
             try:
                 send_mail('На сайте aleksandra.top оставили сообщение', 'Написал "{}", почта "{}", сообщение "{}"'.format(name, email, message), settings.EMAIL_HOST_USER, recipients)

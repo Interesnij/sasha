@@ -658,7 +658,7 @@ a:hover {
 .nav__content {
 	position: fixed;
 	visibility: hidden;
-	top: 50%;
+	top: 40%;
 	margin-top: 40px;
 	-webkit-transform: translate(0%, -50%);
           transform: translate(0%, -50%);

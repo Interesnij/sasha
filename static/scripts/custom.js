@@ -232,33 +232,7 @@
 					postWidth = Math.floor(winWidth / columnNumb);
 
 			}
-			$('#portfolio-filter #filter a').on('click', function () {
-				var selector = $(this).attr('data-filter');
-
-				$(this).parent().parent().find('a').removeClass('current');
-				$(this).addClass('current');
-
-				container.isotope( {
-					filter : selector
-				});
-
-				setTimeout(function () {
-					reArrangeProjects();
-				}, 300);
-				return false;
-			});
-			function reArrangeProjects() {
-				setColumnWidth();
-				container.isotope('reLayout');
-			}
-			container.imagesLoaded(function () {
-				setColumnWidth();
-				container.isotope( {
-					itemSelector : '.portfolio-box',
-					layoutMode : 'masonry',
-					resizable : false
-				} );
-			} );
+			);
 			$(window).on('debouncedresize', function () {
 				reArrangeProjects();
 			} );

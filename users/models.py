@@ -10,7 +10,7 @@ from imagekit.models import ProcessedImageField
 
 class User(AbstractUser):
     last_activity = models.DateTimeField(default=timezone.now, blank=True, verbose_name='Активность')
-    avatar = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to="users/%Y/%m/%d/", processors=[ResizeToFit(width=500, upscale=False)], verbose_name="Аватар")
+    avatar = ProcessedImageField(format='JPEG', options={'quality': 90}, upload_to="users/%Y/%m/%d/", processors=[ResizeToFit(width=500, height=500)], verbose_name="Аватар")
     email = models.EmailField(null=True, blank=True, unique=True, verbose_name='Email')
 
     class Meta:

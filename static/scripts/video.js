@@ -1,3 +1,10 @@
+on('body', 'click', '.reply_comment', function() {
+  div = this.nextElementSibling;
+  input = div.querySelector(".text-comment");
+  input.value = this.previousElementSibling.innerHTML + ', ';
+  div.style.display = "block";
+  input.focus();
+})
 
   on('body', 'click', '#message_send', function() {
     if (!document.body.querySelector("#id_name").value){

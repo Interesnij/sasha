@@ -11,12 +11,11 @@ class AboutView(TemplateView, CategoryListMixin):
     template_name = "about_v2.html"
 
     def get_context_data(self,**kwargs):
-		context=super(AboutView,self).get_context_data(**kwargs)
-		context["form"] = FeedbackForm()
-		return context
+        context=super(AboutView,self).get_context_data(**kwargs)
+        context["form"] = FeedbackForm()
+        return context
 
 class FeedbackView(View):
-
     def post(self,request,*args,**kwargs):
         form = FeedbackForm(request.POST)
         if request.is_ajax() and form_post.is_valid():
@@ -29,6 +28,6 @@ class FeedbackView(View):
                 send_mail('Спасибо за сообщение на сайте aleksandra.top', 'Дорогой {}, Спасибо, что оставили сообщение на сайте aleksandra.top. Мы рады любому отзыву или обращению!'.format(name), settings.EMAIL_HOST_USER, [email])
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
-            return HttpResponse ('!')
+            return HttpResponse ()
         else:
             return HttpResponseBadRequest()

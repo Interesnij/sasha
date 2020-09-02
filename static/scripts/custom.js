@@ -409,7 +409,7 @@
 
   on('body', 'click', '#register_ajax', function() {
     if (!document.body.querySelector("#username").value){
-      document.body.querySelector("#first_name").style.border = "1px #FF0000 solid";
+      document.body.querySelector("#username").style.border = "1px #FF0000 solid"; 
       toast_error("Никнейм - обязательное поле!");
     } else if (!document.body.querySelector("#password1").value){
       document.body.querySelector("#password1").style.border = "1px #FF0000 solid";

@@ -6,7 +6,7 @@
         <span style="font-size:18px;">{{ object.get_created }}</span>
     </span>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;
 
     <span class="like hover-target {% if object.likes|user_in:user %}text-success{% endif %}"
           {% if request.user.is_authenticated %}
@@ -28,7 +28,7 @@
         <span class="dislikes_count">{{ object.dislikes_count }}</span>
     </span>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;
     <span class="views">
         <span class="fa fa-eye"></span>
         <span>{{ object.count }}</span>

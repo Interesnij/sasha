@@ -56,7 +56,7 @@ on('body', 'click', '.reply_comment', function() {
 
 on('body', 'click', '.reply_parent_comment', function() {
   form = this.parentElement.parentElement.parentElement.parentElement;
-  block = form.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+  block = form.parentElement.parentElement.parentElement.parentElement.parentElement;
   send_comment(form, block.parentElement, '/movies/reply-comment/')
   form.parentElement.style.display = "none";
   block.classList.add("replies_open");

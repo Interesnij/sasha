@@ -88,7 +88,7 @@ class VideoComment(models.Model):
     text = models.TextField(blank=True)
     is_edited = models.BooleanField(default=False, verbose_name="Изменено")
     is_deleted = models.BooleanField(default=False, verbose_name="Удаено")
-    video_comment = models.ForeignKey(Video, on_delete=models.CASCADE, blank=True)
+    video_comment = models.ForeignKey(Video, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
         indexes = (BrinIndex(fields=['created']), )

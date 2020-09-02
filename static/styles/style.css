@@ -3,6 +3,7 @@
 #login_form input,
 #login_form button,
 #feedback_form input,
+#feedback_form textarea,
 #feedback_form button{
   background-color: #000000
 }

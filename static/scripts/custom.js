@@ -342,8 +342,7 @@
       elem = link_.responseText;
       new_post = document.createElement("span");
       new_post.innerHTML = elem;
-  		block.append(new_post);
-      console.log(block)
+  		block.append(new_post); 
     }};
 
     link_.send(form_comment);

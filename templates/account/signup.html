@@ -20,7 +20,7 @@
   			<div class="container">
   				<div class="row col-md-6 offset-md-3" style="display:block">
             <form class="ajax-form" id="signup" action="{% url 'rest_register' %}">
-              {% csrf_token %} 
+              {% csrf_token %}
               <div class="mt-4">
                 <input type="text" name="username" id="username" class="hover-target" placeholder="Придумайте логин">
               </div>
@@ -38,4 +38,7 @@
           </div>
         </div>
       </div>
+
+		{% include 'desctop_footer.html' %}
+		
 {% endblock %}

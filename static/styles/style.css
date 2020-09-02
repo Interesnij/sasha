@@ -878,7 +878,7 @@ a:hover {
 	color: rgba(255,255,255,1);
 }
 .nav__list-item.active-nav a{
-	color: rgba(255,255,255,1);
+	color: rgba(255,255,255,1) !important;
 }
 .nav__list-item.active-nav a:after{
 	height: 20px;

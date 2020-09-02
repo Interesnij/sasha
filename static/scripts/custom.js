@@ -363,8 +363,8 @@
       dislikes_count = item.querySelector(".dislikes_count");
       likes_count.innerHTML = jsonResponse.like_count;
       dislikes_count.innerHTML = jsonResponse.dislike_count;
-      like.classList.toggle("btn_success");
-      dislike.classList.remove("btn_danger");
+      like.classList.toggle("text-success");
+      dislike.classList.remove("text-danger");
     }};
     link__.send( null );
   }
@@ -384,8 +384,8 @@
       dislikes_count = item.querySelector(".dislikes_count");
       likes_count.innerHTML = jsonResponse.like_count;
       dislikes_count.innerHTML = jsonResponse.dislike_count;
-      dislike.classList.toggle("btn_danger");
-      like.classList.remove("btn_success");
+      dislike.classList.toggle("text-danger");
+      like.classList.remove("text-success");
     }};
     link__.send( null );
   }

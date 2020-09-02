@@ -142,11 +142,13 @@ color: #FFD600;
 		font-size: 16px;
 }
 
-.text-success {
+.text-success,
+.text-success .fa:before {
 		color: #41cd52 !important;
 }
 
-.text-danger {
+.text-danger,
+.text-danger .fa:before {
 		color: #FF0000 !important;
 }
 

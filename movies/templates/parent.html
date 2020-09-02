@@ -17,22 +17,16 @@
     <small>{{ comment.get_created }}</small>
   </h6>
   <p class="mt-2">{{ comment.text }}</p>
-  <span class="like like2 {% if comment.likes.all|user_in:user %}text-success{% endif %}"
-        {% if request.user.is_authenticated %}
-        data-tooltip="Мне нравится"
-        {% else %}
-        data-tooltip="Войдите или зарегистрируйтесь"
-        {% endif %}>
+  <span class="like
+              {% if request.user.is_authenticated %}like2{% else %}need_auth_toast{% endif %}
+              {% if comment.likes.all|user_in:user %} text-success{% endif %}">
       <span class="fa fa-thumbs-o-up"></span>
       <span class="likes_count">{{ comment.likes_count }}</span>
   </span>
   &nbsp;&nbsp;
-  <span class="dislike dislike2 {% if comment.dislikes.all|user_in:user %}text-danger{% endif %}"
-        {% if request.user.is_authenticated %}
-        data-tooltip="Мне не нравится"
-        {% else %}
-        data-tooltip="Войдите или зарегистрируйтесь"
-        {% endif %}>
+  <span class="dislike
+               {% if request.user.is_authenticated %}dislike2{% else %}need_auth_toast{% endif %}
+               {% if comment.dislikes.all|user_in:user %} text-danger{% endif %}">
       <span class="fa fa-thumbs-o-down"></span>
       <span class="dislikes_count">{{ comment.dislikes_count }}</span>
   </span>

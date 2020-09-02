@@ -39,7 +39,6 @@
 		});
 	  });
 	}
-	scrollBanner();
 
 	window.scrollReveal = new scrollReveal();
 
@@ -66,12 +65,6 @@
 			}
 		}
     });
-	$('#hero-slider').on('mousedown touchstart', function(event) {
-		$('body').addClass('scale-up');
-	});
-	$('#hero-slider').on('mouseup touchend', function(event) {
-		$('body').removeClass('scale-up');
-	});
 
 	var app = function () {
 		var body = undefined;
@@ -101,6 +94,14 @@
 
 
 	$(document).ready(function() {
+    $('#hero-slider').on('mousedown touchstart', function(event) {
+      $('body').addClass('scale-up');
+    });
+    $('#hero-slider').on('mouseup touchend', function(event) {
+      $('body').removeClass('scale-up');
+    });
+    
+    scrollBanner();
 
 		var offset = 300;
 		var duration = 400;
@@ -409,7 +410,7 @@
 
   on('body', 'click', '#register_ajax', function() {
     if (!document.body.querySelector("#username").value){
-      document.body.querySelector("#username").style.border = "1px #FF0000 solid"; 
+      document.body.querySelector("#username").style.border = "1px #FF0000 solid";
       toast_error("Никнейм - обязательное поле!");
     } else if (!document.body.querySelector("#password1").value){
       document.body.querySelector("#password1").style.border = "1px #FF0000 solid";

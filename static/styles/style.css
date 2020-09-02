@@ -390,7 +390,7 @@ a:hover {
 
 .scroll-to-top{
 	position: fixed;
-	bottom: 210px;
+	bottom: 350px;
 	right: 36px;
 	opacity: 0;
 	visibility: hidden;

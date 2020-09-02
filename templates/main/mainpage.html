@@ -2,6 +2,7 @@
 {% block title %}Главная страница{% endblock %}
 {% block content %}
 
+<span class="d-none d-sm-block">
 <div class="section full-height over-hide swiper-container z-bigger" id="hero-slider">
   <ul class="swiper-wrapper case-study-wrapper">
     <li class="swiper-slide full-height case-study-name">
@@ -62,7 +63,12 @@
     <div class="hero-number">05</div>
   </li>
 </ul>
-
+</span>
+<span class="d-sm-none d-block">
+  <ul class="case-study-images">
+    <div class="img-hero-background no-blur" style="background-image: url('/static/images/demo_about.jpg');"></div>
+  </ul>
+</span>
 {% include 'desctop_footer.html' %}
 
 {% endblock %}

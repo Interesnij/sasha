@@ -15,7 +15,7 @@
           data-tooltip="Войдите или зарегистрируйтесь и ставьте лайки"
           {% endif %}>
         <span class="fa fa-thumbs-o-up"></span>
-        <span data-count="like">{{ object.likes_count }}</span>
+        <span class="likes_count">{{ object.likes_count }}</span>
     </span>
     &nbsp;&nbsp;
     <span class="dislike hover-target {% if object.dislikes|user_in:user %}text-danger{% endif %}"
@@ -25,7 +25,7 @@
           data-tooltip="Войдите или зарегистрируйтесь и ставьте дизлайки"
           {% endif %}>
         <span class="fa fa-thumbs-o-down"></span>
-        <span data-count="dislike">{{ object.dislikes_count }}</span>
+        <span class="dislikes_count">{{ object.dislikes_count }}</span>
     </span>
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

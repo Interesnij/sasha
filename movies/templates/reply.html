@@ -24,7 +24,7 @@
         data-tooltip="Войдите или зарегистрируйтесь"
         {% endif %}>
       <span class="fa fa-thumbs-o-up"></span>
-      <span data-count="like">{{ reply.likes_count }}</span>
+      <span class="likes_count">{{ reply.likes_count }}</span>
   </span>
   &nbsp;&nbsp;
   <span class="dislike2 {% if reply.dislikes|user_in:user %}text-danger{% endif %}"
@@ -34,7 +34,7 @@
         data-tooltip="Войдите или зарегистрируйтесь"
         {% endif %}>
       <span class="fa fa-thumbs-o-down"></span>
-      <span data-count="dislike">{{ reply.dislikes_count }}</span>
+      <span class="dislikes_count">{{ reply.dislikes_count }}</span>
   </span>
   &nbsp;&nbsp;
   {% if request.user.is_authenticated %}

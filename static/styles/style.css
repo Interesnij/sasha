@@ -2792,10 +2792,10 @@ figure.vimeo a img, figure.youtube a img {
 	}
 	.scroll-to-top{
 		right: 22px;
-		bottom: 180px;
+		bottom: 350px;
 	}
 	.scroll-to-top:hover{
-		bottom: 182px;
+		bottom: 352px;
 	}
 	.page-title h1{
 		font-size: 60px;

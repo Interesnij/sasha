@@ -40,8 +40,6 @@
 	  });
 	}
 
-	window.scrollReveal = new scrollReveal();
-
     var swiper = new Swiper('.swiper-container', {
 		scrollbar: {
 			el: '.swiper-scrollbar',
@@ -100,7 +98,7 @@
     $('#hero-slider').on('mouseup touchend', function(event) {
       $('body').removeClass('scale-up');
     });
-    
+    window.scrollReveal = new scrollReveal();
     scrollBanner();
 
 		var offset = 300;

@@ -1,6 +1,6 @@
 {% load liked_user %}
 
-<span data-pk="{{ reply.pk }}">
+<span data-pk="{{ reply.pk }}" style="display: block;margin-top:15px">
   <a href="{% url 'user' pk=comment.commenter.pk %}" class="hover-target">
   {% if reply.commenter.avatar %}
     <img src="{{ reply.commenter.avatar.url }}" alt="user_avatar" />

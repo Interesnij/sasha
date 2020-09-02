@@ -407,7 +407,7 @@ a:hover {
 	transition: all 250ms linear;
 }
 .scroll-to-top:hover{
-	bottom: 212px;
+	bottom: 352px;
 }
 .scroll-to-top.active-arrow{
 	opacity: 1;

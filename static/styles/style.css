@@ -1,3 +1,10 @@
+#signup input,
+#signup button,
+#login_form input,
+#login_form button{
+  background-color: #000000
+}
+
 .stream_reply_comments{display:none;}
 .stream_reply_comments.replies_open{display:block;  }
 
@@ -839,7 +846,7 @@ a:hover {
 .nav__list-item a{
 	position: relative;
 	text-decoration: none;
-	color: rgba(255,255,255,0.6);
+	color: rgba(255,255,255,0.6) !important;
 	overflow: hidden;
 	cursor: pointer;
 	padding-left: 5px;

@@ -1,6 +1,6 @@
 on('body', 'click', '.show_replies', function() {
   this.nextElementSibling.classList.toggle("replies_open")
-}
+})
 
 on('body', 'click', '.reply_form_open', function() {
   div = this.nextElementSibling;

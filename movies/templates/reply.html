@@ -18,14 +18,14 @@
   </h6>
   <p class="mt-2">{{ reply.text }}</p>
   <span class="like
-               {% if request.user.is_authenticated %}like2{% else %}need_auth_toast{% endif %}
+               {% if request.user.is_authenticated %}like2 hover-target{% else %}need_auth_toast{% endif %}
                {% if reply.likes|user_in:user %} text-success{% endif %}">
       <span class="fa fa-thumbs-o-up"></span>
       <span class="likes_count">{{ reply.likes_count }}</span>
   </span>
   &nbsp;&nbsp;
   <span class="dislike
-               {% if request.user.is_authenticated %}dislike2{% else %}need_auth_toast{% endif %}
+               {% if request.user.is_authenticated %}dislike2 hover-target{% else %}need_auth_toast{% endif %}
                {% if reply.dislikes|user_in:user %} text-danger{% endif %}">
       <span class="fa fa-thumbs-o-down"></span>
       <span class="dislikes_count">{{ reply.dislikes_count }}</span>
@@ -43,7 +43,7 @@
           <div class="row no-gutters" style="margin-top: 15px;">
               <div class="col">
                   <div class="input-group input-group-sm" style="width: 105%;">
-                      <textarea name="text" class="text-comment"></textarea>
+                      <input name="text" class="text-comment">
                       <button class="btn-long mt-4 hover-target parent_comment" type="button">Комментировать</button>
                   </div>
               </div>

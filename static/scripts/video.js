@@ -67,20 +67,18 @@ on('body', 'click', '.dislike', function() {
   item = this.parentElement;
   pk = item.getAttribute("data-pk");
   send_dislike(item, "/movies/dislike/" + pk + "/");
-}); 
+});
 
 on('body', 'click', '.like2', function() {
   _this = this;
   item = _this.parentElement;
   comment_pk = item.getAttribute("data-pk");
-  pk = document.body.querySelector(".pk_saver").getAttribute("data-pk");
   send_like(item, "/movies/comment_like/" + comment_pk + "/");
 });
 on('body', 'click', '.dislike2', function() {
   _this = this;
   item = _this.parentElement;
   comment_pk = item.getAttribute("data-pk");
-  pk = document.body.querySelector(".pk_saver").getAttribute("data-pk");
   send_dislike(item, "/movies/comment_dislike/" + comment_pk + "/");
 });
 

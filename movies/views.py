@@ -47,7 +47,7 @@ class VideoCommentCreate(View):
 
     def post(self,request,*args,**kwargs):
         form_post = CommentForm(request.POST)
-        video_comment = Video.objects.get(pk=request.POST.get('post_comment'))
+        video_comment = Video.objects.get(pk=request.POST.get('pk'))
 
         if request.is_ajax() and form_post.is_valid() and video_comment.comments_enabled:
             comment = form_post.save(commit=False)

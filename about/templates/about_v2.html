@@ -121,7 +121,7 @@
 						<p class="mb-0 pb-0">Свяжитесь со мной</p>
 					</div>
 					<div class="col-12 padding-top">
-						<form class="form ajax-form contact-form" style="width:100%;"action="">
+						<form class="form ajax-form contact-form" id="feedback_form" style="width:100%;"action="">
 							{% csrf_token %}
   							   <div class="">
                      {{ form.name }}

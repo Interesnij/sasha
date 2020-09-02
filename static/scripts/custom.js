@@ -43,14 +43,6 @@
 	  });
 	}
 
-
-	/* Scroll Animation */
-
-	window.scrollReveal = new scrollReveal();
-
-
-	/* Swiper */
-
     var swiper = new Swiper('.swiper-container', {
 		scrollbar: {
 			el: '.swiper-scrollbar',
@@ -112,7 +104,7 @@
 
 
 	$(document).ready(function() {
-
+    window.scrollReveal = new scrollReveal();
     scrollBanner();
 
 		var offset = 300;
@@ -333,7 +325,7 @@
   function send_comment(form, block, link){
     if (!form.querySelector(".text-comment").value){
       form.querySelector(".text-comment").style.border = "1px #FF0000 solid";
-      toast_error("Напишите что-нибудь")} 
+      toast_error("Напишите что-нибудь")}
 
     form_comment = new FormData(form);
     link_ = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );

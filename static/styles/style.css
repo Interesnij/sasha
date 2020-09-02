@@ -1,3 +1,6 @@
+.stream_reply_comments{display:none;}
+.stream_reply_comments.replies_open{display:block;  }
+
 .toasts {
     width: auto;
     position: fixed;

@@ -17,7 +17,7 @@
     <small>{{ reply.get_created }}</small>
   </h6>
   <p class="mt-2">{{ reply.text }}</p>
-  <span class="like2 {% if reply.likes|user_in:user %}text-success{% endif %}"
+  <span class="like like2 {% if reply.likes|user_in:user %}text-success{% endif %}"
         {% if request.user.is_authenticated %}
         data-tooltip="Мне нравится"
         {% else %}
@@ -27,7 +27,7 @@
       <span class="likes_count">{{ reply.likes_count }}</span>
   </span>
   &nbsp;&nbsp;
-  <span class="dislike2 {% if reply.dislikes|user_in:user %}text-danger{% endif %}"
+  <span class="dislike dislike2 {% if reply.dislikes|user_in:user %}text-danger{% endif %}"
         {% if request.user.is_authenticated %}
         data-tooltip="Мне не нравится"
         {% else %}

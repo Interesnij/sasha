@@ -58,12 +58,12 @@ on('body', 'click', '.u_reply_parent_comment', function() {
   block.classList.add("replies_open");
 });
 
-on('body', 'click', '.like', function() {
+on('body', 'click', '.v_like', function() {
   item = this.parentElement;
   pk = item.getAttribute("data-pk");
   send_like(item, "/movies/like/" + pk + "/");
 });
-on('body', 'click', '.dislike', function() {
+on('body', 'click', '.v_dislike', function() {
   item = this.parentElement;
   pk = item.getAttribute("data-pk");
   send_dislike(item, "/movies/dislike/" + pk + "/");

@@ -13,6 +13,7 @@ class Blank(models.Model):
 		verbose_name = "Документ"
 		verbose_name_plural = "Документы"
 		indexes = (BrinIndex(fields=['created']),)
+		db_table = '"Шаблоны заявлений"'
 
 	def get_blank(self):
 		filename = self.file.name.split('/')[-1]

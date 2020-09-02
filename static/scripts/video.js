@@ -67,7 +67,7 @@ on('body', 'click', '.dislike', function() {
   item = this.parentElement;
   pk = item.getAttribute("data-pk");
   send_dislike(item, "/movies/dislike/" + pk + "/");
-});
+}); 
 
 on('body', 'click', '.like2', function() {
   _this = this;

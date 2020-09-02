@@ -167,7 +167,7 @@ class VideoDislikeCreate(View):
         except VideoVotes.DoesNotExist:
             VideoVotes.objects.create(parent=video, user=request.user, vote=VideoVotes.DISLIKE)
             result = True
-        likes = item.likes_count()
+        likes = video.likes_count()
         if likes != 0:
             like_count = likes
         else:

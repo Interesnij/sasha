@@ -62,7 +62,7 @@ class VideoReplyCreate(View):
         form_post = CommentForm(request.POST)
         parent = VideoComment.objects.get(pk=request.POST.get('post_comment'))
 
-        if request.is_ajax() and form_post.is_valid() and parent.video_comment.comments_enabled:
+        if request.is_ajax() and form_post.is_valid(): 
             comment = form_post.save(commit=False)
             new_comment = comment.create_comment(commenter=request.user, parent_comment=parent, video_comment=None, text=comment.text)
             return render(request, 'reply.html',{'reply': new_comment, 'comment': parent,})

@@ -59,12 +59,12 @@ on('body', 'click', '.u_reply_parent_comment', function() {
 });
 
 on('body', 'click', '.like', function() {
-  item = this.parentElement.parentElement.parentElement.parentElement;
+  item = this.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
-  send_like(item, "/movies/user_like/" + pk + "/");
+  send_like(item, "/movies/like/" + pk + "/");
 });
 on('body', 'click', '.dislike', function() {
-  item = this.parentElement.parentElement.parentElement.parentElement;
+  item = this.parentElement.parentElement;
   pk = item.getAttribute("data-pk");
   send_dislike(item, "/movies/dislike/" + pk + "/");
 });

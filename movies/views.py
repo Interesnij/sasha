@@ -92,7 +92,7 @@ class VideoCommentAbortDelete(View):
 
 class VideoLikeCreate(View):
     def get(self, request, **kwargs):
-        video = Video.objects.get(uuid=self.kwargs["uuid"])
+        video = Video.objects.get(pk=self.kwargs["pk"])
         if not request.is_ajax() and not video.votes_on:
             raise Http404
         try:
@@ -152,7 +152,7 @@ class VideoCommentLikeCreate(View):
 
 class VideoDislikeCreate(View):
     def get(self, request, **kwargs):
-        video = Video.objects.get(uuid=self.kwargs["uuid"])
+        video = Video.objects.get(pk=self.kwargs["pk"])
         if not request.is_ajax() and not video.votes_on:
             raise Http404
         try:

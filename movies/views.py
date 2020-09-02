@@ -52,7 +52,7 @@ class VideoCommentCreate(View):
         if request.is_ajax() and form_post.is_valid() and video_comment.comments_enabled:
             comment = form_post.save(commit=False)
             new_comment = comment.create_comment(commenter=request.user, parent_comment=None, video_comment=video_comment, text=comment.text)
-            return render(request, 'video_comment.html',{'comment': new_comment})
+            return render(request, 'parent.html',{'comment': new_comment})
         else:
             return HttpResponseBadRequest()
 
@@ -65,7 +65,7 @@ class VideoReplyCreate(View):
         if request.is_ajax() and form_post.is_valid() and parent.video_comment.comments_enabled:
             comment = form_post.save(commit=False)
             new_comment = comment.create_comment(commenter=request.user, parent_comment=parent, video_comment=None, text=comment.text)
-            return render(request, 'video_reply_comment.html',{'reply': new_comment, 'comment': parent,})
+            return render(request, 'reply.html',{'reply': new_comment, 'comment': parent,})
         else:
             return HttpResponseBadRequest()
 

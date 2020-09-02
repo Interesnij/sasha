@@ -343,6 +343,7 @@
       new_post = document.createElement("span");
       new_post.innerHTML = elem;
   		block.append(new_post);
+      console.log(block)
     }};
 
     link_.send(form_comment);

@@ -66,6 +66,22 @@
 			}
 		}
     });
+
+    var offset = 300;
+    var duration = 400;
+    jQuery(window).on('scroll', function() {
+      if (jQuery(this).scrollTop() > offset) {
+        jQuery('.scroll-to-top').addClass('active-arrow');
+      } else {
+        jQuery('.scroll-to-top').removeClass('active-arrow');
+      }
+    });
+    jQuery('.scroll-to-top').on('click', function(event) {
+      event.preventDefault();
+      jQuery('html, body').animate({scrollTop: 0}, duration);
+      return false;
+    })
+
 	$('#hero-slider').on('mousedown touchstart', function(event) {
 		$('body').addClass('scale-up');
 	});
@@ -94,33 +110,13 @@
     var toggleClass = function toggleClass(element, stringClass) {
       if (element.classList.contains(stringClass)) element.classList.remove(stringClass);else element.classList.add(stringClass);
     };
-
     init();
   }();
-  
+
+window.scrollReveal = new scrollReveal();
 scrollBanner();
 
 	$(document).ready(function() {
-
-    window.scrollReveal = new scrollReveal();
-
-		var offset = 300;
-		var duration = 400;
-		jQuery(window).on('scroll', function() {
-			if (jQuery(this).scrollTop() > offset) {
-				jQuery('.scroll-to-top').addClass('active-arrow');
-			} else {
-				jQuery('.scroll-to-top').removeClass('active-arrow');
-			}
-		});
-		jQuery('.scroll-to-top').on('click', function(event) {
-			event.preventDefault();
-			jQuery('html, body').animate({scrollTop: 0}, duration);
-			return false;
-		})
-
-
-		/* Hero Case Study Hover Effect */
 
 		$('.case-study-name:nth-child(1)').on('mouseenter touchstart', function() {
 			$('.case-study-name.active').removeClass('active');

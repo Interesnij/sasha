@@ -177,3 +177,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     )
 }
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+AUTH_USER_MODEL = 'users.User'
+ACCOUNT_USERNAME_REQUIRED = True

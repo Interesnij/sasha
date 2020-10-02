@@ -10,7 +10,7 @@
 						<h1>Шаблоны</h1>
 					</div>
 					<div class="offset-1 col-11 parallax-fade-top mt-2 mt-sm-3">
-						<p>Шаблоны заявлений</p>
+						<p>Если вам встретилась информация следующего содержания</p>
 					</div>
 				</div>
 			</div>
@@ -18,12 +18,13 @@
 
     <div class="section padding-bottom-big over-hide z-bigger">
 			<div class="container">
-				<div class="row text-center">
+				<div class="row">
           {% if object_list %}
           {% for object in object_list %}
 					   <h5 class="mb-3 document col-12">
+							 <p>{{ object.title }}</p><br>
                <a href="{{ object.file.url }}" target="_blank">
-                 {{ object.title }}
+                ✴️ скачать ✴️
                </a>
              </h5>
           {% endfor %}
@@ -33,7 +34,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 {% include 'desctop_footer.html' %}
 
 {% endblock %}

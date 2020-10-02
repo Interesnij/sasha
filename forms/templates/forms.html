@@ -21,13 +21,10 @@
 				<div class="row">
           {% if object_list %}
           {% for object in object_list %}
-					   <h5 class="mb-3 document col-12">
+					   <h5 class="mb-5 document col-12">
 							 <p>{{ object.title }}</p>
-               <a href="{{ object.file.url }}" target="_blank">
-                ✴️ скачать ✴️
-               </a>
+               ✴️ <a href="{{ object.file.url }}" target="_blank">скачать</a> ✴️
              </h5>
-						 <br><br>
           {% endfor %}
           {% else %}
           <h2>Шаблонов пока нет...</h2>

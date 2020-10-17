@@ -11,8 +11,10 @@ class BlogAdmin(admin.ModelAdmin):
     class Meta:
             model = Blog
 
-    def get_changeform_initial_data(self, request):
-        return {'creator': request.user}
+    def get_form(self, request, *args, **kwargs):
+        form = super(PageAdmin, self).get_form(request, *args, **kwargs)
+        form.base_fields['creator'].initial = request.user
+        return form
 
 class BlogCommentAdmin(admin.ModelAdmin):
     list_display = ['text','commenter','created']

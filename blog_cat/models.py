@@ -21,11 +21,9 @@ class BlogCategory(models.Model):
 		return self.blog_categories.filter(category=self).values("pk").exists()
 
 	def get_articles_10(self):
-		query = Q(category_id=self.pk)
-		list = Blog.objects.filter(query)[:10]
+		list = self.blog_categories.filter(category=self)[:10]
 		return list
 
 	def get_articles(self):
-		query = Q(category_id=self.pk)
-		list = Blog.objects.filter(query)
+		list = self.blog_categories.filter(category=self)
 		return list

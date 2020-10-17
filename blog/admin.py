@@ -12,7 +12,7 @@ class BlogAdmin(admin.ModelAdmin):
             model = Blog
 
     def get_form(self, request, *args, **kwargs):
-        form = super(PageAdmin, self).get_form(request, *args, **kwargs)
+        form = super(BlogAdmin, self).get_form(request, *args, **kwargs)
         form.base_fields['creator'].initial = request.user
         return form
 

@@ -13,7 +13,6 @@
       <span class="separator"><span class="separator-line dashed"></span></span>
     </div>
 
-    <h6 class="mb-3 mt-4">Похожие статьи</h6>
     {% for blog in object.get_articles_5 %}
     <div class="video-section hover-target mt-4 mb-4">
       <a href="{% url 'blog_detail' pk=object.pk %}" class="btn-link btn-primary hover-target pl-0">

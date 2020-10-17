@@ -12,9 +12,9 @@
     <div class="separator-wrap my-5">
       <span class="separator"><span class="separator-line dashed"></span></span>
     </div>
-
+    {{ object.get_articles_5 }}
     <h6 class="mb-3 mt-4">Похожие статьи</h6>
-    {% for blog in object.get_articles_5 %}
+    {% for blog in object.get_articles_ %}
     <div class="video-section hover-target mt-4 mb-4">
       <figure class="vimeo">
         <a href="{% url 'blog_detail' pk=blog.pk %}" >

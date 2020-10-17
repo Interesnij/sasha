@@ -72,8 +72,8 @@ class Blog(models.Model):
         comments_query.add(Q(parent_comment__isnull=True), Q.AND)
         return BlogComment.objects.filter(comments_query)
 
-    def get_moovies(self):
-        get_moovie = Blog.objects.filter(category__in=self.category.all)
+    def get_articles_5(self):
+        get_moovie = Blog.objects.filter(category__in=self.category.all)[:5]
         return get_moovie
 
     def get_created(self):

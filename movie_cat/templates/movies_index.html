@@ -31,7 +31,7 @@
 								<div class="row">
 									<div class="col-lg-6">
 										<p class="pl-0 pl-md-5 mb-4">{{ object.description|safe }}</p>
-										<p class="lead pl-0 pl-md-5 mb-0"><em>{{ object.get_posted }}</em></p>
+										<p class="lead pl-0 pl-md-5 mb-0"><em>{{ object.get_created }}</em></p>
 										<a href="{% url 'movies_detail' pk=object.pk %}" class="hover-target animsition-link"><div class="go-to-post"></div></a>
 									</div>
 								</div>

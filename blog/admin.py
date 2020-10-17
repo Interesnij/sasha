@@ -2,7 +2,7 @@ from django.contrib import admin
 from blog.models import Blog, BlogComment
 
 
-class VideoAdmin(admin.ModelAdmin):
+class BlogAdmin(admin.ModelAdmin):
     list_display = ['title', 'description', 'created']
     list_filter = ['created', 'category']
     search_fields = ['title', 'description', 'created']

@@ -24,3 +24,8 @@ class VideoCategory(models.Model):
 		query = Q(category_id=self.pk)
 		list = Video.objects.filter(query)
 		return list
+
+	def get_movies_10(self):
+		query = Q(category_id=self.pk)
+		list = Video.objects.filter(query)[:10]
+		return list

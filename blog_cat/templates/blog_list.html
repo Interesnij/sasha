@@ -1,34 +1,34 @@
 {% extends "base.html" %}
-{% block title %}Последние ролики{% endblock %}
+{% block title %}Последние статьи{% endblock %}
 {% block content %}
 
-<div class="shadow-title parallax-top-shadow">Последние ролики</div>
+<div class="shadow-title parallax-top-shadow">Последние статьи</div>
 
 		<div class="section padding-page-top padding-bottom over-hide z-bigger">
 			<div class="container z-bigger">
 				<div class="row page-title px-xl-2">
 					<div class="col-12 parallax-fade-top">
-						<h1>Последние ролики</h1>
+						<h1>Последние статьи</h1>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="section padding-bottom-big over-hide z-bigger">
-    {% for cat in movie_categories %}
+    {% for cat in blog_categories %}
 		{% if cat.is_movies_exists %}
     <div class="container">
 				<div class="row px-5 px-xl-2">
 					<div class="col-12 padding-top">
-						<h3><a href="{% url 'movies_index' slug=cat.slug %}" style="color:white">{{ cat.name }}</a></h3>
+						<h3><a href="{% url 'blog_index' slug=cat.slug %}" style="color:white">{{ cat.name }}</a></h3>
 					</div>
 					<div class="col-12 mt-2 mb-5 page-title-small">
 						<p class="mb-0 pb-0">Видео-плейлист</p>
 					</div>
 					<div class="col-md-12" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s" data-scroll-reveal-id="1" data-scroll-reveal-initialized="true" data-scroll-reveal-complete="true">
 						<ul class="studio-list">
-              {% for object in cat.get_movies_10 %}
+              {% for object in cat.get_articles_10 %}
 							   <li>
-                   <p><a href="{% url 'movies_detail' pk=object.pk %}" style="color:white">{{ object.title }}</a></p>
+                   <p><a href="{% url 'blog_detail' pk=object.pk %}" style="color:white">{{ object.title }}</a></p>
                  </li>
               {% endfor %}
 						</ul>

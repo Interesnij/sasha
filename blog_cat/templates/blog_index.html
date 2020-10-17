@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% block title %}{{ category.name }} | Видео{% endblock %}
+{% block title %}{{ category.name }} | Статьи категории{% endblock %}
 {% block content %}
 
-<div class="shadow-title parallax-top-shadow">Видео</div>
+<div class="shadow-title parallax-top-shadow">Статьи</div>
 
 		<div class="section padding-page-top padding-bottom over-hide z-bigger">
 			<div class="container z-bigger">
@@ -11,7 +11,7 @@
 						<h1>{{ category.name }}</h1>
 					</div>
 					<div class="offset-1 col-11 parallax-fade-top mt-2 mt-sm-3">
-						<p>Видео плейлиста</p>
+						<p>Статьи категории</p>
 					</div>
 				</div>
 			</div>
@@ -25,21 +25,21 @@
 						<ul class="case-study-wrapper vertical-blog">
               {% for object in object_list %}
 							<li class="case-study-name mb-5">
-								<a href="{% url 'movies_detail' pk=object.pk %}" class="hover-target animsition-link">
+								<a href="{% url 'blog_detail' pk=object.pk %}" class="hover-target animsition-link">
 									<h4 class="mb-3">{{ object.title }}</h4>
 								</a>
 								<div class="row">
 									<div class="col-lg-6">
 										<p class="pl-0 pl-md-5 mb-4">{{ object.description|safe }}</p>
 										<p class="lead pl-0 pl-md-5 mb-0"><em>{{ object.get_posted }}</em></p>
-										<a href="{% url 'movies_detail' pk=object.pk %}" class="hover-target animsition-link"><div class="go-to-post"></div></a>
+										<a href="{% url 'blog_detail' pk=object.pk %}" class="hover-target animsition-link"><div class="go-to-post"></div></a>
 									</div>
 								</div>
 							</li>
               {% endfor %}
 						</ul>
             {% else %}
-            <h3 style="text-align:center">Видео пока нет :-)</h3>
+            <h3 style="text-align:center">Статей пока нет :-)</h3>
             {% endif %}
 					</div>
 				</div>

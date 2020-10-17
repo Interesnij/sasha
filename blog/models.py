@@ -26,8 +26,8 @@ class Blog(models.Model):
     count = models.PositiveIntegerField(default=0, verbose_name="Просмотры")
 
     class Meta:
-        verbose_name = "Видео-ролики"
-        verbose_name_plural = "Видео-ролики"
+        verbose_name = "Статья"
+        verbose_name_plural = "Статьи"
         indexes = (BrinIndex(fields=['created']),)
         ordering = ["-created"]
 

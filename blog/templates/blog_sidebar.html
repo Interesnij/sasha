@@ -13,8 +13,8 @@
       <span class="separator"><span class="separator-line dashed"></span></span>
     </div>
 
-    <h6 class="mb-3 mt-4">Ролики плейлиста</h6>
-    {% for blog in object.get_articles_10 %}
+    <h6 class="mb-3 mt-4">Статьи категории</h6>
+    {% for blog in category.get_articles_10 %}
     <div class="video-section hover-target mt-4 mb-4">
       <figure class="vimeo">
         <a href="{% url 'blog_detail' pk=blog.pk %}" >

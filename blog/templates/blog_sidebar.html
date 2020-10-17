@@ -16,7 +16,7 @@
     <h6 class="mb-3 mt-4">Похожие статьи</h6>
     {% for blog in object.get_articles_5 %}
     <div class="video-section hover-target mt-4 mb-4">
-      <h5 class="mb-3">{{ blog.title }}</h5>
+      <h6 class="mb-1">{{ blog.title }}</h6>
       <p class="mb-0 pb-0">{{ blog.description }}</p>
     </div>
     {% endfor %}

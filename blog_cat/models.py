@@ -17,8 +17,8 @@ class BlogCategory(models.Model):
 	def __str__(self):
 		return self.name
 
-	def is_movies_exists(self):
-		return Blog.objects.filter(category_id=self.pk).exists()
+	def is_article_exists(self):
+		return self.blog_categories.filter(category=self).values("pk").exists()
 
 	def get_articles_10(self):
 		query = Q(category_id=self.pk)

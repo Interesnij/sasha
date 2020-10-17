@@ -19,7 +19,7 @@ class Blog(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
     description = models.CharField(max_length=500, blank=True, verbose_name="Описание")
     content = RichTextUploadingField(config_name='default',external_plugin_resources=[('youtube','/static/ckeditor_plugins/youtube/youtube/','plugin.js',)],)
-    category = models.ManyToManyField('blog_cat.BlogCategory', related_name="blog_categories", blank=True)
+    category = models.ManyToManyField('blog_cat.BlogCategory', related_name="blog_categories", blank=True, verbose_name="Категория")
     comments_enabled = models.BooleanField(default=True, verbose_name="Разрешить комментарии")
     votes_on = models.BooleanField(default=True, verbose_name="Реакции разрешены")
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Создатель")

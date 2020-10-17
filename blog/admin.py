@@ -7,7 +7,6 @@ class BlogAdmin(admin.ModelAdmin):
     list_filter = ['created', 'category']
     search_fields = ['title', 'description', 'created']
     exclude = ('count',)
-    fields=('creator', )
 
     class Meta:
             model = Blog
@@ -17,10 +16,7 @@ class BlogAdmin(admin.ModelAdmin):
         form.base_fields['creator'].initial = request.user
         return form
 
-    def get_readonly_fields(self, request, obj=None):
-        if obj is None:
-            return ['creator']
-        return []
+    
 
 class BlogCommentAdmin(admin.ModelAdmin):
     list_display = ['text','commenter','created']

@@ -5,8 +5,8 @@ from blog.models import Blog, BlogComment
 class BlogAdmin(admin.ModelAdmin):
     list_display = ['title', 'description', 'created']
     list_filter = ['created', 'category']
-    search_fields = ['title', 'description', 'created']
-    exclude = ('creator', 'count')
+    search_fields = ['title', 'creator', 'description', 'created']
+    exclude = ('count',)
 
     class Meta:
             model = Blog

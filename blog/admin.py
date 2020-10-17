@@ -14,7 +14,6 @@ class BlogAdmin(admin.ModelAdmin):
     def get_form(self, request, *args, **kwargs):
         form = super(BlogAdmin, self).get_form(request, *args, **kwargs)
         form.base_fields['creator'].initial = request.user
-        form.base_fields['creator'].editable = False
         return form
 
 class BlogCommentAdmin(admin.ModelAdmin):

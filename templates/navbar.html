@@ -24,6 +24,7 @@
       {% url 'proects_index' as proects_url %}
       {% url 'login' as login_url %}
       {% url 'movies_list' as movies_list_url %}
+      {% url 'blog_list' as blog_list_url %}
       {% url 'friends' as friends_url %}
 
       <li class="nav__list-item {% if main_url == current_url %}active-nav{% endif %}">
@@ -43,11 +44,26 @@
         </a>
         <ul class="sub-links collapse" id="collapseSub">
           <li class="{% if movies_list_url == current_url %}active-nav{% endif %}">
-            <a href="{{ movies_list_url }}" class="hover-target animsition-link">Все ролики</a>
+            <a href="{{ movies_list_url }}" class="hover-target animsition-link">Последние ролики</a>
           </li>
           {% for object in movie_categories %}
             <li {% if object.pk == category.pk %} class="active-nav"{% endif %}>
               <a href="{% url 'movies_index' slug=object.slug %}" class="hover-target animsition-link">{{ object.name }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+      <li class="nav__list-item">
+        <a class="hover-target toggle_show_menu" role="button">
+          Статьи
+        </a>
+        <ul class="sub-links collapse" id="collapseSub">
+          <li class="{% if movies_list_url == current_url %}active-nav{% endif %}">
+            <a href="{{ blog_list_url }}" class="hover-target animsition-link">Последние статьи</a>
+          </li>
+          {% for object in blog_categories %}
+            <li {% if object.pk == category.pk %} class="active-nav"{% endif %}>
+              <a href="{% url 'blog_index' slug=object.slug %}" class="hover-target animsition-link">{{ object.name }}</a>
             </li>
           {% endfor %}
         </ul>

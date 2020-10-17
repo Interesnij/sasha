@@ -6,7 +6,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ['title', 'description', 'created']
     list_filter = ['created', 'category']
     search_fields = ['title', 'creator', 'description', 'created']
-    exclude = ('count',)
+    exclude = ('count', 'creator',)
 
     class Meta:
             model = Blog

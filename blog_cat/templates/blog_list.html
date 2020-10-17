@@ -14,6 +14,8 @@
 			</div>
 		</div>
 		<div class="section padding-bottom-big over-hide z-bigger">
+		{% if blog_categories %}
+
     {% for cat in blog_categories %}
 		{% if cat.is_movies_exists %}
     <div class="container">
@@ -37,6 +39,10 @@
 		</div>
 		{% endif %}
     {% endfor %}
+
+		{% else %}
+			<h3 style="text-align:center">Статей пока нет :-)</h3>
+		{% endif %}
 		</div>
 
 		{% include 'desctop_footer.html' %}

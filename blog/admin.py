@@ -7,6 +7,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_filter = ['created', 'category']
     search_fields = ['title', 'description', 'created']
     exclude = ('count',)
+    readonly_fields = ["creator"]
 
     class Meta:
             model = Blog

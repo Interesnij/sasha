@@ -14,7 +14,7 @@ class Blog(models.Model):
     image = ProcessedImageField(format='JPEG',
                                 options={'quality': 90},
                                 upload_to="blog/%Y/%m/%d/",
-                                processors=[ResizeToFit(width=500, upscale=False)],
+                                processors=[ResizeToFit(width=1600, upscale=False)],
                                 verbose_name="Главное изображение")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
     description = models.CharField(max_length=500, blank=True, verbose_name="Описание")

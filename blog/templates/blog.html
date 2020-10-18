@@ -16,7 +16,7 @@
 							<h4 style="margin-top:20px;margin-bottom:20px">{{ object.title }}</h4>
 							<div class="post-box background-dark over-hide">
               {% if object.image %}
-                <img src="{{ object.image.url }}" alt="img" style="object-fit: cover;width: 100%;" />
+                <img src="{{ object.image.url }}" alt="img" />
 							{% endif %}
 							<div class="padding-in">
 									<p class="mt-4">{{ object.content|safe }}</p>

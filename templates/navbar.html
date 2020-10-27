@@ -26,6 +26,7 @@
       {% url 'movies_list' as movies_list_url %}
       {% url 'blog_list' as blog_list_url %}
       {% url 'friends' as friends_url %}
+      {% url 'contacts' as contacts_url %}
 
       <li class="nav__list-item {% if main_url == current_url %}active-nav{% endif %}">
         <a href="{{ main_url }}" class="hover-target animsition-link">Главная</a>
@@ -41,7 +42,7 @@
       <li class="nav__list-item">
         <a class="hover-target toggle_show_menu" role="button">
           Видео
-        </a> 
+        </a>
         <ul class="sub-links collapse" id="collapseSub">
           <li class="{% if movies_list_url == current_url %}active-nav{% endif %}">
             <a href="{{ movies_list_url }}" class="hover-target animsition-link">Последние ролики</a>
@@ -70,6 +71,9 @@
       </li>
       <li class="nav__list-item {% if friends_url == current_url %}active-nav{% endif %}">
         <a href="{{ friends_url }}" class="hover-target animsition-link">Друзья</a>
+      </li>
+      <li class="nav__list-item {% if friends_url == current_url %}active-nav{% endif %}">
+        <a href="{{ contacts_url }}" class="hover-target animsition-link">Помощь</a>
       </li>
       <li class="nav__list-item {% if about_url == current_url %}active-nav{% endif %}">
         <a href="{{ about_url }}" class="hover-target animsition-link">Обо мне</a>

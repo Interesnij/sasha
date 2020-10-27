@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Помощь{% endblock %}
+{% block content %}
+
+<div class="shadow-title parallax-top-shadow">Помощь</div>
+
+		<div class="section padding-page-top padding-bottom over-hide z-bigger">
+			<div class="container z-bigger">
+				<div class="row page-title px-5 px-xl-2">
+					<div class="col-12 parallax-fade-top">
+						<h1>Помощь</h1>
+					</div>
+					<div class="offset-1 col-11 parallax-fade-top mt-2 mt-sm-3">
+						<p>Содействие моей детельности</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section padding-bottom-big over-hide z-bigger">
+			<div class="container">
+				<div class="row px-5 px-xl-2">
+          Дорогие друзья и гости сайта!<br>
+          Вы можете оказать мне финансовую помощь. Я использую полученные пожертвования на осуществление общеполезной деятельности, а именно
+          общественной деятельности по защите прав граждан, естественной семьи и брака, прав родителей, человеческой жизни, традиционных семейных и
+          духовно-нравственных ценностей. При осуществлении этой деятельности Получатель вправе, по своему усмотрению, использовать услуги и привлекать
+          помощь третьих лиц как на бесплатной, так и на платной основе.
+
+          <br><br>
+          <h5 class="mb-5 document col-12">
+            <p>Договор о пожертвовании (Публичная оферта)</p>
+            ✴️ <a href="/static/oferta.docx" target="_blank">смотреть</a> ✴️
+          </h5>
+				</div>
+			</div>
+		</div>
+
+		<div class="section padding-top-bottom over-hide z-bigger background-dark-3 footer">
+			<div class="shadow-on-footer" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s">Обо мне</div>
+			<div class="container" data-scroll-reveal="enter bottom move 20px over 0.5s after 0.4s">
+				<div class="row">
+					<div class="col-12 text-center z-bigger py-5">
+						<div class="footer-lines">
+							<a href="{% url 'about' %}" class="hover-target animsition-link"><h4>Обо мне</h4></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% include 'desctop_footer.html' %}
+
+{% endblock %}

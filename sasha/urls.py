@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^users/', include('users.urls')),
 
     url(r'^about/', include('about.urls')),
-    url(r'^contacts/', include('contacts.urls')),
+    url(r'^help/', include('contacts.urls')),
 
     url(r'^terms/', include('terms.urls')),
     url(r'^policy/', include('policy.urls')),

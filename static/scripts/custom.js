@@ -409,8 +409,8 @@
   function on(elSelector,eventName,selector,fn) {var element = document.querySelector(elSelector);element.addEventListener(eventName, function(event) {var possibleTargets = element.querySelectorAll(selector);var target = event.target;for (var i = 0, l = possibleTargets.length; i < l; i++) {var el = target;var p = possibleTargets[i];while(el && el !== element) {if (el === p) {return fn.call(p, event);}el = el.parentNode;}}});};
 
   on('body', 'click', '#register_ajax', function() {
-    if (!document.body.querySelector("#username").value){
-      document.body.querySelector("#username").style.border = "1px #FF0000 solid";
+    if (!document.body.querySelector(".username").value){
+      document.body.querySelector("#.sername").style.border = "1px #FF0000 solid";
       toast_error("Почта - обязательное поле!");
     } else if (!document.body.querySelector("#password1").value){
       document.body.querySelector("#password1").style.border = "1px #FF0000 solid";
@@ -430,8 +430,8 @@
     reg_link.send(form_data);
   })
   on('body', 'click', '#logg', function() {
-    if (!document.body.querySelector("#username").value){
-      document.body.querySelector("#username").style.border = "1px #FF0000 solid";
+    if (!document.body.querySelector(".username").value){
+      document.body.querySelector(".username").style.border = "1px #FF0000 solid";
       toast_error("Введите почту!")}
     else if (!document.body.querySelector("#password").value){
       document.body.querySelector("#password").style.border = "1px #FF0000 solid";

@@ -5,8 +5,8 @@ from appeal.models import Appeal
 
 
 class AppealView(ListView, CategoryListMixin):
-	template_name="appeal_index.html"
-    paginate_by = 15
+	template_name = "appeal_index.html"
+	paginate_by = 15
 
 	def get_queryset(self):
 		appeals = Appeal.objects.only("pk")

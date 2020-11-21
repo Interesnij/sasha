@@ -424,7 +424,8 @@
     reg_link.open( 'POST', "/rest-auth/registration/", true );
     reg_link.onreadystatechange = function () {
     if ( reg_link.readyState == 4 && reg_link.status == 201 ) {
-      window.location.href = "/"
+      if (window.location.href == "http://aleksandra.top/signup/"){window.location.href = "/";}
+      else {window.location.href=window.location.href}
       }};
     reg_link.send(form_data);
   })

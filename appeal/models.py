@@ -20,12 +20,12 @@ class Appeal(models.Model):
 		return self.name
 
 	def likes_count(self):
-        likes = AppealVotes.objects.filter(parent=self, vote__gt=0).values("pk")
-        count = likes.count()
-        if count:
-            return count
-        else:
-            return ''
+		likes = AppealVotes.objects.filter(parent=self, vote__gt=0).values("pk")
+		count = likes.count()
+		if count:
+			return count
+		else:
+			return ''
 
 
 class AppealVotes(models.Model):

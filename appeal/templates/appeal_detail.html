@@ -23,6 +23,8 @@
 				<div class="row px-5 px-xl-2">
 					<div class="col-12">
             <p class="mt-4 mb-4">{{ object.description|safe }}</p>
+
+						<span class="mt-4 mb-4" style="font-size: 25px;">Поддержали: <span class="likes_count">{{ object.likes_count }}</span></span>
 						{% if request.user.is_authenticated %}
 						<p class="mt-4 mb-2 {% if object.likes|user_in:request.user %} text-success{% endif %}">
 							<a class="like i_appeal hover-target" data-pk="{{ object.pk }}" style="font-size: 25px;">
@@ -38,7 +40,6 @@
 							<a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Зарегистрируйтесь</a>
 						</p>
 						{% endif %}
-						<span style="font-size: 25px;">Поддержали: <span class="likes_count">{{ object.likes_count }}</span></span>
 					</div>
 				</div>
 			</div>

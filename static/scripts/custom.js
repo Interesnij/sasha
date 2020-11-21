@@ -473,31 +473,16 @@
     }
 
     function openLoginModal(){
-        showLoginForm();
-        setTimeout(function(){
-            $('#loginModal').modal('show');
-        }, 230);
-
-    }
-    function openRegisterModal(){
-        showRegisterForm();
-        setTimeout(function(){
-            $('#loginModal').modal('show');
-        }, 230);
-
-    }
-
-    function openLoginModal(){
           showLoginForm();
           setTimeout(function(){
-              $('#loginModal').modal('show');
+            document.querySelector("#loginModal").style.display = "block"
           }, 230);
 
       }
       function openRegisterModal(){
           showRegisterForm();
           setTimeout(function(){
-              $('#loginModal').modal('show');
+            document.querySelector("#loginModal").style.display = "block"
           }, 230);
 
       }

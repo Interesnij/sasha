@@ -24,10 +24,14 @@
 					<div class="col-12">
             <p class="mt-4 mb-2">{{ object.description|safe }}</p>
 						{% if request.user.is_authenticated %}
+						<p class="mt-4 mb-2">
 							<a class="like i_appeal hover-target {% if object.likes|user_in:request.user %} text-success{% endif %}" data-pk="{{ object.pk }}" style="font-size: 25px;">
 								✴️ ПЛЮС ✴️
-			        	Поддержали: <span class="likes_count">{{ object.likes_count }}</span>
 							</a>
+
+						Поддержали: <span class="likes_count">{{ object.likes_count }}</span>
+						</p>
+
 						{% else %}
 						<p class="mb-2">
 							Только авторизованные пользователи могут поддерживать наши призывы. Пожалуйста,

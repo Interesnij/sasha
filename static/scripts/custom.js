@@ -447,3 +447,76 @@
       }};
     link.send(form_data);
   });
+
+
+  function showRegisterForm(){
+        $('.loginBox').fadeOut('fast',function(){
+            $('.registerBox').fadeIn('fast');
+            $('.login-footer').fadeOut('fast',function(){
+                $('.register-footer').fadeIn('fast');
+            });
+            $('.modal-title').html('Register with');
+        });
+        $('.error').removeClass('alert alert-danger').html('');
+
+    }
+    function showLoginForm(){
+        $('#loginModal .registerBox').fadeOut('fast',function(){
+            $('.loginBox').fadeIn('fast');
+            $('.register-footer').fadeOut('fast',function(){
+                $('.login-footer').fadeIn('fast');
+            });
+
+            $('.modal-title').html('Login with');
+        });
+         $('.error').removeClass('alert alert-danger').html('');
+    }
+
+    function openLoginModal(){
+        showLoginForm();
+        setTimeout(function(){
+            $('#loginModal').modal('show');
+        }, 230);
+
+    }
+    function openRegisterModal(){
+        showRegisterForm();
+        setTimeout(function(){
+            $('#loginModal').modal('show');
+        }, 230);
+
+    }
+
+    function openLoginModal(){
+          showLoginForm();
+          setTimeout(function(){
+              $('#loginModal').modal('show');
+          }, 230);
+
+      }
+      function openRegisterModal(){
+          showRegisterForm();
+          setTimeout(function(){
+              $('#loginModal').modal('show');
+          }, 230);
+
+      }
+
+
+on('body', 'click', '.i_appeal', function() {
+    like = this
+    pk = like.getAttribute("data-pk");
+    link__ = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject( 'Microsoft.XMLHTTP' );
+    link__.overrideMimeType("application/json");
+    link__.open( 'GET', "/appeal/like/" + pk + "/", true );
+    link__.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+    link__.onreadystatechange = function () {
+    if ( link__.readyState == 4 && link__.status == 200 ) {
+      jsonResponse = JSON.parse(link__.responseText);
+      likes_count = item.querySelector(".likes_count");
+      likes_count.innerHTML = jsonResponse.like_count;
+      like.classList.toggle("text-success");
+    }};
+    link__.send( null );
+  });

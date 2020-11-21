@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Призывы{% endblock %}
+{% block content %}
+
+<div class="shadow-title parallax-top-shadow">Призывы</div>
+
+		<div class="section padding-page-top padding-bottom over-hide z-bigger">
+			<div class="container z-bigger">
+				<div class="row page-title px-5 px-xl-2">
+					<div class="col-12 parallax-fade-top">
+						<h1>Призывы</h1>
+					</div>
+					<div class="offset-1 col-11 parallax-fade-top mt-2 mt-sm-3">
+						<p>"Коллективное сознательное"</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section padding-bottom-big over-hide z-bigger">
+			<div class="container">
+				<div class="row px-5 px-xl-2">
+					<div class="col-12">
+            {% if object_list %}
+						<ul class="case-study-wrapper vertical-blog">
+              {% for object in object_list %}
+							<li class="case-study-name mb-5">
+								<a href="{% url 'appeal_detail' pk=object.pk %}" class="hover-target animsition-link">
+									<h4 class="mb-3">{{ object.name }}</h4>
+								</a>
+								<div class="row">
+									<div class="col-lg-6">
+										<p class="pl-0 pl-md-5 mb-4">{{ object.description|safe }}</p>
+										<a href="{% url 'appeal_detail' pk=object.pk %}" class="hover-target animsition-link"><div class="go-to-post"></div></a>
+									</div>
+								</div>
+							</li>
+              {% endfor %}
+						</ul>
+            {% else %}
+            <h3 style="text-align:center">Призывов пока нет :-)</h3>
+            {% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section padding-top-bottom over-hide z-bigger background-dark-3 footer">
+			<div class="shadow-on-footer" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s">Обо мне</div>
+			<div class="container" data-scroll-reveal="enter bottom move 20px over 0.5s after 0.4s">
+				<div class="row">
+					<div class="col-12 text-center z-bigger py-5">
+						<div class="footer-lines">
+							<a href="{% url 'about' %}" class="hover-target animsition-link"><h4>Обо мне</h4></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% include 'desctop_footer.html' %}
+
+{% endblock %}

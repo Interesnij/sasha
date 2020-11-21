@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'contacts',
     'terms',
     'policy',
+    'appeal',
 ]
 
 CKEDITOR_UPLOAD_PATH = 'media/'
@@ -178,7 +179,7 @@ REST_FRAMEWORK = {
     )
 }
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username'
+#ACCOUNT_AUTHENTICATION_METHOD = 'username'
 AUTH_USER_MODEL = 'users.User'
-ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_EMAIL_REQUIRED = False
+#ACCOUNT_USERNAME_REQUIRED = True
+#ACCOUNT_EMAIL_REQUIRED = False

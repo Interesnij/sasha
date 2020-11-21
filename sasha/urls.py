@@ -17,6 +17,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
 
     url(r'^forms/', include('forms.urls')),
+    url(r'^appeal/', include('appeal.urls')),
 
     url(r'^proects/', include('proects.urls')),
     url(r'^friends/', include('friends.urls')),

@@ -28,8 +28,6 @@
 							<a class="like i_appeal hover-target" data-pk="{{ object.pk }}" style="font-size: 25px;">
 								✴️ ПЛЮС ✴️
 							</a>
-
-						&nbsp;&nbsp;Поддержали: <span class="likes_count">{{ object.likes_count }}</span>
 						</p>
 
 						{% else %}
@@ -40,6 +38,7 @@
 							<a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Зарегистрируйтесь</a>
 						</p>
 						{% endif %}
+						<span style="font-size: 25px;">Поддержали: <span class="likes_count">{{ object.likes_count }}</span></span>
 					</div>
 				</div>
 			</div>

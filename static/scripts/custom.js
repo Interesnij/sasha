@@ -411,7 +411,7 @@
   on('body', 'click', '#register_ajax', function() {
     if (!document.body.querySelector("#username").value){
       document.body.querySelector("#username").style.border = "1px #FF0000 solid";
-      toast_error("Никнейм - обязательное поле!");
+      toast_error("Почта - обязательное поле!");
     } else if (!document.body.querySelector("#password1").value){
       document.body.querySelector("#password1").style.border = "1px #FF0000 solid";
       toast_error("Пароль - обязательное поле!")
@@ -432,7 +432,7 @@
   on('body', 'click', '#logg', function() {
     if (!document.body.querySelector("#username").value){
       document.body.querySelector("#username").style.border = "1px #FF0000 solid";
-      toast_error("Введите никнейм!")}
+      toast_error("Введите почту!")}
     else if (!document.body.querySelector("#password").value){
       document.body.querySelector("#password").style.border = "1px #FF0000 solid";
       toast_error("Введите пароль!")}

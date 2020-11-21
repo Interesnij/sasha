@@ -24,7 +24,7 @@
 					<div class="col-12">
             <p class="mt-4 mb-4">{{ object.description|safe }}</p>
 
-						<span style="font-size: 25px;padding: 15px;margin-top:25px">Поддержали: <span class="likes_count">{{ object.likes_count }}</span></span>
+						<span style="font-size: 25px;padding: 15px;top: 30px;" class="border">Поддержали: <span class="likes_count">{{ object.likes_count }}</span></span>
 						{% if request.user.is_authenticated %}
 						<p class="mt-4 mb-2 {% if object.likes|user_in:request.user %} text-success{% endif %}">
 							<a class="like i_appeal hover-target" data-pk="{{ object.pk }}" style="font-size: 25px;">

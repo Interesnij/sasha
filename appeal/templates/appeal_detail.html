@@ -22,7 +22,7 @@
 			<div class="container">
 				<div class="row px-5 px-xl-2">
 					<div class="col-12">
-            <p class="mt-4 mb-2">{{ object.description|safe }}</p>
+            <p class="mt-4 mb-4">{{ object.description|safe }}</p>
 						{% if request.user.is_authenticated %}
 						<p class="mt-4 mb-2 {% if object.likes|user_in:request.user %} text-success{% endif %}">
 							<a class="like i_appeal hover-target" data-pk="{{ object.pk }}" style="font-size: 25px;">
@@ -33,7 +33,7 @@
 						</p>
 
 						{% else %}
-						<p class="mb-2">
+						<p class="mb-2" style="font-size: 25px;">
 							Только авторизованные пользователи могут поддерживать наши призывы. Пожалуйста,
 							<a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal()">Авторизуйтесь</a>
 							или

@@ -18,9 +18,9 @@
 <div class="nav">
   <div class="nav__content">
     <ul class="nav__list">
-      {% url 'main' as main_url %}
       {% url 'about' as about_url %}
       {% url 'blanks' as blanks_url %}
+      {% url 'appeal' as appeal_url %}
       {% url 'proects_index' as proects_url %}
       {% url 'login' as login_url %}
       {% url 'movies_list' as movies_list_url %}
@@ -28,16 +28,15 @@
       {% url 'friends' as friends_url %}
       {% url 'contacts' as contacts_url %}
 
-      <li class="nav__list-item {% if main_url == current_url %}active-nav{% endif %}">
-        <a href="{{ main_url }}" class="hover-target animsition-link">Главная</a>
-      </li>
-
       <li class="nav__list-item {% if proects_url == current_url %}active-nav{% endif %}">
         <a href="{{ proects_url }}" class="hover-target animsition-link">Проекты</a>
       </li>
 
       <li class="nav__list-item {% if blanks_url == current_url %}active-nav{% endif %}">
         <a href="{{ blanks_url }}" class="hover-target animsition-link">Шаблоны</a>
+      </li>
+      <li class="nav__list-item {% if appeal_url == current_url %}active-nav{% endif %}">
+        <a href="{{ appeal_url }}" class="hover-target animsition-link">Призывы</a>
       </li>
       <li class="nav__list-item">
         <a class="hover-target toggle_show_menu" role="button">

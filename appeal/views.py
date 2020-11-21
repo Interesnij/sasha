@@ -2,7 +2,7 @@ import json
 from django.views.generic.base import TemplateView
 from generic.mixins import CategoryListMixin
 from django.views.generic import ListView
-from appeal.models import Appeal
+from appeal.models import Appeal, AppealVotes
 from django.views import View
 from django.http import HttpResponse
 from django.http import Http404

@@ -13,9 +13,6 @@
     .fullscreen{left: 20%;width: 60%;padding-left: 5%;padding-right: 5%;}
 }
 .fullscreen {
-  cursor: pointer;
-  position: absolute;
-  right: 40px;
   margin: 10px;
   top: 40px;
   z-index: 500;

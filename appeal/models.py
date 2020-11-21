@@ -1,12 +1,13 @@
 from django.db import models
 from django.db.models import Q
 from django.conf import settings
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Appeal(models.Model):
 	name = models.CharField(max_length=100,verbose_name="Название")
 	order = models.PositiveSmallIntegerField(default=0,verbose_name="Порядковый номер")
-	description = models.CharField(max_length=1000, blank=True, verbose_name="Описание")
+	description = RichTextUploadingField(config_name='default',external_plugin_resources=[('youtube','/static/ckeditor_plugins/youtube/youtube/','plugin.js',)],)
 
 	def __str__(self):
 		return self.name

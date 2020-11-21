@@ -514,9 +514,9 @@ on('body', 'click', '.i_appeal', function() {
     link__.onreadystatechange = function () {
     if ( link__.readyState == 4 && link__.status == 200 ) {
       jsonResponse = JSON.parse(link__.responseText);
-      likes_count = like.querySelector(".likes_count");
+      likes_count = like.parentElement.querySelector(".likes_count");
       likes_count.innerHTML = jsonResponse.like_count;
-      like.classList.toggle("text-success");
+      like.parentElement.classList.toggle("text-success");
     }};
     link__.send( null );
   });

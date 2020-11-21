@@ -25,21 +25,21 @@
             <p class="mt-4 mb-4">{{ object.description|safe }}</p>
 
 						{% if request.user.is_authenticated %}
-						<p class="mt-4 mb-2 {% if object.likes|user_in:request.user %} text-success{% endif %}">
-							<a class="like i_appeal hover-target" data-pk="{{ object.pk }}" style="font-size: 25px;text-decoration:underline">
+						<p class="mt-4 mb-2 text-center{% if object.likes|user_in:request.user %} text-success{% endif %}">
+							<a class="like i_appeal hover-target " data-pk="{{ object.pk }}" style="font-size: 25px;text-decoration:underline">
 								❤ Я С ВАМИ ❤
 							</a>
 						</p>
 
 						{% else %}
-						<p class="mb-2 border-top" style="font-size: 25px;margin-top: 50px;">
+						<p class="mb-2 border-top text-center" style="font-size: 25px;margin-top: 50px;">
 							Только авторизованные пользователи могут поддерживать наши призывы. Пожалуйста,
 							<a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal()">Авторизуйтесь</a>
 							или
 							<a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Зарегистрируйтесь</a>
 						</p>
 						{% endif %}
-						<div style="font-size: 25px;padding: 15px;top: 30px;" class="border">Поддержали: <span class="likes_count {% if object.likes|user_in:request.user %} text-success{% endif %}">{{ object.likes_count }}</span></div>
+						<div style="font-size: 25px;padding: 15px;top: 30px;" class="border text-center">Поддержали: <span class="likes_count {% if object.likes|user_in:request.user %} text-success{% endif %}">{{ object.likes_count }}</span></div>
 					</div>
 				</div>
 			</div>

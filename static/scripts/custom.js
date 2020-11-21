@@ -469,7 +469,6 @@
 
             $('.modal-title').html('Login with');
         });
-         $('.error').removeClass('alert alert-danger').html('');
     }
 
     function openLoginModal(){

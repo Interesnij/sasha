@@ -443,7 +443,12 @@
     link.open( 'POST', "/rest-auth/login/", true );
     link.onreadystatechange = function () {
     if ( link.readyState == 4 && link.status == 200 ) {
-      window.location.href = "/";
+      if (window.location.href) == "http://aleksandra.top/login/"{
+        window.location.href = "/";
+      }
+      else {
+      window.location.href=window.location.href
+    }
       }};
     link.send(form_data);
   });

@@ -22,7 +22,7 @@
             <form class="ajax-form" id="login_form" action="{% url 'rest_login' %}">
               {% csrf_token %}
               <div class="mt-4">
-                <input type="email" name="username" class="hover-target l_username" placeholder="Почта">
+                <input type="email" name="username" class="hover-target l_username" placeholder="Почта или логин">
               </div>
               <div class=" mt-4">
                 <input type="password" name="password" id="password" class="hover-target" placeholder="Пароль">

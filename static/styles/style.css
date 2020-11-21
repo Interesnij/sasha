@@ -29,7 +29,10 @@
 #feedback_form button{
   background-color: #000000
 }
-
+.fullscreen_hide{
+  cursor: pointer;
+  float: right;
+}
 .stream_reply_comments{display:none;}
 .stream_reply_comments.replies_open{display:block;  }
 

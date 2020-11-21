@@ -487,6 +487,7 @@
       }
 
 
+
 on('body', 'click', '.i_appeal', function() {
     like = this
     pk = like.getAttribute("data-pk");
@@ -504,3 +505,8 @@ on('body', 'click', '.i_appeal', function() {
     }};
     link__.send( null );
   });
+
+
+on('body', 'click', '.fullscreen_hide', function() {
+  this.parentElement.style.display = "none";
+})

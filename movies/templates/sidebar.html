@@ -14,8 +14,8 @@
     </div>
 
     <h6 class="mb-3 mt-4">Ролики плейлиста</h6>
-    {% for video in category.get_movies_10 %} 
-    <div class="video-section hover-target mt-4 mb-4">
+    {% for video in object.category.get_movies_10 %} 
+    <div class="video-section hover-target mt-4 m b-4">
       <figure class="vimeo">
         <a href="{% url 'movies_detail' pk=video.pk %}" >
           <img src="{{ video.image.url }}" alt="img" style="object-fit: cover;max-height: 400px;width: 100%;" />

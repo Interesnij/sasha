@@ -1,0 +1,116 @@
+ПЛАН:
+
+1. Видео
+--------------
+- реакции и комментарии
+- скрипты программ
+
+2. Музыка
+---------------
+- кнопки поделиться и добавить в плеере
+- поделиться треком или плейлистом. Прикреплять плейлисты к записям
+- Добавление трека в новый список
+- изменение плейлиста
+
+3. Записи
+--------
+- репосты записей
+- работа скриптов в лентах новостей
+
+4. Другое
+- мобильный вид!
+- статьи!
+- сообщения!
+- Реклама!
+- 
+
+5. Модерация
+- Фотографии
+- Товары
+- Статьи
+- Видео
+- Аудио
+
+6. Пользователь
+- приватность
+- инфо профиля
+- семья
+- подача на статусы
+
+7. Сообщество
+- Предложка объявлений
+- назначение прав - скрипт
+
+
+https://github.com/vitorfs/bootcamp неплохие мозги для социалки
+https://github.com/buckyroberts/Vataxia-Frontend rest и react, трудно но скорее всего круто
+https://github.com/OkunaOrg/okuna-api до херищи всего, нужно скорее всего для экономии времени
+https://github.com/justdjango/justchat
+
+https://github.com/arocks/channels-example
+https://ru.stackoverflow.com/questions/655179/%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D0%BE%D0%BB%D0%B0-%D0%BF%D0%BE-%D1%84%D0%B8%D0%BE-%D0%BD%D0%B0-python/655470
+https://material.io/resources/icons/?style=baseline иконки для социалки
+
+https://narko-info.com/spravochnik/terminologiya-i-klassifikacziya-v-narkologii/klassifikacziya-v-narkologii.html
+https://codepen.io/iamturner/pen/jqQjNz моб меню
+https://codepen.io/asommer70/pen/yeBLxb загрузка фото и просмотр сразу в альбоме в слайдере
+https://codepen.io/TheLoulou/pen/sihtJ
+https://codepen.io/keinstar/pen/MxdvOL загрузка фото
+https://codepen.io/swaibu/pen/YjrPVJ переписка ватс ап внешний вид
+https://codepen.io/sachinchoolur/pen/XNavPP лайт галерея
+https://codepen.io/Kris-B/pen/RNXmyv гаоерея с альбомами
+
+https://codepen.io/nfms/pen/yJydaE можно сделать универсальное модал окно для сущностей
+https://codepen.io/flavioschneider/pen/wBPpze универсальное модал окно на css
+https://codepen.io/juff03/pen/OXaXRG валидатор для форм, прикольно
+
+https://codepen.io/porenut/pen/RPGVdX shop dialog
+
+выбор фото
+https://codepen.io/praveenkmr841/pen/VRXadN
+https://codepen.io/kskhr/pen/pRwKjg
+https://codepen.io/lebronleon/pen/WxkwxL
+
+https://codepen.io/sol0mka/pen/yNOage цвета неплохие
+
+аудио для соц сети
+https://codepen.io/markhillard/pen/Hjcwu очень много всего из аarchive.org
+https://codepen.io/craigstroman/pen/aOyRYx еще из аarchive.org
+https://codepen.io/emilcarlsson/pen/WdRRMX моб вариант
+https://codepen.io/og2t/pen/AqlLn моб меню как в айфоне значками и их можно менять
+https://codepen.io/X-Raym/pen/NPWBBm soundcloud
+https://codepen.io/terabaud/pen/BYdjdx соундклоуд и vue, все круто, плейлисты работают
+https://codepen.io/nicholaspetersen/pen/yyVYMY соундклоуд плейлисты и прокрутка
+
+без регистрации в соундклоуд
+<script>
+//Get the SoundCloud URL
+$url="https://soundcloud.com/epitaph-records/this-wild-life-history";
+//Get the JSON data of song details with embed code from SoundCloud oEmbed
+$getValues=file_get_contents('http://soundcloud.com/oembed?format=js&url='.$url.'&iframe=true');
+//Clean the Json to decode
+$decodeiFrame=substr($getValues, 1, -2);
+//json decode to convert it as an array
+$jsonObj = json_decode($decodeiFrame);
+
+//Change the height of the embed player if you want else uncomment below line
+// echo $jsonObj->html;
+//Print the embed player to the page
+echo str_replace('height="400"', 'height="140"', $jsonObj->html);
+</script>
+
+-------------------------------------------------
+офигенная вставка вместо innerhtml без ячейки работает
+var html_to_insert = "<p>New paragraph</p>";
+
+// with .innerHTML, destroys event listeners
+document.getElementById('mydiv').innerHTML += html_to_insert;
+
+// with .insertAdjacentHTML, preserves event listeners
+document.getElementById('mydiv').insertAdjacentHTML('beforeend', html_to_insert);
+'beforeend'Аргумент указывает, куда в элементе вставлять HTML-содержимое. Варианты - это'beforebegin', 'afterbegin','beforeend', и 'afterend'. Их соответствующие местоположения таковы:
+beforeBegin – перед elem.
+afterBegin – внутрь elem, в самое начало.
+beforeEnd – внутрь elem, в конец.
+afterEnd – после elem
+---------------------------------------------------

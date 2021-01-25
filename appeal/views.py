@@ -45,16 +45,20 @@ class SurveyDetailView(TemplateView, CategoryListMixin):
 class SurveyVoteCreate(View):
 	template_name = None
 
-	def get(self,request,*args,**kwargs):
+	def post(self,request,*args,**kwargs):
+		from appeal.forms import UserForm
+
+		form = UserForm(request.POST)
 		survey = Survey.objects.get(pk=self.kwargs["pk"])
-		answers = request.POST.getlist("answers")
-		if not answers:
-			return HttpResponse("not ansvers")
-		region = request.POST.get()
-		for answer in answers:
-			SurveyVote.objects.create(answer=answer, user=requset.user)
-		if region:
-			user = User.objects.get(pk=requset.user.pk)
-			user.region = region
-			user.save()
+		if request.is_ajax() and form.is_valid():
+			answers = request.POST.getlist("answers")
+			if not answers:
+				return HttpResponse("not ansvers")
+			region = request.POST.get("region")
+			for answer in answers:
+				SurveyVote.objects.create(answer=answer, user=requset.user)
+			if region:
+				user = User.objects.get(pk=requset.user.pk)
+				user.region = region
+				user.save()
 		return HttpResponse()

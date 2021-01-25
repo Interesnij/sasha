@@ -5,8 +5,7 @@ from django.views.generic import ListView
 from appeal.models import *
 from users.models import User
 from django.views import View
-from django.http import HttpResponse
-from django.http import Http404
+from django.http import HttpResponse, Http404, JsonResponse
 
 
 class AppealView(ListView, CategoryListMixin):
@@ -59,5 +58,5 @@ class SurveyVoteCreate(View):
 				user = User.objects.get(pk=requset.user.pk)
 				user.region = region
 				user.save()
-			return HttpResponse()
-		return HttpResponse()
+			return JsonResponse({'success':True})
+		return JsonResponse({'success':True})

@@ -2,7 +2,7 @@ import json
 from django.views.generic.base import TemplateView
 from generic.mixins import CategoryListMixin
 from django.views.generic import ListView
-from appeal.models import Appeal, AppealVotes
+from appeal.models import *
 from django.views import View
 from django.http import HttpResponse
 from django.http import Http404
@@ -29,27 +29,37 @@ class AppealDetailView(TemplateView, CategoryListMixin):
 		context["object"] = self.appeal
 		return context
 
+class SurveyDetailView(TemplateView, CategoryListMixin):
+	template_name = "survey_detail.html"
 
-class AppealLikeCreate(View):
+	def get(self,request,*args,**kwargs):
+		self.survey = Survey.objects.get(pk=self.kwargs["pk"])
+		return super(SurveyDetailView,self).get(request,*args,**kwargs)
+
+	def get_context_data(self,**kwargs):
+		context=super(SurveyDetailView,self).get_context_data(**kwargs)
+		context["object"] = self.survey
+		return context
+
+
+class SurveyVote(View):
     def get(self, request, **kwargs):
-        appeal = Appeal.objects.get(pk=self.kwargs["pk"])
-        if not request.is_ajax():
-            raise Http404
+		from datetime import datetime
+
+        answer = Answer.objects.get(pk=self.kwargs["answer_pk"])
+        user, survey = User.objects.get(pk=self.kwargs["pk"]), answer.survey
+        if survey.time_end < datetime.now():
+            return HttpResponse()
         try:
-            likedislike = AppealVotes.objects.get(parent=appeal, user=request.user)
-            if likedislike.vote is not AppealVotes.LIKE:
-                likedislike.vote = AppealVotes.LIKE
-                likedislike.save(update_fields=['vote'])
-                result = True
+            answer = SurveyVote.objects.get(answer=answer, user=request.user)
+            if survey.is_no_edited:
+                return HttpResponse()
             else:
-                likedislike.delete()
-                result = False
-        except AppealVotes.DoesNotExist:
-            AppealVotes.objects.create(parent=appeal, user=request.user, vote=AppealVotes.LIKE)
+                answer.delete()
+                result = True
+        except SurveyVote.DoesNotExist:
+            if not survey.is_multiple and request.user.is_voted_of_survey(survey.pk):
+                request.user.get_vote_of_survey(survey.pk).delete()
+            SurveyVote.objects.create(answer=answer, user=request.user)
             result = True
-        likes = appeal.likes_count()
-        if likes != 0:
-            like_count = likes
-        else:
-            like_count = ""
-        return HttpResponse(json.dumps({"result": result,"like_count": str(like_count)}),content_type="application/json")
+        return HttpResponse(json.dumps({"result": result,"votes": survey.get_votes_count()}), content_type="application/json")

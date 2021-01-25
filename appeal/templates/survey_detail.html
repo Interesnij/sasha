@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Опросы | {{ object.name }}{% endblock %}
+{% load liked_user %}
+{% block meta %}
+<meta property="og:title" content="Александра Машкова-Благих" />
+<meta property="og:image" content="http://aleksandra.top/static/images/aleksandra_vk.jpg" />
+<meta property="og:url" content="http://aleksandra.top/" />
+<meta property="og:image:width" content="470" />
+<meta property="og:image:height" content="246" />
+<meta property="og:site_name" content="Александра Машкова-Благих" />
+<meta property="og:description" content="Общественный деятель" />
+{% endblock %}
+{% block content %}
+
+<div class="shadow-title parallax-top-shadow">Призывы</div>
+
+		<div class="section padding-page-top padding-bottom over-hide z-bigger">
+			<div class="container z-bigger">
+				<div class="row page-title px-5 px-xl-2">
+					<div class="col-12 parallax-fade-top text-center">
+						<h1>{{ object.name }}</h1>
+					</div>
+					<div class="offset-1 col-11 parallax-fade-top mt-2 mt-sm-3">
+						<p>Опросы</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section padding-bottom-big over-hide z-bigger">
+			<div class="container">
+				<div class="row px-5 px-xl-2">
+					<div class="col-12">
+            <p class="mt-4 mb-4">{{ object.description|safe }}</p>
+
+						{% if request.user.is_authenticated %}
+              {% if object|user_voted:request.user %}
+                ❤ Вы уже голосовали ❤
+              {% else %}
+
+              <form class="ajax-form" id="survey_form">
+                {% csrf_token %}
+                {% for answer in answers %}
+                  <label for="a_{{ answer.pk }}" class="m-b-xs">
+                    <input name="answers" type="checkbox" id="a_{{ answer.pk }}">
+                    {{ answer.text }}
+                  </label>
+                {% ensfor %}
+                <label for="survey-form-suggestions">
+                  Вы можете указать регион
+                  <textarea id="survey-form-suggestions" maxlength="194"></textarea>
+                </label>
+                <button id="survey_btn" type="button" class="hover-target" style="float:right"><span>Отправить</span></button>
+              </form>
+						{% else %}
+						<p class="mb-2 border-top text-center" style="font-size: 25px;margin-top: 50px;">
+							Только авторизованные пользователи могут поддерживать наши призывы. Пожалуйста,
+							<a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal()">Авторизуйтесь</a>
+							или
+							<a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Зарегистрируйтесь</a>
+						</p>
+						{% endif %}
+						<div style="font-size: 25px;padding: 15px;top: 30px;" class="border text-center">Поддержали: <span class="likes_count {% if object.likes|user_in:request.user %} text-success{% endif %}">{{ object.likes_count }}</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section padding-top-bottom over-hide z-bigger background-dark-3 footer">
+			<div class="shadow-on-footer" data-scroll-reveal="enter bottom move 30px over 0.5s after 0.1s">Обо мне</div>
+			<div class="container" data-scroll-reveal="enter bottom move 20px over 0.5s after 0.4s">
+				<div class="row">
+					<div class="col-12 text-center z-bigger py-5">
+						<div class="footer-lines">
+							<a href="{% url 'about' %}" class="hover-target animsition-link"><h4>Обо мне</h4></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+{% include 'desctop_footer.html' %}
+{% include 'generic/modal_form.html' %}
+
+{% endblock %}

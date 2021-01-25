@@ -11,6 +11,13 @@ def user_in(objects, user):
     return False
 
 @register.filter
+def user_voted(object, user_id):
+    if object.is_user_voted(user_id):
+        return True
+    else:
+        return False
+
+@register.filter
 def rupluralize(value, arg="единица,единицы,единиц"):
     args = arg.split(",")
     number = abs(int(value))

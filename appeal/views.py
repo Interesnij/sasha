@@ -64,7 +64,7 @@ class SurveyVoteCreate(View):
 		return HttpResponse()
 
 
-class SurveyVoteCreate(View):
+class SurveyVoteDelete(View):
 	def get(self,request,*args,**kwargs):
 		survey = Survey.objects.get(pk=self.kwargs["pk"])
 		if request.is_ajax():

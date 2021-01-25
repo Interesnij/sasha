@@ -47,14 +47,14 @@ class SurveyVoteCreate(View):
 
     def post(self,request,*args,**kwargs):
 		survey = Survey.objects.get(pk=self.kwargs["pk"])
-        answers = request.POST.getlist("answers")
-        if not answers:
-            HttpResponse("not ansvers")
+		answers = request.POST.getlist("answers")
+		if not answers:
+			HttpResponse("not ansvers")
 		region = request.POST.get("region")
-        for answer in answers:
+		for answer in answers:
 			SurveyVote.objects.create(answer=answer, user=requset.user)
 		if region:
 			user = User.objects.get(pk=requset.user.pk)
 			user.region = region
 			user.save()
-        return HttpResponse("ok")
+		return HttpResponse("ok")

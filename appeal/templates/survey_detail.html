@@ -35,7 +35,7 @@
 
 						{% if request.user.is_authenticated %}
               {% if object|user_voted:request.user %}
-                ❤ Вы уже голосовали ❤ 
+                ❤ Вы уже голосовали ❤
               {% else %}
 
               <form class="ajax-form" id="survey_form">
@@ -61,7 +61,7 @@
 							<a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Зарегистрируйтесь</a>
 						</p>
 						{% endif %}
-						<div style="font-size: 25px;padding: 15px;top: 30px;" class="border text-center">Поддержали: <span class="likes_count {% if object.likes|user_in:request.user %} text-success{% endif %}">{{ object.likes_count }}</span></div>
+						<div style="font-size: 25px;padding: 15px;top: 30px;" class="border text-center">Поддержали: <span class="likes_count>{{ object.likes_count }}</span></div>
 					</div>
 				</div>
 			</div>

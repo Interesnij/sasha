@@ -43,73 +43,61 @@ class Survey(models.Model):
 	time_end = models.DateTimeField(null=True, blank=True, verbose_name="Дата окончания")
 	order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер")
 
-    class Meta:
-        indexes = (BrinIndex(fields=['created']),)
-        verbose_name = 'Опрос'
-        verbose_name_plural = 'Опросы'
+	class Meta:
+		indexes = (BrinIndex(fields=['created']),)
+		verbose_name = 'Опрос'
+		verbose_name_plural = 'Опросы'
 
-    def __str__(self):
-        return self.title
+	def __str__(self):
+		return self.title
 
-    @classmethod
-    def create_survey(cls, title, order, is_anonymous, is_multiple, is_no_edited, time_end, answers):
-        survey = cls.objects.create(
-                                    title=title,
-                                    order=order,
-                                    is_anonymous=is_anonymous,
-                                    is_multiple=is_multiple,
-                                    is_no_edited=is_no_edited,
-                                    time_end=time_end)
-        for answer in answers:
-            Answer.objects.create(survey=survey, text=answer)
-        return survey
+	@classmethod
+	def create_survey(cls, title, order, is_anonymous, is_multiple, is_no_edited, time_end, answers):
+		survey = cls.objects.create(title=title,order=order,is_anonymous=is_anonymous,is_multiple=is_multiple,is_no_edited=is_no_edited,time_end=time_end)
+		for answer in answers:
+			Answer.objects.create(survey=survey, text=answer)
+		return survey
 
-    def is_user_voted(self, user_id):
-        return SurveyVote.objects.filter(answer__survey_id=self.pk, user_id=user_id).exists()
+	def is_user_voted(self, user_id):
+		return SurveyVote.objects.filter(answer__survey_id=self.pk, user_id=user_id).exists()
 
-    def is_time_end(self):
-        if self.time_end:
-            from datetime import datetime, timedelta
-            now = datetime.now()
-            if self.time_end < now:
-                return True
-            else:
-                return False
-        else:
-            return False
+	def is_time_end(self):
+		if self.time_end:
+			from datetime import datetime, timedelta
+			now = datetime.now()
+			if self.time_end < now:
+				return True
+			else:
+				return False
+		else:
+			return False
 
-    def get_answers(self):
-        return self.survey.only("pk")
+	def get_answers(self):
+		return self.survey.only("pk")
 
-    def get_all_count(self):
-        count = 0
-        for answer in self.get_answers():
-            count += answer.get_count()
-        if count > 0:
-            return count
-        else:
-            return ''
+	def get_all_count(self):
+		count = 0
+		for answer in self.get_answers():
+			count += answer.get_count()
+		if count > 0:
+			return count
+		else:
+			return ''
 
-    def get_votes_count(self):
-        query = []
-        for answer in self.get_answers():
-            query += [answer.get_count()]
-        return query
+	def get_votes_count(self):
+		query = []
+		for answer in self.get_answers():
+			query += [answer.get_count()]
+		return query
 
-    def get_users(self):
-        from users.models import User
-        voter_ids = SurveyVote.objects.filter(answer__survey_id=self.pk).values("user_id")
-        ids = [i['user_id'] for i in voter_ids]
-        return User.objects.filter(id__in=ids)
+	def get_users(self):
+		from users.models import User
+		voter_ids = SurveyVote.objects.filter(answer__survey_id=self.pk).values("user_id")
+		ids = [i['user_id'] for i in voter_ids]
+		return User.objects.filter(id__in=ids)
 
-    def get_6_users(self):
-        from users.models import User
-        voter_ids = SurveyVote.objects.filter(answer__survey_id=self.pk).values("user_id")[:6]
-        ids = [i['user_id'] for i in voter_ids]
-        return User.objects.filter(id__in=ids)
-
-    def is_have_votes(self):
-        return SurveyVote.objects.filter(answer__survey_id=self.pk).values("id").exists()
+	def is_have_votes(self):
+		return SurveyVote.objects.filter(answer__survey_id=self.pk).values("id").exists()
 
 
 class Answer(models.Model):

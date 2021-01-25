@@ -35,7 +35,7 @@
 
 						{% if request.user.is_authenticated %}
               {% if object|user_voted:request.user %}
-                ❤ Вы уже голосовали ❤
+                ❤ Вы уже голосовали ❤ 
               {% else %}
 
               <form class="ajax-form" id="survey_form">

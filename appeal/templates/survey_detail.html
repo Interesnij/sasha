@@ -60,6 +60,16 @@
   font-weight: 300;
   color: #85FFC7;
 }
+#survey-form label,
+#survey-form .labels {
+  display: block;
+  margin-bottom: 2%;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  color: #FFF;
+  letter-spacing: 0.5px;
+}
 #survey-form input:focus {
   border-color: #85FFC7;
 }
@@ -143,7 +153,7 @@
                 {% csrf_token %}
 								<fieldset>
                 {% for answer in object.get_answers %}
-                  <label for="a_{{ answer.pk }}" class="m-b-xs" style="display:flex">
+                  <label for="a_{{ answer.pk }}" class="m-b-xs">
                     <input name="answers" type="checkbox" id="a_{{ answer.pk }}">
                     {{ answer.text }}
                   </label>

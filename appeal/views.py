@@ -48,6 +48,7 @@ class SurveyVoteCreate(View):
 		form = UserForm(request.POST)
 		survey = Survey.objects.get(pk=self.kwargs["pk"])
 		if request.is_ajax() and form.is_valid():
+			user = form.save(commit=False)
 			answers = request.POST.getlist("answers")
 			if not answers:
 				return HttpResponse("not ansvers")

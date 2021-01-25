@@ -21,5 +21,5 @@ on('body', 'click', '#remove_user_vote', function() {
   if ( link.readyState == 4 && link.status == 200 ) {
     window.location = "/appeal/a" + pk + "/";
   }};
-  link.send(form_data);
+  link.send();
 });

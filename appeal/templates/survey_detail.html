@@ -28,6 +28,7 @@
 .m-t-sm {
   margin-top: 5%;
 }
+
 #survey-form input::-webkit-input-placeholder {
   color: transparent !important;
 }
@@ -142,7 +143,7 @@
                 {% csrf_token %}
 								<fieldset>
                 {% for answer in object.get_answers %}
-                  <label for="a_{{ answer.pk }}" class="m-b-xs">
+                  <label for="a_{{ answer.pk }}" class="m-b-xs" style="display:flex">
                     <input name="answers" type="checkbox" id="a_{{ answer.pk }}">
                     {{ answer.text }}
                   </label>

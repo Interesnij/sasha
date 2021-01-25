@@ -35,7 +35,7 @@
 
 						{% if request.user.is_authenticated %}
               {% if object|user_voted:request.user %}
-
+							<div class="ajax-form" id="survey-form">
 							{% for answer in object.get_answers %}
 								<label for="a_{{ answer.pk }}" class="m-b-xs" data-pk="{{ answer.pk }}">
 									<input name="answers" value="{{ answer.pk }}" type="checkbox" id="a_{{ answer.pk }}">
@@ -43,8 +43,9 @@
 								</label>
 							{% endfor %}
 							{% if not object.is_no_edited %}
-							<button id="survey_btn" type="button" class="hover-target">Отменить участие в опросе</button>
+								<button id="survey_btn" data-pk="{{ object.pk }}">Отменить участие в опросе</button>
 							{% endif %}
+							</div>
               {% else %}
 
               <form class="ajax-form" id="survey-form" data-pk="{{ object.pk }}">

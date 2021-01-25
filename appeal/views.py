@@ -50,11 +50,11 @@ class SurveyVoteCreate(View):
 		answers = request.POST.getlist("answers")
 		if not answers:
 			return HttpResponse("not ansvers")
-		region = request.POST.get("region")
+		region = request.POST.get()
 		for answer in answers:
 			SurveyVote.objects.create(answer=answer, user=requset.user)
 		if region:
 			user = User.objects.get(pk=requset.user.pk)
 			user.region = region
 			user.save()
-		return HttpResponse("ok")
+		return HttpResponse()

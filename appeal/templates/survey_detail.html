@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Опросы | {{ object.name }}{% endblock %}
+{% block title %}Опросы | {{ object.title }}{% endblock %}
 {% load liked_user %}
 {% block meta %}
 <meta property="og:title" content="Александра Машкова-Благих" />
@@ -29,37 +29,6 @@
   margin-top: 5%;
 }
 
-#survey-form input::-webkit-input-placeholder {
-  color: transparent !important;
-}
-#survey-form input::-moz-placeholder {
-  color: transparent !important;
-}
-#survey-form input:-ms-input-placeholder {
-  color: transparent !important;
-}
-#survey-form input:-moz-placeholder {
-  color: transparent !important;
-}
-#survey-form input,
-#survey-form select {
-  display: block;
-  width: 100%;
-  overflow: hidden;
-  outline: none;
-  border: 2px solid #333;
-}
-#survey-form input {
-  margin-top: 1.5%;
-  padding: 0 0 5px 0;
-  background: transparent;
-  border: none;
-  outline: none;
-  border-bottom: 2px solid #FFF;
-  font-size: 1.1em;
-  font-weight: 300;
-  color: #85FFC7;
-}
 #survey-form label,
 #survey-form .labels {
   display: block;
@@ -100,12 +69,10 @@
   z-index: 1000;
   border: 1px solid #FFF;
 }
-#survey-form [type=checkbox]:hover,
-#survey-form [type=radio]:hover {
+#survey-form [type=checkbox]:hover{
   border-color: #85FFC7;
 }
-#survey-form [type=checkbox]:checked:before,
-#survey-form [type=radio]:checked:before {
+#survey-form [type=checkbox]:checked:before{
   display: inline-block;
   height: 21px;
   width: 21px;
@@ -129,7 +96,7 @@
 			<div class="container z-bigger">
 				<div class="row page-title px-5 px-xl-2">
 					<div class="col-12 parallax-fade-top text-center">
-						<h1>{{ object.name }}</h1>
+						<h1>{{ object.title }}</h1>
 					</div>
 					<div class="offset-1 col-11 parallax-fade-top mt-2 mt-sm-3">
 						<p>Опросы</p>
@@ -163,7 +130,7 @@
                   Вы можете указать регион
                   <input type="text" name="region" class="hover-target">
                 </label>
-                <button id="survey_btn" type="button" class="hover-target" style="float:right"><span>Отправить</span></button>
+                <button id="survey_btn" type="button" class="hover-target" style="float:right">Отправить</button>
               </form>
               {% endif %}
 						{% else %}

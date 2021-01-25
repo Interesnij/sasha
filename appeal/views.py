@@ -60,5 +60,14 @@ class SurveyVoteCreate(View):
 				user = User.objects.get(pk=request.user.pk)
 				user.region = region
 				user.save()
-			return JsonResponse({'success':True})
-		return JsonResponse({'success':True})
+			return HttpResponse()
+		return HttpResponse()
+
+
+class SurveyVoteCreate(View):
+	def get(self,request,*args,**kwargs):
+		survey = Survey.objects.get(pk=self.kwargs["pk"])
+		if request.is_ajax():
+			survey.remove_user_vote(request.user.pk)
+			return HttpResponse()
+		return HttpResponse()

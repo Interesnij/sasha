@@ -42,7 +42,7 @@
 								</label>
 							{% endfor %}
 							{% if not object.is_no_edited %}
-								<button id="survey_btn" data-pk="{{ object.pk }}">Отменить участие в опросе</button>
+								<button id="remove_user_vote" data-pk="{{ object.pk }}">Отменить участие в опросе</button>
 							{% endif %}
 							</div>
               {% else %}

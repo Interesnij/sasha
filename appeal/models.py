@@ -56,6 +56,13 @@ class Survey(models.Model):
 	def is_user_voted(self, user_id):
 		return SurveyVote.objects.filter(answer__survey_id=self.pk, user_id=user_id).exists()
 
+	def remove_user_vote(self, user_id):
+		for answer in self.get_answers():
+			try:
+				SurveyVote.objects.filter(answer_id=answer.pk, user_id=user_id).delete()
+			except:
+				pass
+
 	def is_time_end(self):
 		if self.time_end:
 			from datetime import datetime, timedelta

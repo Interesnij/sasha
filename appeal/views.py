@@ -41,6 +41,7 @@ class SurveyDetailView(TemplateView, CategoryListMixin):
 		context["object"] = self.survey
 		return context
 
+
 class SurveyVoteCreate(View):
 	def post(self,request,*args,**kwargs):
 		from appeal.forms import UserForm

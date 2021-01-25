@@ -231,7 +231,7 @@
                 ❤ Вы уже голосовали ❤
               {% else %}
 
-              <form class="ajax-form" id="survey_form">
+              <form class="ajax-form" id="survey-form">
                 {% csrf_token %}
 								<fieldset>
                 {% for answer in object.get_answers %}

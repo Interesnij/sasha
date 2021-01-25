@@ -41,25 +41,24 @@ class SurveyDetailView(TemplateView, CategoryListMixin):
 		context["object"] = self.survey
 		return context
 
-
 class SurveyVote(View):
-    def get(self, request, **kwargs):
+	def get(self, request, **kwargs):
 		from datetime import datetime
 
-        answer = Answer.objects.get(pk=self.kwargs["answer_pk"])
-        user, survey = User.objects.get(pk=self.kwargs["pk"]), answer.survey
-        if survey.time_end < datetime.now():
-            return HttpResponse()
-        try:
-            answer = SurveyVote.objects.get(answer=answer, user=request.user)
-            if survey.is_no_edited:
-                return HttpResponse()
-            else:
-                answer.delete()
-                result = True
-        except SurveyVote.DoesNotExist:
-            if not survey.is_multiple and request.user.is_voted_of_survey(survey.pk):
-                request.user.get_vote_of_survey(survey.pk).delete()
-            SurveyVote.objects.create(answer=answer, user=request.user)
-            result = True
-        return HttpResponse(json.dumps({"result": result,"votes": survey.get_votes_count()}), content_type="application/json")
+		answer = Answer.objects.get(pk=self.kwargs["answer_pk"])
+		user, survey = User.objects.get(pk=self.kwargs["pk"]), answer.survey
+		if survey.time_end < datetime.now():
+			return HttpResponse()
+		try:
+			answer = SurveyVote.objects.get(answer=answer, user=request.user)
+			if survey.is_no_edited:
+				return HttpResponse()
+			else:
+				answer.delete()
+				result = True
+		except SurveyVote.DoesNotExist:
+			if not survey.is_multiple and request.user.is_voted_of_survey(survey.pk):
+				request.user.get_vote_of_survey(survey.pk).delete()
+			SurveyVote.objects.create(answer=answer, user=request.user)
+			result = True
+		return HttpResponse(json.dumps({"result": result,"votes": survey.get_votes_count()}), content_type="application/json")

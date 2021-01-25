@@ -35,7 +35,16 @@
 
 						{% if request.user.is_authenticated %}
               {% if object|user_voted:request.user %}
-                ❤ Вы уже голосовали ❤
+
+							{% for answer in object.get_answers %}
+								<label for="a_{{ answer.pk }}" class="m-b-xs" data-pk="{{ answer.pk }}">
+									<input name="answers" value="{{ answer.pk }}" type="checkbox" id="a_{{ answer.pk }}">
+									{{ answer.text }} - <span style="border-bottom: 1px solid #85FFC7">{{ answer.get_count }} ({{ answer.get_procent }}%)<span>
+								</label>
+							{% endfor %}
+							{% if not object.is_no_edited %}
+							<button id="survey_btn" type="button" class="hover-target">Отменить участие в опросе</button>
+							{% endif %}
               {% else %}
 
               <form class="ajax-form" id="survey-form" data-pk="{{ object.pk }}">

@@ -34,14 +34,14 @@ class Appeal(models.Model):
 
 
 class Survey(models.Model):
-    title = models.CharField(max_length=250, verbose_name="Название")
+	title = models.CharField(max_length=250, verbose_name="Название")
 	description = RichTextUploadingField(config_name='default',external_plugin_resources=[('youtube','/static/ckeditor_plugins/youtube/youtube/','plugin.js',)],)
-    created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
-    is_anonymous = models.BooleanField(verbose_name="Анонимный", default=False)
-    is_multiple = models.BooleanField(verbose_name="Несколько вариантов", default=False)
-    is_no_edited = models.BooleanField(verbose_name="Запрет отмены голоса", default=False)
-    time_end = models.DateTimeField(null=True, blank=True, verbose_name="Дата окончания")
-    order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер")
+	created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
+	is_anonymous = models.BooleanField(verbose_name="Анонимный", default=False)
+	is_multiple = models.BooleanField(verbose_name="Несколько вариантов", default=False)
+	is_no_edited = models.BooleanField(verbose_name="Запрет отмены голоса", default=False)
+	time_end = models.DateTimeField(null=True, blank=True, verbose_name="Дата окончания")
+	order = models.PositiveSmallIntegerField(default=0, verbose_name="Порядковый номер")
 
     class Meta:
         indexes = (BrinIndex(fields=['created']),)

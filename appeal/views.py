@@ -3,6 +3,7 @@ from django.views.generic.base import TemplateView
 from generic.mixins import CategoryListMixin
 from django.views.generic import ListView
 from appeal.models import *
+from users.models import User
 from django.views import View
 from django.http import HttpResponse
 from django.http import Http404
@@ -41,24 +42,19 @@ class SurveyDetailView(TemplateView, CategoryListMixin):
 		context["object"] = self.survey
 		return context
 
-class SurveyVote(View):
-	def get(self, request, **kwargs):
-		from datetime import datetime
+class SurveyVoteCreate(View):
+    template_name = None
 
-		answer = Answer.objects.get(pk=self.kwargs["answer_pk"])
-		user, survey = User.objects.get(pk=self.kwargs["pk"]), answer.survey
-		if survey.time_end < datetime.now():
-			return HttpResponse()
-		try:
-			answer = SurveyVote.objects.get(answer=answer, user=request.user)
-			if survey.is_no_edited:
-				return HttpResponse()
-			else:
-				answer.delete()
-				result = True
-		except SurveyVote.DoesNotExist:
-			if not survey.is_multiple and request.user.is_voted_of_survey(survey.pk):
-				request.user.get_vote_of_survey(survey.pk).delete()
-			SurveyVote.objects.create(answer=answer, user=request.user)
-			result = True
-		return HttpResponse(json.dumps({"result": result,"votes": survey.get_votes_count()}), content_type="application/json")
+    def post(self,request,*args,**kwargs):
+		survey = Survey.objects.get(pk=self.kwargs["pk"])
+        answers = request.POST.getlist("answers")
+        if not answers:
+            HttpResponse("not ansvers")
+		region = request.POST.get("region")
+        for answer in answers:
+			SurveyVote.objects.create(answer=answer, user=requset.user)
+		if region:
+			user = User.objects.get(pk=requset.user.pk)
+			user.region = region
+			user.save()
+        return HttpResponse("ok")

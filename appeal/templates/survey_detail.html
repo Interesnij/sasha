@@ -38,18 +38,18 @@
                 ❤ Вы уже голосовали ❤
               {% else %}
 
-              <form class="ajax-form" id="survey-form">
+              <form class="ajax-form" id="survey-form" data-pk="{{ object.pk }}">
                 {% csrf_token %}
 								<fieldset>
                 {% for answer in object.get_answers %}
-                  <label for="a_{{ answer.pk }}" class="m-b-xs">
+                  <label for="a_{{ answer.pk }}" class="m-b-xs" data-pk="{{ answer.pk }}">
                     <input name="answers" type="checkbox" id="a_{{ answer.pk }}">
-                    {{ answer.text }}
+                    {{ answer.text }} - {{ answer.get_count }} ({{ answer.get_procent }}%)
                   </label>
                 {% endfor %}
 								</fieldset>
                 <label for="survey-form-suggestions">
-                  Вы можете указать регион:
+                  Вы можете указать свой регион:
                   <input type="text" name="region" class="hover-target" placeholder="Введите регион. Это необязательно.">
                 </label>
                 <button id="survey_btn" type="button" class="hover-target">Отправить</button>
@@ -57,13 +57,12 @@
               {% endif %}
 						{% else %}
 						<p class="mb-2 border-top text-center" style="font-size: 25px;margin-top: 50px;">
-							Только авторизованные пользователи могут поддерживать наши призывы. Пожалуйста,
+							Только авторизованные пользователи могут участвовать в опросах. Пожалуйста,
 							<a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal()">Авторизуйтесь</a>
 							или
 							<a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();">Зарегистрируйтесь</a>
 						</p>
 						{% endif %}
-						<div style="font-size: 25px;padding: 15px;top: 30px;" class="border text-center">Поддержали: <span class="likes_count">{{ object.likes_count }}</span></div>
 					</div>
 				</div>
 			</div>

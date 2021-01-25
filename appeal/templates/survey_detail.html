@@ -37,7 +37,7 @@
               {% if object|user_voted:request.user %}
 							<div class="ajax-form mt-4" id="survey-form">
 							{% for answer in object.get_answers %}
-								<label {% if object|answer_voted:request.user.pk %}style="border-bottom: 1px solid #85FFC7"{% endif %} for="a_{{ answer.pk }}" class="m-b-xs" data-pk="{{ answer.pk }}">
+								<label {% if answer|answer_voted:request.user.pk %}style="border-bottom: 1px solid #85FFC7"{% endif %} for="a_{{ answer.pk }}" class="m-b-xs" data-pk="{{ answer.pk }}">
 									{{ answer.text }} - <span style="border-bottom: 1px solid #85FFC7">{{ answer.get_count }} ({{ answer.get_procent }}%)<span>
 								</label>
 							{% endfor %}

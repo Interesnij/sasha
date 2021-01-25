@@ -22,16 +22,10 @@ class Appeal(models.Model):
 		return self.name
 
 	def likes(self):
-		likes = AppealVotes.objects.filter(parent_id=self.pk, vote__gt=0)
-		return likes
+		return 0
 
 	def likes_count(self):
-		likes = AppealVotes.objects.filter(parent=self, vote__gt=0).values("pk")
-		count = likes.count()
-		if count:
-			return count
-		else:
-			return ''
+		return ''
 
 
 class Survey(models.Model):

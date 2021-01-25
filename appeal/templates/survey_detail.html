@@ -233,15 +233,17 @@
 
               <form class="ajax-form" id="survey_form">
                 {% csrf_token %}
+								<fieldset>
                 {% for answer in object.get_answers %}
                   <label for="a_{{ answer.pk }}" class="m-b-xs">
                     <input name="answers" type="checkbox" id="a_{{ answer.pk }}">
                     {{ answer.text }}
                   </label>
                 {% endfor %}
+								</fieldset>
                 <label for="survey-form-suggestions">
                   Вы можете указать регион
-                  <textarea id="survey-form-suggestions" maxlength="194"></textarea>
+                  <input type="text" name="region" class="hover-target">
                 </label>
                 <button id="survey_btn" type="button" class="hover-target" style="float:right"><span>Отправить</span></button>
               </form>

@@ -61,4 +61,5 @@ class SurveyVoteCreate(View):
 				user = User.objects.get(pk=requset.user.pk)
 				user.region = region
 				user.save()
+			return HttpResponse()
 		return HttpResponse()

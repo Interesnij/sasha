@@ -49,7 +49,7 @@ class SurveyVoteCreate(View):
 		survey = Survey.objects.get(pk=self.kwargs["pk"])
 		answers = request.POST.getlist("answers")
 		if not answers:
-			HttpResponse("not ansvers")
+			return HttpResponse("not ansvers")
 		region = request.POST.get("region")
 		for answer in answers:
 			SurveyVote.objects.create(answer=answer, user=requset.user)

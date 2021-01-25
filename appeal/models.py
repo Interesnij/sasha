@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Q
 from django.conf import settings
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.postgres.indexes import BrinIndex
 
 
 class Appeal(models.Model):

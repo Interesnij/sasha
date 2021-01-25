@@ -43,9 +43,9 @@ class SurveyDetailView(TemplateView, CategoryListMixin):
 		return context
 
 class SurveyVoteCreate(View):
-    template_name = None
+	template_name = None
 
-    def post(self,request,*args,**kwargs):
+	def post(self,request,*args,**kwargs):
 		survey = Survey.objects.get(pk=self.kwargs["pk"])
 		answers = request.POST.getlist("answers")
 		if not answers:

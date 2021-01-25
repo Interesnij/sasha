@@ -43,7 +43,7 @@
 								<fieldset>
                 {% for answer in object.get_answers %}
                   <label for="a_{{ answer.pk }}" class="m-b-xs" data-pk="{{ answer.pk }}">
-                    <input name="answers" type="checkbox" id="a_{{ answer.pk }}">
+                    <input name="answers" value="{{ answer.pk }}" type="checkbox" id="a_{{ answer.pk }}">
                     {{ answer.text }} - <span style="border-bottom: 1px solid #85FFC7">{{ answer.get_count }} ({{ answer.get_procent }}%)<span>
                   </label>
                 {% endfor %}

@@ -16,19 +16,6 @@ class AppealView(ListView, CategoryListMixin):
 		appeals = Appeal.objects.only("pk")
 		return appeals
 
-
-class AppealDetailView(TemplateView, CategoryListMixin):
-	template_name = "appeal_detail.html"
-
-	def get(self,request,*args,**kwargs):
-		self.appeal = Appeal.objects.get(pk=self.kwargs["pk"])
-		return super(AppealDetailView,self).get(request,*args,**kwargs)
-
-	def get_context_data(self,**kwargs):
-		context=super(AppealDetailView,self).get_context_data(**kwargs)
-		context["object"] = self.appeal
-		return context
-
 class SurveyDetailView(TemplateView, CategoryListMixin):
 	template_name = "survey_detail.html"
 

@@ -35,7 +35,7 @@
               {% for object in object_list %}
 							<li class="case-study-name mb-5">
 								<a href="{% url 'appeal_detail' pk=object.pk %}" class="hover-target animsition-link">
-									<h4 class="mb-3">{{ object.name }}</h4>
+									<h4 class="mb-3">{{ object.title }}</h4>
 								</a>
 							</li>
               {% endfor %}

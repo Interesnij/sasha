@@ -15,5 +15,3 @@ class SurveyAdmin(admin.ModelAdmin):
 
 admin.site.register(Survey, SurveyAdmin)
 admin.site.register(SurveyVote)
-
-admin.site.register(Appeal)

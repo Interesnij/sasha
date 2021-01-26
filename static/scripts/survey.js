@@ -7,7 +7,7 @@ on('body', 'click', '#survey_btn', function() {
   link.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
-    window.location = "/appeal/a" + pk + "/";
+    window.location = "/appeal/" + pk + "/";
   }};
   link.send(form_data);
 });
@@ -19,7 +19,7 @@ on('body', 'click', '#remove_user_vote', function() {
   link.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   link.onreadystatechange = function () {
   if ( link.readyState == 4 && link.status == 200 ) {
-    window.location = "/appeal/a" + pk + "/";
+    window.location = "/appeal/" + pk + "/";
   }};
   link.send();
 });

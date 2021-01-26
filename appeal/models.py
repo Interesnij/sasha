@@ -5,29 +5,6 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.postgres.indexes import BrinIndex
 
 
-class Appeal(models.Model):
-	name = models.CharField(max_length=100,verbose_name="Название")
-	order = models.PositiveSmallIntegerField(default=0,verbose_name="Порядковый номер")
-	description = RichTextUploadingField(config_name='default',external_plugin_resources=[('youtube','/static/ckeditor_plugins/youtube/youtube/','plugin.js',)],)
-
-	def __str__(self):
-		return self.name
-
-	class Meta:
-		ordering = ["order", "name"]
-		verbose_name = "Призыв"
-		verbose_name_plural = "Призывы"
-
-	def __str__(self):
-		return self.name
-
-	def likes(self):
-		return 0
-
-	def likes_count(self):
-		return ''
-
-
 class Survey(models.Model):
 	title = models.CharField(max_length=250, verbose_name="Название")
 	description = RichTextUploadingField(config_name='default',external_plugin_resources=[('youtube','/static/ckeditor_plugins/youtube/youtube/','plugin.js',)],)

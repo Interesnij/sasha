@@ -13,7 +13,7 @@ class AppealView(ListView, CategoryListMixin):
 	paginate_by = 15
 
 	def get_queryset(self):
-		appeals = Appeal.objects.only("pk")
+		appeals = Survey.objects.only("pk")
 		return appeals
 
 class SurveyDetailView(TemplateView, CategoryListMixin):

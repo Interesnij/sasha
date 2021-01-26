@@ -1,6 +1,119 @@
 {% extends "base.html" %}
-{% block title %}Страница не найдена {% endblock %}
+{% block title %}Главная страница{% endblock %}
+{% block meta %}
+<meta property="og:title" content="Александра Машкова-Благих" />
+<meta property="og:image" content="http://aleksandra.top/static/images/aleksandra_vk.jpg" />
+<meta property="og:url" content="http://aleksandra.top/" />
+<meta property="og:image:width" content="470" />
+<meta property="og:image:height" content="246" />
+<meta property="og:site_name" content="Александра Машкова-Благих" />
+<meta property="og:description" content="Общественный деятель" />
+{% endblock %}
 {% block content %}
 
+<span class="d-none d-sm-block">
+<div class="section full-height over-hide swiper-container z-bigger" id="hero-slider">
+  <ul class="swiper-wrapper case-study-wrapper">
+    <li class="swiper-slide full-height case-study-name">
+      <a href="{% url 'proects_index' %}" class="hover-target animsition-link">
+        <h1>Проекты</h1>
+      </a>
+    </li>
+    <li class="swiper-slide full-height case-study-name">
+      <a href="{% url 'blanks' %}" class="hover-target animsition-link">
+        <h1>Шаблоны</h1>
+      </a>
+    </li>
+    <li class="swiper-slide full-height case-study-name">
+      <a href="{% url 'appeal' %}" class="hover-target animsition-link">
+        <h1>Опросы</h1>
+      </a>
+    </li>
+    <li class="swiper-slide full-height case-study-name">
+      <a href="{% url 'movies_list' %}" class="hover-target animsition-link">
+        <h1>Видео</h1>
+      </a>
+    </li>
+    <li class="swiper-slide full-height case-study-name">
+      <a href="{% url 'blog_list' %}" class="hover-target animsition-link">
+        <h1>Статьи</h1>
+      </a>
+    </li>
+    <li class="swiper-slide full-height case-study-name">
+      <a href="{% url 'friends' %}" class="hover-target animsition-link">
+        <h1>Друзья</h1>
+      </a>
+    </li>
+    <li class="swiper-slide full-height case-study-name">
+      <a href="{% url 'contacts' %}" class="hover-target animsition-link">
+        <h1>Помощь</h1>
+      </a>
+    </li>
+    <li class="swiper-slide full-height case-study-name">
+      <a href="{% url 'about' %}" class="hover-target animsition-link">
+        <h1>Обо мне</h1>
+      </a>
+    </li>
+  </ul>
+
+  <div class="swiper-scrollbar"></div>
+</div>
+
+<ul class="case-study-images">
+  <li>
+    <div class="img-hero-background no-blur" style="background-image: url('/static/images/proects.jpg');"></div>
+    <h2 class="fullscreen-image no-blur">Проекты</h2>
+    <div class="hero-number">01</div>
+    <div class="hero-number-fixed">08</div>
+  </li>
+  <li>
+    <div class="img-hero-background no-blur" style="background-image: url('/static/images/templates.jpg');"></div>
+    <h2 class="fullscreen-image no-blur">Шаблоны</h2>
+    <div class="hero-number">02</div>
+  </li>
+  <li>
+    <div class="img-hero-background no-blur" style="background-image: url('/static/images/appeal.png');"></div>
+    <h2 class="fullscreen-image no-blur">Опросы</h2>
+    <div class="hero-number">03</div>
+  </li>
+  <li>
+    <div class="img-hero-background no-blur" style="background-image: url('/static/images/videos.jpg');"></div>
+    <h2 class="fullscreen-image no-blur">Видео</h2>
+    <div class="hero-number">04</div>
+  </li>
+  <li>
+    <div class="img-hero-background no-blur" style="background-image: url('/static/images/article.jpg');"></div>
+    <h2 class="fullscreen-image no-blur">Статьи</h2>
+    <div class="hero-number">05</div>
+  </li>
+  <li>
+    <div class="img-hero-background no-blur" style="background-image: url('/static/images/partners.jpg');"></div>
+    <h2 class="fullscreen-image no-blur">Друзья</h2>
+    <div class="hero-number">06</div>
+  </li>
+  <li>
+    <div class="img-hero-background no-blur" style="background-image: url('/static/images/help.jpg');"></div>
+    <h2 class="fullscreen-image no-blur">Помощь</h2>
+    <div class="hero-number">07</div>
+  </li>
+  <li>
+    <div class="img-hero-background no-blur" style="background-image: url('/static/images/desc.jpg');"></div>
+    <h2 class="fullscreen-image no-blur">Обо мне</h2>
+    <div class="hero-number">08</div>
+  </li>
+</ul>
+</span>
+<span class="d-sm-none d-block">
+  <div class="section full-height over-hide swiper-container z-bigger" id="hero-slider">
+
+  </div>
+
+  <ul class="case-study-images">
+    <li>
+      <div class="img-hero-background no-blur" style="background-image: url('/static/images/aleksandra.jpg');"></div>
+    </li>
+  </ul>
+</span>
+{% include 'desctop_footer.html' %}
 
 {% endblock %}

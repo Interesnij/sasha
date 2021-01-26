@@ -71,9 +71,6 @@
 								{{ answer.text }} - <span style="border-bottom: 1px solid #85FFC7">{{ answer.get_count }} ({{ answer.get_procent }}%)<span>
 							</label>
 						{% endfor %}
-						{% if not object.is_no_edited %}
-							<button id="remove_user_vote" data-pk="{{ object.pk }}" style="background-color: #090909;">Отменить участие в опросе</button>
-						{% endif %}
 						</div>
 
 						<p class="mb-2 border-top text-center" style="font-size: 25px;margin-top: 50px;">

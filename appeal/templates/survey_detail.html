@@ -42,7 +42,7 @@
 								</label>
 							{% endfor %}
 							{% if not object.is_no_edited %}
-								<button id="remove_user_vote" data-pk="{{ object.pk }}">Отменить участие в опросе</button>
+								<button id="remove_user_vote" data-pk="{{ object.pk }}" style="background-color: #090909;">Отменить участие в опросе</button>
 							{% endif %}
 							</div>
               {% else %}
@@ -61,7 +61,7 @@
                   Вы можете указать свой регион:
                   <input type="text" name="region" class="hover-target" placeholder="Введите регион. Это необязательно.">
                 </label>
-                <button id="survey_btn" type="button" class="hover-target">Отправить</button>
+                <button id="survey_btn" type="button" class="hover-target" style="background-color: #090909;">Отправить</button>
               </form>
               {% endif %}
 						{% else %}

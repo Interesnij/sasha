@@ -65,6 +65,17 @@
               </form>
               {% endif %}
 						{% else %}
+						<div class="ajax-form mt-4 mb-4" id="survey-form">
+						{% for answer in object.get_answers %}
+							<label class="m-b-xs">
+								{{ answer.text }} - <span style="border-bottom: 1px solid #85FFC7">{{ answer.get_count }} ({{ answer.get_procent }}%)<span>
+							</label>
+						{% endfor %}
+						{% if not object.is_no_edited %}
+							<button id="remove_user_vote" data-pk="{{ object.pk }}" style="background-color: #090909;">Отменить участие в опросе</button>
+						{% endif %}
+						</div>
+
 						<p class="mb-2 border-top text-center" style="font-size: 25px;margin-top: 50px;">
 							Только авторизованные пользователи могут участвовать в опросах. Пожалуйста,
 							<a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal()">Авторизуйтесь</a>

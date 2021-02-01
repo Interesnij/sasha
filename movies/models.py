@@ -9,20 +9,17 @@ from django.db.models import Q
 
 
 class Video(models.Model):
-    image = ProcessedImageField(format='JPEG',
-                                options={'quality': 90},
-                                upload_to="movies/%Y/%m/%d/",
-                                processors=[ResizeToFit(width=500, upscale=False)],
-                                verbose_name="Обложка")
+    image = ProcessedImageField(format='JPEG',options={'quality': 90},upload_to="movies/%Y/%m/%d/",processors=[ResizeToFit(width=500, upscale=False)],verbose_name="Обложка")
     created = models.DateTimeField(auto_now_add=True, auto_now=False, verbose_name="Создан")
     description = models.CharField(max_length=500, blank=True, verbose_name="Описание")
     category = models.ForeignKey('movie_cat.VideoCategory', blank=True, null=True, related_name='video_category', on_delete=models.CASCADE, verbose_name="Плейлист")
     title = models.CharField(max_length=255, verbose_name="Название")
-    link = models.CharField(max_length=255, verbose_name="Ссылка на видео")
+    link = models.CharField(max_length=255, blank=True, null=True, verbose_name="Ссылка на видео")
     comments_enabled = models.BooleanField(default=True, verbose_name="Разрешить комментарии")
     votes_on = models.BooleanField(default=True, verbose_name="Реакции разрешены")
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Создатель")
     count = models.PositiveIntegerField(default=0, verbose_name="Просмотры")
+    file = models.FileField(upload_to='movies/%Y/%m/%d/', verbose_name="Загруженное видео")
 
     class Meta:
         verbose_name = "Видео-ролики"

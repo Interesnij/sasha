@@ -19,7 +19,7 @@ class Video(models.Model):
     votes_on = models.BooleanField(default=True, verbose_name="Реакции разрешены")
     creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Создатель")
     count = models.PositiveIntegerField(default=0, verbose_name="Просмотры")
-    file = models.FileField(upload_to='movies/%Y/%m/%d/', verbose_name="Загруженное видео")
+    file = models.FileField(blank=True, null=True, upload_to='movies/%Y/%m/%d/', verbose_name="Загруженное видео")
 
     class Meta:
         verbose_name = "Видео-ролики"

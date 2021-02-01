@@ -1,0 +1,33 @@
+<p>Это баннеры на весь экран с видеороликом на хостинге, видео ютуба, картинкойб фреймом сайта по ссылке</p>
+
+{% if object.have_full %}
+<ul data-ads="">
+	{% for full in object.get_full %}
+	<li {% if full.video %}
+				data-source="{{ full.video.url }}"
+			{% elif full.image %}
+				data-source="{{ full.image.url }}"
+			{% else %}
+				data-source="{{ full.link }}"
+			{% endif %}
+			data-time-start="{{ full.time_start }}"
+			data-time-to-hold-ads={{ full.time_close }} data-thumbnail-source="{{ full.thumbnail.url }}"
+			data-link="{{ full.link_2 }}"
+			data-target="_blank">
+	</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+{% if object.have_banner %}
+<div data-add-popup="">
+	{% for banner in object.get_banner %}
+		<p data-image-path="{{ banner.image.url }}"
+	   	data-time-start="{{ banner.time_start }}"
+		 	data-time-end="{{ banner.time_end }}"
+		 	data-link="{{ banner.link }}"
+		 	data-target="_blank">
+		</p>
+	{% endfor %}
+</div>
+{% endif %}

@@ -76,6 +76,16 @@ class Video(models.Model):
         from django.contrib.humanize.templatetags.humanize import naturaltime
         return naturaltime(self.created)
 
+    def have_full(self):
+        return VideoFullscreen.objects.filter(video_id=self.pk).exists()
+    def have_banner(self):
+        return VideoBanner.objects.filter(video_id=self.pk).exists()
+
+    def get_full(self):
+        return VideoFullscreen.objects.filter(video_id=self.pk)
+    def get_banner(self):
+        return VideoBanner.objects.filter(video_id=self.pk)
+
 
 class VideoComment(models.Model):
     parent_comment = models.ForeignKey('self', on_delete=models.CASCADE, related_name='video_comment_replies', null=True, blank=True, verbose_name="Родительский комментарий")
@@ -173,3 +183,27 @@ class VideoCommentVotes(models.Model):
     vote = models.IntegerField(verbose_name="Голос", choices=VOTES)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     item = models.ForeignKey(VideoComment, on_delete=models.CASCADE)
+
+
+class VideoFullscreen(models.Model):
+    item = models.ForeignKey(Video, blank=True, null=True, on_delete=models.CASCADE)
+    video = models.FileField(blank=True, null=True, upload_to='movies/ads/%Y/%m/%d/', verbose_name="Видео")
+    image = models.ImageField(blank=True, null=True, upload_to='movies/ads/%Y/%m/%d/', verbose_name="Картинка")
+    link = models.CharField(max_length=255, blank=True, null=True, verbose_name="Ссылка на ютуб или сайт")
+    link_2 = models.CharField(max_length=255, blank=True, null=True, verbose_name="Переход по нажатию")
+    time_start = models.CharField(max_length=10, blank=True, null=True, verbose_name="Начало баннера 00:00:15")
+    time_close = models.CharField(max_length=10, blank=True, null=True, verbose_name="Секунды до кнопки 'Закрыть' 4")
+    thumbnail = models.ImageField(blank=True, null=True, upload_to='movies/ads/%Y/%m/%d/', verbose_name="Миниатюра")
+
+    def __str__(self):
+        return self.item.title
+
+class VideoBanner(models.Model):
+    item = models.ForeignKey(Video, blank=True, null=True, on_delete=models.CASCADE)
+    image = models.ImageField(blank=True, null=True, upload_to='movies/ads/%Y/%m/%d/', verbose_name="Картинка")
+    link = models.CharField(max_length=255, blank=True, null=True, verbose_name="Ссылка")
+    time_start = models.CharField(max_length=10, blank=True, null=True, verbose_name="Начало баннера 00:00:15")
+    time_end = models.CharField(max_length=10, blank=True, null=True, verbose_name="Конец баннера 00:00:45")
+
+    def __str__(self):
+        return self.item.title

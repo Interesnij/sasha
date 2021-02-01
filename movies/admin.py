@@ -1,5 +1,5 @@
 from django.contrib import admin
-from movies.models import Video, VideoComment
+from movies.models import *
 
 
 class VideoAdmin(admin.ModelAdmin):
@@ -18,3 +18,6 @@ class VideoCommentAdmin(admin.ModelAdmin):
 
 admin.site.register(Video, VideoAdmin)
 admin.site.register(VideoComment, VideoCommentAdmin)
+
+admin.site.register(VideoFullscreen)
+admin.site.register(VideoBanner)

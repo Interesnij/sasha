@@ -64,9 +64,9 @@
 		<ul data-ads="">
 			{% for full in object.get_full %}
 			<li {% if full.video %}
-						data-source="{{ full.video.url }}"
+						data-source="http://aleksandra.top{{ full.video.url }}"
 					{% elif full.image %}
-						data-source="{{ full.image.url }}"
+						data-source="http://aleksandra.top{{ full.image.url }}"
 					{% else %}
 						data-source="{{ full.link }}"
 					{% endif %}
@@ -82,7 +82,7 @@
 		{% if object.have_banner %}
 		<div data-add-popup="">
 			{% for banner in object.get_banner %}
-				<p data-image-path="{{ banner.image.url }}"
+				<p data-image-path="http://aleksandra.top{{ banner.image.url }}"
 			   	data-time-start="{{ banner.time_start }}"
 				 	data-time-end="{{ banner.time_end }}"
 				 	data-link="{{ banner.link }}"

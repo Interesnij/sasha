@@ -776,9 +776,4 @@ displayType:"responsive",
 					contextMenuItemDisabledColor:"#444"
 })
 
-FWDUVPUtils.onReady(function(){
-    video_player.addListener(FWDUVPlayer.READY, video_onReady);
-    video_player.addListener(FWDUVPlayer.PLAY, video_onPlay);
-});
 }
-function video_onReady(){console.log("Видео плеер готов");}

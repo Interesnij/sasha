@@ -3,7 +3,7 @@ from movies.models import Video, VideoComment
 
 
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ['title', 'description', 'created']
+    list_display = ['title', 'link', 'file', 'created']
     list_filter = ['created', 'category']
     search_fields = ['title', 'description', 'created']
     class Meta:

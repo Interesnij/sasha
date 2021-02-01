@@ -16,7 +16,7 @@
 							<h4 style="margin-top:20px;margin-bottom:20px">{{ object.title }}</h4>
 							<div class="post-box background-dark over-hide">
 
-              {% if object.link  %}
+              {% if object.link %}
                 <iframe class="youtube" rel=0 showinfo=0 src="https://www.youtube.com/embed/{{ object.link }}?rel=0&autoplay=1&showinfo=0" allow='autoplay' frameborder="0" allowfullscreen></iframe>
 								{% endif %}
 							<div class="padding-in">
@@ -39,4 +39,7 @@
 		</div>
 
 {% include 'generic/modal_form.html' %}
+
+<script defer src="{% static 'scripts/plugins.js' %}" type="text/javascript"></script>
+
 {% endblock %}

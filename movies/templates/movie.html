@@ -49,7 +49,7 @@
 <ul id="playlist1" style="display:none;">
 	<li data-thumb-source="{{ object.image.url }}"
 		{% if object.file %}
-	    data-video-source="[{source:'{{ object.file.url }}', label:'hd720'}]"
+	    data-video-source="[{source:'http://aleksandra.top{{ object.file.url }}', label:'hd720'}]"
 		{% else %}
 			data-video-source="https://www.youtube.com/watch?v={{ object.link }}"
 		{% endif %}

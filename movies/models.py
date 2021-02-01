@@ -77,14 +77,14 @@ class Video(models.Model):
         return naturaltime(self.created)
 
     def have_full(self):
-        return VideoFullscreen.objects.filter(video_id=self.pk).exists()
+        return VideoFullscreen.objects.filter(item_id=self.pk).exists()
     def have_banner(self):
-        return VideoBanner.objects.filter(video_id=self.pk).exists()
+        return VideoBanner.objects.filter(item_id=self.pk).exists()
 
     def get_full(self):
-        return VideoFullscreen.objects.filter(video_id=self.pk)
+        return VideoFullscreen.objects.filter(item_id=self.pk)
     def get_banner(self):
-        return VideoBanner.objects.filter(video_id=self.pk)
+        return VideoBanner.objects.filter(item_id=self.pk)
 
 
 class VideoComment(models.Model):

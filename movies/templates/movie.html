@@ -40,7 +40,7 @@
 {% include 'generic/modal_form.html' %}
 
 <ul id="video_playlists" style="display:none;">
-	<li data-source="playlist1" data-playlist-name="MY HTML PLAYLIST 1" data-thumbnail-path="/static/images/aleksandra_vk.jpg">
+	<li data-source="playlist1" data-playlist-name="MY HTML PLAYLIST 1" data-thumbnail-path="http://aleksandra.top/static/images/aleksandra_vk.jpg">
 		<p class="fwduvp-categories-title"><span class="fwduvp-header">Title: </span><span class="fwduvp-title">My HTML playlist 1</span></p>
 		<p class="fwduvp-categories-type"><span class="fwduvp-header">Type: </span>HTML</p>
 		<p class="fwduvp-categories-description"><span class="fwduvp-header">Description: </span>Created using <strong>HTML markup</strong>, all format are supported and it can have mixed video formats.</p>
@@ -53,8 +53,7 @@
 		{% else %}
 			data-video-source="https://www.youtube.com/watch?v={{ object.link }}"
 		{% endif %}
-		data-start-at-video="1" data-poster-source="{{ object.image.url }}"
-		data-downloadable="yes">
+		data-start-at-video="1" data-poster-source="{{ object.image.url }}">
 		<div data-video-short-description="">
 			<div>
 				<p class="fwduvp-thumbnail-title">{{ object.title }}</p>

@@ -8,8 +8,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-DEFAULT_FILE_STORAGE = 'sasha.storage.ASCIIFileSystemStorage'
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',

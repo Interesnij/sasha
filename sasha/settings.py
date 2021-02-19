@@ -2,14 +2,13 @@ import os
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 SECRET_KEY = 'ur_4&s!%8awdfa!z+_60jr!%i7m14z%drhg*v*!=1rpou5ebfb%$8ji3ngthbghbghj'
-
 
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
+DEFAULT_FILE_STORAGE = 'sasha.storage.ASCIIFileSystemStorage'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -142,8 +141,6 @@ TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = False
 
 STATIC_URL = '/static/'
@@ -165,12 +162,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 AUTH_USER_MODEL = 'users.User'
 
-
 THUMBNAIL_DEFAULT_OPTIONS = {"crop":"smart","detail":True}
-
-
-REST_SESSION_LOGIN = True
-SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -178,8 +170,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     )
 }
-
-AUTH_USER_MODEL = 'users.User'
 
 FILE_UPLOAD_MAX_MEMORY_SIZE = 524288000
 FILE_UPLOAD_PERMISSIONS  = 0o644
